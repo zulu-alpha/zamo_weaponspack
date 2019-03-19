@@ -16,17 +16,19 @@ pause
 
 mklink /J "p:\hlc_wp_m60E4" "%SOURCE%hlc_wp_m60E4"
 
-mklink /J "p:\hlc_wp_minigun" "%SOURCE%hlc_wp_minigun"
-
 mklink /J  "p:\hlc_wp_AR15" "%SOURCE%hlc_wp_AR15" 
-
-mklink /J  "p:\hlc_wp_springfield" "%SOURCE%hlc_wp_springfield" 
 
 mklink /J  "p:\hlc_wp_M14" "%SOURCE%hlc_wp_M14" 
 
 mklink /J  "p:\hlc_wp_FHAWC" "%SOURCE%hlc_wp_FHAWC" 
 
-mklink /J  "p:\hlc_wp_g3" "%SOURCE%hlc_wp_g3" 
+mklink /J  "p:\hlc_wp_p226" "%SOURCE%hlc_wp_p226"
+
+mklink /J  "p:\hlc_wp_mp5" "%SOURCE%hlc_wp_mp5"
+
+mklink /J  "p:\hlc_core" "%SOURCE%hlc_core"
+
+mklink /J  "p:\hlc_wp_saw" "%SOURCE%hlc_wp_saw"
 
 echo Complete
 pause
