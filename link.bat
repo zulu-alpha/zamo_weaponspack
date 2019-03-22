@@ -30,6 +30,9 @@ mklink /J  "p:\hlc_core" "%SOURCE%hlc_core"
 
 mklink /J  "p:\hlc_wp_saw" "%SOURCE%hlc_wp_saw"
 
+mklink /J  "p:\nia_wp_SG550" "%SOURCE%nia_wp_SG550"
+
+
 echo Complete
 pause
 GOTO quit
