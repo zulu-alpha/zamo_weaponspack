@@ -30,8 +30,17 @@ mklink /J  "p:\hlc_core" "%SOURCE%hlc_core"
 
 mklink /J  "p:\hlc_wp_saw" "%SOURCE%hlc_wp_saw"
 
-mklink /J  "p:\nia_wp_SG550" "%SOURCE%nia_wp_SG550"
+mklink /J  "p:\hlc_wp_SG550" "%SOURCE%hlc_wp_SG550"
 
+mklink /J  "p:\hlc_wp_HK416" "%SOURCE%hlc_wp_HK416"
+
+mklink /J  "p:\hlc_wp_sigamt" "%SOURCE%hlc_wp_sigamt"
+
+mklink /J  "p:\hlc_wp_ak" "%SOURCE%hlc_wp_ak"
+
+mklink /J  "p:\hlc_wp_acr" "%SOURCE%hlc_wp_acr"
+
+mklink /J  "p:\hlc_wp_g3" "%SOURCE%hlc_wp_g3"
 
 echo Complete
 pause
