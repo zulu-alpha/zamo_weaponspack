@@ -1856,11 +1856,11 @@ class CfgGesturesMale {
         };
         class HLC_GestureReloadACRGL :HLC_GestureReloadGL5040
         {
-            file = "hlc_core\animation\gesture\acrgl_reload_standing.rtm";
+            file = "hlc_core\animation\gesture\reload_gl5040_standing.rtm";
         };
         class HLC_GestureReloadACRGL_prone : HLC_GestureReloadGL5040_prone
         {
-            file = "hlc_core\animation\gesture\acrgl_reload_prone.rtm";
+            file = "hlc_core\animation\gesture\reload_gl5040_prone.rtm";
         };
         class HLC_GestureReloadACRGL_context : HLC_GestureReloadACRGL {
             mask = "handsWeapon_context";
