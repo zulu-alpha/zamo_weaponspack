@@ -30,9 +30,9 @@ mklink /J  "p:\hlc_core" "%SOURCE%hlc_core"
 
 mklink /J  "p:\hlc_wp_saw" "%SOURCE%hlc_wp_saw"
 
-mklink /J  "p:\hlc_wp_SG550" "%SOURCE%hlc_wp_SG550"
+mklink /J  "p:\nia_wp_SG550" "%SOURCE%nia_wp_SG550"
 
-mklink /J  "p:\hlc_wp_HK416" "%SOURCE%hlc_wp_HK416"
+mklink /J  "p:\nia_wp_HK416" "%SOURCE%nia_wp_HK416"
 
 mklink /J  "p:\hlc_wp_sigamt" "%SOURCE%hlc_wp_sigamt"
 
