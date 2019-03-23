@@ -277,10 +277,10 @@ class CfgMagazineWells {
 class CfgRecoils {
     class recoil_default;
     class recoil_saw : recoil_default {
-        muzzleOuter[] = { 0.4, 0.5, 0.3, 0.2 };
-        kickBack[] = { 0.02, 0.04 };
-        temporary = 0.007;
-        permanent = 0.08;
+        muzzleOuter[] = { 0.4, 0.5, 0.3, 0.2 }; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.05, 0.05, 0.05, 0.05
+        kickBack[] = { 0.02, 0.08 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.02, 0.04
+        temporary = 0.0001; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+        permanent = 0.0001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
     };
 };
 
@@ -301,8 +301,8 @@ class CfgWeapons {
         ACE_Overheating_JamChance[] = { 0, 0.0003, 0.0015, 0.0075 };
         magazineReloadSwitchPhase = 0.5;
         magazines[] = {};
-        maxRecoilSway = 0.0125;
-        swayDecaySpeed = 1.25;
+        maxRecoilSway = 0.00625; /// ZA-Wolf - Sway - Halfed - Old 0.0125 - New 0.00625
+        swayDecaySpeed = 0.625; /// ZA-Wolf - Sway - Halfed - Old 1.25 - New 0.625
         class GunParticles : GunParticles {
 
             class SecondEffect {
@@ -366,8 +366,8 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "saw_silencerShot_SoundSet", "saw_silencerTail_SoundSet" };
             };
-            reloadTime = 0.105;
-            dispersion=0.000261799;
+            reloadTime = 0.100; /// ZA-Wolf - ROF - Decreased - Old 0.105 - New 0.1 [600rpm]
+            dispersion=0.000350000; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.000350000 [1.2MOA]
             __AI_ROF_MG_FULLAUTO;
         };
         class close : FullAuto {
@@ -1426,8 +1426,8 @@ class CfgWeapons {
         };
         class FullAuto : FullAuto {
 
-            __ROF(730);
-            dispersion = 0.000261799;
+            __ROF(500); /// ZA-Wolf - ROF - Decreased - Old 730 - New 500
+            dispersion = 0.000350000; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.000350000 [1.2MOA] 
         };
         class __MAGSWITCHCLASS {};
     };
@@ -1463,7 +1463,7 @@ class CfgWeapons {
         reloadaction = "HLC_GestureReloadM249";
         deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfolded
         handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\handpose_VFG.rtm" };
-        recoil = "recoil_zafir";
+        recoil = "recoil_saw";
         inertia = 0.81;
         __DEXTERITY(8.12 + 0.3, 1);
         magazines[] = {__762NATO_BELTS,__762NATO_BI_BELTS};
@@ -1512,8 +1512,8 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "mk48_silencerShot_SoundSet", "mk48_silencerTail_SoundSet" };
             };
-            reloadTime = 0.084;
-            dispersion = 0.000261799;
+            reloadTime = 0.12; /// ZA-Wolf - ROF - Decreased - Old 0.084 - New 0.12 [500rpm]
+            dispersion = 0.000350000; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.000350000 [1.2MOA]
             __AI_ROF_MG_FULLAUTO;
         }; 
         class short : close{
