@@ -277,8 +277,8 @@ class CfgMagazineWells {
 class CfgRecoils {
     class recoil_default;
     class recoil_saw : recoil_default {
-        muzzleOuter[] = { 0.4, 0.5, 0.3, 0.2 }; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.05, 0.05, 0.05, 0.05
-        kickBack[] = { 0.02, 0.08 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.02, 0.04
+        muzzleOuter[] = { 0.1, 0.1, 0.1, 0.1 }; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.1, 0.1, 0.01, 0.1
+        kickBack[] = { 0.001, 0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
         temporary = 0.0001; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
         permanent = 0.0001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
     };
@@ -367,7 +367,7 @@ class CfgWeapons {
                 soundSetShot[] = { "saw_silencerShot_SoundSet", "saw_silencerTail_SoundSet" };
             };
             reloadTime = 0.100; /// ZA-Wolf - ROF - Decreased - Old 0.105 - New 0.1 [600rpm]
-            dispersion=0.000350000; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.000350000 [1.2MOA]
+            dispersion=0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.00041 [1.4MOA]
             __AI_ROF_MG_FULLAUTO;
         };
         class close : FullAuto {
@@ -467,8 +467,8 @@ class CfgWeapons {
             onHoverText = "TODO XMC DSS";
         };
         class FullAuto : FullAuto {
-            reloadTime = 0.067;
-            dispersion = 0.00101;
+            reloadTime = 0.1; /// ZA-Wolf - ROF - Decreased - Old 0.067 - New 0.1 [600rpm]
+            dispersion = 0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.00101 [] - New 0.00041 [1.4MOA]
 
         };
         class Library {
@@ -1426,8 +1426,8 @@ class CfgWeapons {
         };
         class FullAuto : FullAuto {
 
-            __ROF(500); /// ZA-Wolf - ROF - Decreased - Old 730 - New 500
-            dispersion = 0.000350000; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.000350000 [1.2MOA] 
+            __ROF(600); /// ZA-Wolf - ROF - Decreased - Old 730 - New 600
+            dispersion = 0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.00041 [1.4MOA] 
         };
         class __MAGSWITCHCLASS {};
     };
@@ -1513,7 +1513,7 @@ class CfgWeapons {
                 soundSetShot[] = { "mk48_silencerShot_SoundSet", "mk48_silencerTail_SoundSet" };
             };
             reloadTime = 0.12; /// ZA-Wolf - ROF - Decreased - Old 0.084 - New 0.12 [500rpm]
-            dispersion = 0.000350000; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.000350000 [1.2MOA]
+            dispersion = 0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.00041 [1.2MOA]
             __AI_ROF_MG_FULLAUTO;
         }; 
         class short : close{

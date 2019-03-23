@@ -261,8 +261,8 @@ class CfgWeapons {
             libTextDesc = "AR15";
         };
         reloadAction = "HLC_GestureReloadAK";
-        maxRecoilSway = 0.0125; /// ZA-Wolf - Sway - Halfed - Old 0.0125 - New 0.00625
-        swayDecaySpeed = 1.25; /// ZA-Wolf - Sway - Halfed - Old 1.25 - New 0.625
+        maxRecoilSway = 0.00625; /// ZA-Wolf - Sway - Halfed - Old 0.0125 - New 0.00625
+        swayDecaySpeed = 0.625; /// ZA-Wolf - Sway - Halfed - Old 1.25 - New 0.625
         class GunParticles: GunParticles {
             class SecondEffect {
                 positionName = "Nabojnicestart";
@@ -314,7 +314,7 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "carbine_silencerShot_SoundSet", "carbine_silencerTail_SoundSet" };
             };
-            reloadTime = 0.067; /// ZA-Wolf - ROF - SemiAuto - Untouched
+            reloadTime = 0.0857; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
             dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
 
             __AI_ROF_RIFLE_SMALL_SINGLE;
@@ -337,7 +337,7 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "carbine_silencerShot_SoundSet", "carbine_silencerTail_SoundSet" };
             };
-            reloadTime = 0.085; /// ZA-Wolf - ROF - Old 0.079[896rpm] - New 0.085 [700rpm]
+            reloadTime = 0.0857; /// ZA-Wolf - ROF - Old 0.079[896rpm] - New 0.0857 [700rpm]
             dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
 
             __AI_ROF_RIFLE_SMALL_FULLAUTO;
@@ -365,7 +365,7 @@ class CfgWeapons {
 
         class hlc_M203 : UGL_F {
             cameraDir = "gl_look";
-            discreteDistance[] = { 50, 100, 150, 200, 250 }; /// Wolf - Change GL Sight zero to match camera points [test] - Old - 100, 150, 200, 250, 300 - New - 50, 100, 150, 200, 250
+            discreteDistance[] = { 100, 150, 200, 250, 300 }; /// Wolf - Change GL Sight zero to match camera points [tested - gl_eye is problem]
             discreteDistanceCameraPoint[] = { "gl_eye_50m", "gl_eye_100m", "gl_eye_150m", "gl_eye_200m", "gl_eye_250m" };
             discreteDistanceInitIndex = 1;
             displayname = "M203";
@@ -989,7 +989,7 @@ class CfgWeapons {
 		__DEXTERITY(2.72 + 1.3,0);
 
         class hlc_M203 : hlc_M203 {
-            discreteDistance[] = { 50, 100, 150, 200, 250 }; /// Wolf - Change GL Sight zero to match camera points [test] - Old - 100, 150, 200, 250, 300 - New - 50, 100, 150, 200, 250
+            discreteDistance[] = { 100, 150, 200, 250, 300 }; /// Wolf - Change GL Sight zero to match camera points [tested - gl_eye is problem]
         };
         class __MAGSWITCHCLASS {
             hlc_50rnd_556x45_EPR = "hlc_rifle_Colt727_GL_x15";
