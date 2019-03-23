@@ -219,6 +219,16 @@ class CfgMagazineWells {
     };
 };
 
+class CfgRecoils {
+    class recoil_default;
+    class recoil_ar15 : recoil_default {
+        muzzleOuter[] = { 0.1, 0.1, 0.1, 0.1 }; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.1, 0.1, 0.01, 0.1
+        kickBack[] = { 0.001, 0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
+        temporary = 0.0001; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+        permanent = 0.0001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
+    };
+};
+
 class CfgWeapons {
 
 //muzzles
@@ -810,7 +820,7 @@ class CfgWeapons {
         descriptionShort = "Assault rifle<br/>Caliber: .300 Blackout";
         magazines[] = { "29rnd_300BLK_STANAG", "29rnd_300BLK_STANAG_T", "29rnd_300BLK_STANAG_S","hlc_50rnd_300BLK_STANAG_EPR" };
         magazineWell[] = {"CBA_300BLK_STANAG","CBA_300BLK_STANAG_L","CBA_300BLK_STANAG_XL","CBA_300BLK_STANAG_2D","CBA_300BLK_STANAG_2D_XL"};
-        recoil = "recoil_mxc";
+        recoil = "recoil_ar15"; /// Wolf - Changed "recoil_mxc" to "recoil_ar15"
         initspeed = -1;
         hiddenSelections[] = { "Upper", "Lower", "Foregrip", "foregrip_rail", "Sights", "Stock" };
         hiddenSelectionsTextures[] = { "\hlc_wp_ar15\tex\toadie_Blackjack\upper_co.tga", "hlc_wp_ar15\tex\toadie_Blackjack\lower2_co.tga", "hlc_wp_ar15\tex\toadie_Blackjack\smr_co.tga", "hlc_wp_ar15\tex\toadie_Blackjack\smr_toprail_co.tga", "hlc_wp_ar15\tex\tenoyl_tbs\tbs_co.tga", "hlc_wp_ar15\tex\toadie_Blackjack\b5sopmod_co.tga" };
@@ -1033,7 +1043,7 @@ class CfgWeapons {
         discretedistanceinitindex = 0;
         cameraDir = "look";
         bg_bipod = 0; 
-        recoil = "recoil_mxc";
+        recoil = "recoil_ar15"; /// Wolf - Changed "recoil_mxc" to "recoil_ar15"
         class WeaponSlotsInfo: WeaponSlotsInfo {
             mass = 52;
             class CowsSlot: asdg_OpticRail1913_short {
@@ -1133,7 +1143,7 @@ class CfgWeapons {
         discreteDistanceCameraPoint[] = { "eye_100", "eye_200", "eye_300", "eye_400", "eye_500", "eye_600"/*, "eye7", "eye8", "eye9", "eye10", "eye", "eye", "eye", "eye", "eye", "eye", "eye", "eye", "eye", "eye", "eye", "eye", "eye" */ };
         discretedistanceinitindex = 0;
         cameraDir = "look";
-        recoil = "recoil_mx";
+        recoil = "recoil_ar15"; /// Wolf - Changed "recoil_mxc" to "recoil_ar15"
         hiddenSelections[] = { "Main","Stock","Sights" };
         hiddenSelectionsTextures[] = { "hlc_wp_ar15\tex\mill_bmar15\PBER_co.tga","hlc_wp_ar15\tex\tigg\m16furniture_co.tga","hlc_wp_ar15\tex\badger\hb_co.tga"};
         bg_bipod = 0; 
@@ -1322,7 +1332,7 @@ class CfgWeapons {
         ACE_barrelLength = 152.4;
         aiDispersionCoefY = 12.0;
         aiDispersionCoefX = 8.0;
-        recoil = "recoil_mx";
+        recoil = "recoil_ar15"; /// Wolf - Changed "recoil_mxc" to "recoil_ar15"
         initspeed = -1;
         model = "hlc_wp_ar15\mesh\honeybadger\car15.p3d";
         reloadAction = "HLC_GestureReloadAR15_catch_WS";
