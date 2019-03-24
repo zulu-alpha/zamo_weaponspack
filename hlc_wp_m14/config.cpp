@@ -541,7 +541,7 @@ class CfgWeapons {
                 SoundSetShot[] = { "M14_silencerShot_SoundSet", "M14_silencerTail_SoundSet" };
             };
             reloadTime = 0.08;
-            dispersion = 0.0007;
+            dispersion = 0.00024; /// ZA-Wolf - Dispersion - Old 0.0007 [1.6MOA] - New 0.00024 [0.9MOA]
             __AI_ROF_RIFLE_MEDIUM_SEMI;
         };
 
@@ -564,7 +564,7 @@ class CfgWeapons {
                 SoundSetShot[] = { "M14_silencerShot_SoundSet", "M14_silencerTail_SoundSet" };
             };
             reloadTime = 0.081;
-            dispersion = 0.0009;
+            dispersion = 0.0007; /// ZA-Wolf - Dispersion - Old 0.0009 [1.8MOA] - New 0.0007 [1.6MOA]
 
             __AI_ROF_RIFLE_MEDIUM_FULLAUTO;
         };
