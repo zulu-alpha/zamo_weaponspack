@@ -591,6 +591,7 @@ class CfgWeapons {
         AB_barrelLength=14.5;
         ACE_barrelTwist = 177.8;
         ACE_barrelLength = 368.3;
+		recoil = "recoil_ar15"; /// Wolf - Added recoil = "recoil_ar15"
         initspeed = -0.9;
         author = "Tenoyl, OhNoMelon, Tigg, Toadie";
         reloadAction = "HLC_GestureReloadAR15_catch_WS";
