@@ -221,13 +221,13 @@ class CfgMagazines{
         ammo = "HLC_556NATO_EPR";
         count = 200;
         descriptionshort = "Caliber: 5.56x45mm NATO M855A1 EPR/M856A1<br />Type: EPFMJ/Tracer<br />Rounds: 200";
-        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(Tracers every 4)";
+        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(Tracers every 2)"; /// Wolf from 4 to 2 
         model = "hlc_wp_saw\mesh\magazine\magazine.p3d";
         initspeed = 974.8;
         lastroundstracer = 10;
         picture = "\hlc_core\tex\ui\ammo\m_m249mixed_ca.paa";
         scope = 2;
-        tracersevery = 4;
+        tracersevery = 2; /// Wolf from 4 to 2  
         mass = 69;
         ACE_isBelt = 1;
         displaynameshort = "EPR/Tracer";
@@ -249,10 +249,10 @@ class CfgMagazines{
         author = "Toadie, Spartan0536";
         ammo = "HLC_B_556x45_Ball_Tracer_Dim";
         descriptionshort = "Caliber: 5.56x45mm IR-DIM Tracers<br />Type: EPFMJ/Low-visibility Tracer<br />Rounds: 200";
-        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(IR-DIM every 4)";
+        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(IR-DIM every 4)"; /// Wolf 
         lastroundstracer = 10;
         picture = "\hlc_core\tex\ui\ammo\m_m249mixed_ca.paa";
-        tracersevery = 4;
+        tracersevery = 4; /// Wolf 
         displaynameshort = "EPR/IR-DIM";
     };
     class hlc_200rnd_556x45_B_SAW : hlc_200rnd_556x45_M_SAW {
@@ -277,10 +277,11 @@ class CfgMagazineWells {
 class CfgRecoils {
     class recoil_default;
     class recoil_saw : recoil_default {
-        muzzleOuter[] = { 0.1, 0.1, 0.1, 0.1 }; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.1, 0.1, 0.01, 0.1
-        kickBack[] = { 0.001, 0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
-        temporary = 0.0001; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
-        permanent = 0.0001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
+        muzzleOuter[] = { -0.1*0.1,-0.1*0.1,-1.0*1.0,-2.0*2.0 } ; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4(X), 0.5(Y), 0.3(A), 0.2(B) - New 0.1, 0.1, 0.01, 0.1
+		muzzleInner[] = { 0.0001,0.0001,0.0001,0.0001 }; /// ZA-Wolf - Recoil Pattern -
+		kickBack[] = { 0.001*0.001,0.001*0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
+        temporary = 0.025*0.025; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+        permanent = 0.00001*0.00001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
     };
 };
 
@@ -301,8 +302,8 @@ class CfgWeapons {
         ACE_Overheating_JamChance[] = { 0, 0.0003, 0.0015, 0.0075 };
         magazineReloadSwitchPhase = 0.5;
         magazines[] = {};
-        maxRecoilSway = 0.00625; /// ZA-Wolf - Sway - Halfed - Old 0.0125 - New 0.00625
-        swayDecaySpeed = 0.625; /// ZA-Wolf - Sway - Halfed - Old 1.25 - New 0.625
+        maxRecoilSway = 0.0125;
+        swayDecaySpeed = 1.25;
         class GunParticles : GunParticles {
 
             class SecondEffect {
@@ -366,8 +367,8 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "saw_silencerShot_SoundSet", "saw_silencerTail_SoundSet" };
             };
-            reloadTime = 0.100; /// ZA-Wolf - ROF - Decreased - Old 0.105 - New 0.1 [600rpm]
-            dispersion=0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.00041 [1.4MOA]
+            reloadTime = 0.12; // Wolf from 0.105
+            dispersion=0.000261799;
             __AI_ROF_MG_FULLAUTO;
         };
         class close : FullAuto {
@@ -467,8 +468,8 @@ class CfgWeapons {
             onHoverText = "TODO XMC DSS";
         };
         class FullAuto : FullAuto {
-            reloadTime = 0.1; /// ZA-Wolf - ROF - Decreased - Old 0.067 - New 0.1 [600rpm]
-            dispersion = 0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.00101 [] - New 0.00041 [1.4MOA]
+            reloadTime = 0.067;
+            dispersion = 0.00101;
 
         };
         class Library {
@@ -1408,6 +1409,7 @@ class CfgWeapons {
         hasBipod = true;
         deployedPivot = "deploypoint";
         inertia = 0.57;
+		recoil = "recoil_saw"; /// Wolf
         __DEXTERITY(5.71 + 0.3, 1);
         ACE_barrelTwist = 305;
         ACE_barrelLength = 405;
@@ -1426,8 +1428,8 @@ class CfgWeapons {
         };
         class FullAuto : FullAuto {
 
-            __ROF(600); /// ZA-Wolf - ROF - Decreased - Old 730 - New 600
-            dispersion = 0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.00041 [1.4MOA] 
+            __ROF(730);
+            dispersion = 0.00026; /// Wolf
         };
         class __MAGSWITCHCLASS {};
     };
@@ -1463,7 +1465,7 @@ class CfgWeapons {
         reloadaction = "HLC_GestureReloadM249";
         deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfolded
         handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\handpose_VFG.rtm" };
-        recoil = "recoil_saw";
+        recoil = "recoil_saw"; /// Wolf
         inertia = 0.81;
         __DEXTERITY(8.12 + 0.3, 1);
         magazines[] = {__762NATO_BELTS,__762NATO_BI_BELTS};
@@ -1512,8 +1514,8 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "mk48_silencerShot_SoundSet", "mk48_silencerTail_SoundSet" };
             };
-            reloadTime = 0.12; /// ZA-Wolf - ROF - Decreased - Old 0.084 - New 0.12 [500rpm]
-            dispersion = 0.00041; /// ZA-Wolf - Dispersion - Increased - Old 0.000261799 [0.9MOA] - New 0.00041 [1.2MOA]
+            reloadTime = 0.14; /// Wolf	
+            dispersion = 0.00026; /// Wolf
             __AI_ROF_MG_FULLAUTO;
         }; 
         class short : close{
@@ -1572,3 +1574,15 @@ class CfgWeapons {
         class __MAGSWITCHCLASS {};
     };
 };
+
+
+/// class CfgRecoils {
+///    class recoil_default;
+///    class recoil_saw : recoil_default {
+///        muzzleOuter[] = { 0.1*0.1,0.3*0.3,0.15*0.15,0.15*0.15 } ; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4(X), 0.5(Y), 0.3(A), 0.2(B) - New 0.1, 0.1, 0.01, 0.1
+///		muzzleInner[] = { 0.0001,0.0001,0.0001,0.0001 }; /// ZA-Wolf - Recoil Pattern -
+///		kickBack[] = { 0.001*0.001,0.001*0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
+///        temporary = 1.0*1.0; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+///        permanent = 0.00001*0.00001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
+///    };
+///};

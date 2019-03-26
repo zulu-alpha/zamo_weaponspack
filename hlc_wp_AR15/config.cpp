@@ -222,10 +222,11 @@ class CfgMagazineWells {
 class CfgRecoils {
     class recoil_default;
     class recoil_ar15 : recoil_default {
-        muzzleOuter[] = { 0.1, 0.1, 0.1, 0.1 }; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.1, 0.1, 0.01, 0.1
-        kickBack[] = { 0.001, 0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
-        temporary = 0.0001; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
-        permanent = 0.0001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
+        muzzleOuter[] = {0.2, 0.4, 0.3, 0.3}; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.1, 0.1, 0.01, 0.1
+        muzzleInner[] = {0,0,0.1,0.1}; /// ZA-Wolf - Added muzzleInner
+		kickBack[] = {0.02, 0.04}; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
+        temporary = 0.0015; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+        permanent = 0.1*0.4; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
     };
 };
 
@@ -271,8 +272,8 @@ class CfgWeapons {
             libTextDesc = "AR15";
         };
         reloadAction = "HLC_GestureReloadAK";
-        maxRecoilSway = 0.00625; /// ZA-Wolf - Sway - Halfed - Old 0.0125 - New 0.00625
-        swayDecaySpeed = 0.625; /// ZA-Wolf - Sway - Halfed - Old 1.25 - New 0.625
+        maxRecoilSway = 0.003125; /// ZA-Wolf - Sway - Halfed - Old 0.0125 - New 0.00625
+        swayDecaySpeed = 0.3125; /// ZA-Wolf - Sway - Halfed - Old 1.25 - New 0.625
         class GunParticles: GunParticles {
             class SecondEffect {
                 positionName = "Nabojnicestart";
@@ -324,7 +325,7 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "carbine_silencerShot_SoundSet", "carbine_silencerTail_SoundSet" };
             };
-            reloadTime = 0.0857; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+            reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
             dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
 
             __AI_ROF_RIFLE_SMALL_SINGLE;
@@ -347,7 +348,7 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "carbine_silencerShot_SoundSet", "carbine_silencerTail_SoundSet" };
             };
-            reloadTime = 0.0857; /// ZA-Wolf - ROF - Old 0.079[896rpm] - New 0.0857 [700rpm]
+            reloadTime = 0.1; /// ZA-Wolf - ROF - Old 0.079[896rpm] - New 0.0857 [700rpm]
             dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
 
             __AI_ROF_RIFLE_SMALL_FULLAUTO;
@@ -447,7 +448,7 @@ class CfgWeapons {
             class SilencedSound : SilencedSound { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "sbr_silencerShot_SoundSet", "sbr_silencerTail_SoundSet" };
             };
-            reloadTime = 0.075;
+            reloadTime = 0.1;
             __MOA(2.3);
 
             maxRange = 400;
@@ -459,7 +460,7 @@ class CfgWeapons {
             class SilencedSound : SilencedSound { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "sbr_silencerShot_SoundSet", "sbr_silencerTail_SoundSet" };
             };
-            reloadTime = 0.075;
+            reloadTime = 0.1;
             __MOA(2.3);
         };
         class fullauto_medium : FullAuto {
@@ -756,7 +757,7 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "jack_silencerShot_SoundSet", "jack_silencerTail_SoundSet" };
             };
-            reloadTime = 0.078;
+            reloadTime = 0.1;
             dispersion = 0.0001309;
         };
         class FullAuto : FullAuto {
@@ -775,7 +776,7 @@ class CfgWeapons {
             class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "jack_silencerShot_SoundSet", "jack_silencerTail_SoundSet" };
             };
-            reloadTime = 0.078;
+            reloadTime = 0.1;
             dispersion = 0.0001309;
         };
         class fullauto_medium : FullAuto {
@@ -843,7 +844,7 @@ class CfgWeapons {
             class SilencedSound : SilencedSound { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "blackjack_silencerShot_SoundSet", "blackjack_silencerTail_SoundSet" };
             };
-            reloadTime = 0.078;
+            reloadTime = 0.1;
             dispersion = 0.0001309;
         };
         class FullAuto : FullAuto {
@@ -854,7 +855,7 @@ class CfgWeapons {
             class SilencedSound : SilencedSound { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "blackjack_silencerShot_SoundSet", "blackjack_silencerTail_SoundSet" };
             };
-            reloadTime = 0.078;
+            reloadTime = 0.1;
             dispersion = 0.0001309;
         };
         class fullauto_medium : FullAuto {
@@ -936,11 +937,11 @@ class CfgWeapons {
             onHoverText = "TODO XMC DSS";
         };
         class Single : Single {
-            reloadTime = 0.079;
+            reloadTime = 0.1;
             dispersion = 0.000333358;
         };
         class FullAuto : FullAuto {
-            reloadTime = 0.079;
+            reloadTime = 0.1;
             dispersion = 0.000333358;
         };
         class fullauto_medium : FullAuto {
@@ -1080,7 +1081,7 @@ class CfgWeapons {
             class SilencedSound: SilencedSound { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "300BLK_Shot_Silenced_SoundSet", "300BLK_ShotTail_Silenced_SoundSet" };
             };
-            reloadTime = 0.081;
+            reloadTime = 0.1;
             __MOA(1.5);
         };
         class FullAuto: FullAuto {
@@ -1091,7 +1092,7 @@ class CfgWeapons {
             class SilencedSound: SilencedSound { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
                 soundSetShot[] = { "300BLK_Shot_Silenced_SoundSet", "300BLK_ShotTail_Silenced_SoundSet" };
             };
-            reloadTime = 0.067;
+            reloadTime = 0.1;
             __MOA(1.9);
         };
         class fullauto_medium : FullAuto {
