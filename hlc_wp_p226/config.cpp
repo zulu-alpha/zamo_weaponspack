@@ -1157,7 +1157,7 @@ class CfgWeapons {
         {
             mass = 21;
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
     };
     class hlc_pistol_P226US :hlc_p226_base
@@ -1179,7 +1179,7 @@ class CfgWeapons {
             mass = 21;
             class CowsSlot : niarms_226_toprail{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
     };
     class hlc_pistol_P226R :hlc_p226_base  {
@@ -1201,7 +1201,7 @@ class CfgWeapons {
             class CowsSlot : niarms_226_toprail{};
             class PointerSlot :asdg_PistolUnderRail{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
         hiddenSelections[] = { "226Slides", "Sigframe_226Mk25", "SIG_US_Grips", "SIGpistol_Common" };
         hiddenSelectionsTextures[] = { "hlc_wp_p226\tex\p226\226slides_co.tga", "hlc_wp_p226\tex\p226\226R_frame_co.tga", "hlc_wp_p226\tex\p226\226usgrip_co.tga", "hlc_wp_p226\tex\p226\common_co.tga" };
@@ -1244,8 +1244,8 @@ class CfgWeapons {
             class PointerSlot :asdg_PistolUnderRail{};
             class MuzzleSlot :asdg_MuzzleSlot_9MM{};
         };
-        inertia = 0.07;
-        __PDEXTERITY(0.75);/**/
+        inertia = 0.06; /// Wolf From 0.07
+        __PDEXTERITY(0.85); /// Wolf From 0.75 
     };
     class hlc_pistol_Mk25 : hlc_pistol_P226R
     {
@@ -1374,7 +1374,7 @@ class CfgWeapons {
             class CowsSlot : niarms_226_toprail{};
             class PointerSlot :asdg_PistolUnderRail{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
     };
     class hlc_pistol_P226R_40Elite : hlc_pistol_P226R_40
@@ -1412,7 +1412,7 @@ class CfgWeapons {
             class PointerSlot :asdg_PistolUnderRail{};
             class MuzzleSlot :asdg_MuzzleSlot_9MM{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
     };
     class hlc_pistol_P226R_40Enox :hlc_P22640_Base  {
@@ -1434,7 +1434,7 @@ class CfgWeapons {
             class CowsSlot : niarms_226_toprail{};
             class PointerSlot :asdg_PistolUnderRail{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
         hiddenSelections[] = { "226Slides", "Sigframe_226Mk25", "SIG_US_Grips", "SIGpistol_Common" };
         hiddenSelectionsTextures[] = { "hlc_wp_p226\tex\p226\226enoxslides_co.tga", "hlc_wp_p226\tex\p226\226R_frame_co.tga", "hlc_wp_p226\tex\p226\226usgrip_co.tga", "hlc_wp_p226\tex\p226\common_co.tga" };
@@ -1499,7 +1499,7 @@ class CfgWeapons {
             class CowsSlot : niarms_226_toprail{};
             class PointerSlot :asdg_PistolUnderRail{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
     };
     class hlc_pistol_P226R_357Elite : hlc_pistol_P226R_357
@@ -1537,7 +1537,7 @@ class CfgWeapons {
             class PointerSlot :asdg_PistolUnderRail{};
             class MuzzleSlot :asdg_MuzzleSlot_9MM{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
     };
     class hlc_pistol_P226R_Stainless :hlc_P226357_Base  {
@@ -1559,7 +1559,7 @@ class CfgWeapons {
             class CowsSlot : niarms_226_toprail{};
             class PointerSlot :asdg_PistolUnderRail{};
         };
-        inertia = 0.07;
+        inertia = 0.06;
         __PDEXTERITY(0.75);/**/
         hiddenSelections[] = { "226Slides", "Sigframe_226Mk25", "SIG_US_Grips", "SIGpistol_Common" };
         hiddenSelectionsTextures[] = { "hlc_wp_p226\tex\p226\226stainlessslides_co.tga", "hlc_wp_p226\tex\p226\226R_frame_co.tga", "hlc_wp_p226\tex\p226\226usgrip_co.tga", "hlc_wp_p226\tex\p226\common_co.tga" };

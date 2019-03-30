@@ -334,7 +334,6 @@ class hlc_HK416_base : Rifle_Base_F {
                 soundSetShot[] = { "NIA_GL_Shot_SoundSet", "NIA_GL_Tail_SoundSet" };
             };
             recoil = "recoil_hk416";
-            recoilProne = "recoil_hk416";
             __AI_ROF_GL_SINGLE;
         };
     };

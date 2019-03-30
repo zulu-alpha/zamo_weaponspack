@@ -1061,10 +1061,10 @@ FAL mag = 250g*/
         author = "Toadie";
         ammo = "HLC_762x51_ball";
         descriptionshort = "Caliber: 7.62x51mm 4-to-1 M80A1-M62A1<br />Type: EPFMJ/Incendiary Tracer<br />Rounds: 100";
-        displayname = "7.62mm EPR 100Rnd M13-linked belt (Tracers Every 4)";
+        displayname = "7.62mm EPR 100Rnd M13-linked belt (Tracers Every 2)"; /// Wolf - Changed IR-DIM\Tracer ratios
         lastroundstracer = 5;
         picture = "\hlc_core\tex\ui\ammo\m_m60e4mixed_ca.paa";
-        tracersevery = 4;
+        tracersevery = 2; /// Wolf - Changed IR-DIM\Tracer ratios
         displaynameshort = "EPR/Tracer";
     };
     class hlc_100Rnd_762x51_Mdim_M60E4 : hlc_100Rnd_762x51_B_M60E4 {
@@ -1072,10 +1072,10 @@ FAL mag = 250g*/
         author = "Toadie";
         ammo = "HLC_B_762x51_Tracer_Dim";
         descriptionshort = "Caliber: 7.62x51mm 4-to-1 M80A1-M276<br />Type: EPFMJ/Incendiary Tracer<br />Rounds: 100";
-        displayname = "7.62mm EPR 100Rnd M13-linked belt(IR-DIM every 4)";
+        displayname = "7.62mm EPR 100Rnd M13-linked belt(IR-DIM every 2)"; /// Wolf - Changed IR-DIM\Tracer ratios
         lastroundstracer = 5;
         picture = "\hlc_core\tex\ui\ammo\m_m60e4mixed_ca.paa";
-        tracersevery = 4;
+        tracersevery = 2; /// Wolf - Changed IR-DIM\Tracer ratios
         displaynameshort = "EPR/IR-DIM";
     };
     class hlc_100Rnd_762x51_Barrier_M60E4 : hlc_100Rnd_762x51_B_M60E4 {
@@ -1083,10 +1083,10 @@ FAL mag = 250g*/
         author = "Toadie";
         ammo = "HLC_762x51_Barrier";
         descriptionshort = "Caliber: 7.62x51mm 4-to-1 Mk319-Tracer<br />Type: OTM/Incendiary Tracer<br />Rounds: 100";
-        displayname = "7.62mm SOST 100Rnd M13-linked belt (Tracers every 4)";
+        displayname = "7.62mm SOST 100Rnd M13-linked belt (Tracers every 2)"; /// Wolf - Changed IR-DIM\Tracer ratios
         lastroundstracer = 5;
         picture = "\hlc_core\tex\ui\ammo\m_m60e4mixed_ca.paa";
-        tracersevery = 4;
+        tracersevery = 2; /// Wolf - Changed IR-DIM\Tracer ratios
         displaynameshort = "Mk319/Tracer";
     };
     class hlc_100Rnd_762x51_T_M60E4 : hlc_100Rnd_762x51_B_M60E4 {
