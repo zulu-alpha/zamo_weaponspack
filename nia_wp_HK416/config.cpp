@@ -319,6 +319,7 @@ class hlc_HK416_base : Rifle_Base_F {
         cursoraim = "gl";
         magazinereloadtime = 0;
         reloadtime = 0.1;
+		recoil = "recoil_hk416";
         reloadAction = "NIA_GestureReloadAGC";
         reloadMagazineSound[] = { "hlc_core\sound\GL\agc_reload", 1.0, 1, 10 };
         drySound[] = { "hlc_core\sound\GL\GL_drystrike", 1, 1, 10 };
@@ -333,7 +334,7 @@ class hlc_HK416_base : Rifle_Base_F {
                 soundClosure[] = { closure1, 0.5, closure2, 0.5 };
                 soundSetShot[] = { "NIA_GL_Shot_SoundSet", "NIA_GL_Tail_SoundSet" };
             };
-            recoil = "recoil_hk416";
+			
             __AI_ROF_GL_SINGLE;
         };
     };
