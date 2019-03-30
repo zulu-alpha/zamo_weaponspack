@@ -272,8 +272,8 @@ class CfgWeapons {
             libTextDesc = "AR15";
         };
         reloadAction = "HLC_GestureReloadAK";
-        maxRecoilSway = 0.003125; /// ZA-Wolf - Sway - Halfed - Old 0.0125 - New 0.00625
-        swayDecaySpeed = 0.3125; /// ZA-Wolf - Sway - Halfed - Old 1.25 - New 0.625
+        maxRecoilSway = 0.003125; /// ZA-Wolf - Sway - Old 0.0125 - New 0.00625
+        swayDecaySpeed = 0.3125; /// ZA-Wolf - Sway - Old 1.25 - New 0.625
         class GunParticles: GunParticles {
             class SecondEffect {
                 positionName = "Nabojnicestart";

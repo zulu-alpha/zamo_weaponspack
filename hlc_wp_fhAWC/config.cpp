@@ -9,7 +9,7 @@ class CfgPatches {
         units[] = {"HLC_LRR_ammobox","Weapon_hlc_rifle_awcovert","Weapon_hlc_rifle_awcovert_BL","Weapon_hlc_rifle_awcovert_FDE","Weapon_hlc_rifle_awmagnum","Weapon_hlc_rifle_awmagnum_BL","Weapon_hlc_rifle_awmagnum_FDE","Weapon_hlc_rifle_awMagnum_OD_ghillie","Weapon_hlc_rifle_awMagnum_FDE_ghillie","Weapon_hlc_rifle_awMagnum_BL_ghillie"};
         weapons[] = {};
         magazines[] = {};
-        version="1.55";
+        version="1.5";
         author="toadie";
     };
 };
@@ -34,7 +34,7 @@ class cfgMods {
 class Mode_SemiAuto;
 class Mode_Burst;
 class Mode_FullAuto;
-class nia_charms_slot;
+
 //class PointerSlot;
 class asdg_OpticRail1913;
 
@@ -389,88 +389,84 @@ class CfgMagazines {
         dlc = "Niarms_AWC";
         ammo = "HLC_300WM_FMJ";
         count = 5;
-        descriptionshort = $STR_NIA_DESC_5rnd_300WM_FMJ_AWM;
-        displayname = $STR_NIA_5rnd_300WM_FMJ_AWM;
+        descriptionshort = "Caliber: .300 Winchester Magnum Sniper-line FMJ<br />Type: Steel Full-Metal Jacket <br />Rounds: 5";
+        displayname = ".300WM FMJ 5Rnd AWM Magazine";
         initspeed = 841.2;
         lastroundstracer = 0;
         picture = "\hlc_wp_fhawc\tex\ui\m_awm_FMJ_ca";
         model = "\hlc_wp_fhAWC\mesh\magazine\magazine.p3d";
-        modelSpecial = \hlc_wp_fhAWC\mesh\magazine\proxy\5Rnd_300wm_AW.p3d;
-        modelSpecialIsProxy = 1;
         scope = 2;
         tracersevery = 0;
         mass = 14;
-        displaynameshort = $STR_NIA_300WM_FMJ;
+        displaynameshort = "FMJ";
         author = "toadie,Spartan0536";
     };
     class hlc_5rnd_300WM_AP_AWM : hlc_5rnd_300WM_FMJ_AWM {
         dlc = "Niarms_AWC";
         ammo = "HLC_300WM_AP";
         count = 5;
-        descriptionshort = $STR_NIA_DESC_5rnd_300WM_AP_AWM;
-        displayname = $STR_NIA_5rnd_300WM_AP_AWM;
+        descriptionshort = "Caliber: .300 Winchester Magnum MEN DM131 AP <br />Used in: Tungsten-Core, Steel-copper Jacket Armour-Penetrating Round <br />Rounds: 5";
+        displayname = ".300WM AP 5Rnd AWM Magazine";
         initspeed = 861;
         lastroundstracer = 0;
         picture = "\hlc_wp_fhawc\tex\ui\m_awm_AP_ca";
         model = "\hlc_wp_fhAWC\mesh\magazine\magazine.p3d";
-        modelSpecial = \hlc_wp_fhAWC\mesh\magazine\proxy\5Rnd_300wm_AW.p3d;
-        modelSpecialIsProxy = 1;
         scope = 2;
         tracersevery = 0;
         mass = 14;
-        displaynameshort = $STR_NIA_300WM_AP;
+        displaynameshort = "AP";
         author = "toadie,Spartan0536";
     };
     class hlc_5rnd_300WM_T_AWM : hlc_5rnd_300WM_FMJ_AWM{
         dlc = "Niarms_AWC";
         ammo = "HLC_300WM_Tracer";
-        descriptionshort = $STR_NIA_DESC_5rnd_300WM_T_AWM;
-        displayname = $STR_NIA_5rnd_300WM_T_AWM;
+        descriptionshort = "Caliber: .300 Winchester Magnum Re-loaded M62 Tracer <br />Type: Incendiary-Tip FMJ<br />Rounds: 5";
+        displayname = ".300WM Tracer 5Rnd AWM Magazine";
         initspeed = 861;
         lastroundstracer = 0;
         picture = "\hlc_wp_fhawc\tex\ui\m_awm_FMJ_ca";
         tracersevery = 1;
         mass = 14;
-        displaynameshort = $STR_NIA_300WM_T;
+        displaynameshort = "Tracer";
         author = "toadie,Spartan0536";
     };
     class hlc_5rnd_300WM_BTSP_AWM : hlc_5rnd_300WM_FMJ_AWM  {
         dlc = "Niarms_AWC";
         ammo = "HLC_300WM_BTSP";
-        descriptionshort = $STR_NIA_DESC_5rnd_300WM_btsp_AWM;
-        displayname = $STR_NIA_5rnd_300WM_BTSP_AWM;
+        descriptionshort = "Caliber: .300 Winchester Magnum A191 <br />Used in: 190gr Boat-Tail (Sierra Match-King)<br />Rounds: 5";
+        displayname = ".300WM Soft-Point 5Rnd AWM Magazine";
         initspeed = 935;
         lastroundstracer = 0;
         picture = "\hlc_wp_fhawc\tex\ui\m_awm_spbt_ca";
         tracersevery = 0;
         mass = 14;
-        displaynameshort = $STR_NIA_300WM_BTSP;
+        displaynameshort = "BTSP";
         author = "toadie";
     };
     class hlc_5rnd_300WM_mk248_AWM : hlc_5rnd_300WM_FMJ_AWM {
         dlc = "Niarms_AWC";
         ammo = "HLC_300WM_BTHP";
-        descriptionshort = $STR_NIA_DESC_5rnd_300WM_mk248_AWM;
-        displayname = $STR_NIA_5rnd_300WM_mk248_AWM;
+        descriptionshort = "Caliber: .300 Winchester Magnum 220gr Mk248 Mod1<br />Used in: 220gr  Hollow-Point Boat-Tail (Sierra Match-King)<br />Rounds: 5";
+        displayname = ".300WM Mk.248 Mod1 5Rnd AWM Magazine";
         initspeed = 899;
         lastroundstracer = 0;
         picture = "\hlc_wp_fhawc\tex\ui\m_awm_hpbt_ca";
         tracersevery = 0;
         mass = 15;
-        displaynameshort = $STR_NIA_300WM_mk248;
+        displaynameshort = "Mk248 Mod.1";
         author = "toadie,Spartan0536";
     };
     class hlc_5rnd_300WM_SBT_AWM : hlc_5rnd_300WM_FMJ_AWM {
         dlc = "Niarms_AWC";
         ammo = "HLC_300WM_S_BT";
-        descriptionshort = $STR_NIA_DESC_5rnd_300WM_sub_AWM;
-        displayname = $STR_NIA_5rnd_300WM_sbt_AWM;
+        descriptionshort = "Caliber: .300 Winchester Magnum 230gr Subsonic Hand-Load<br />Type: Swaged Lead-Core <br />Rounds: 5<br /> DISCLAIMER: Loading .300WM rounds this lightly is specifically dangerous to the end-user IRL.";
+        displayname = ".300WM Subsonic 5Rnd AWM Magazine";
         initspeed = 380;
         lastroundstracer = 0;
         picture = "\hlc_wp_fhawc\tex\ui\m_awm_sub_ca";
         tracersevery = 0;
         mass = 14;
-        displaynameshort = $STR_NIA_300WM_Sub;
+        displaynameshort = "SWLC";
         author = "toadie,Spartan0536";
     };
 };
@@ -522,7 +518,6 @@ class CfgWeapons {
                 iconPosition[] = { 0.5, 0.35 };
                 iconScale = 0.2;
             };
-            class Charmslot : nia_charms_slot {};
         };
         descriptionShort = "Long-Range Rifle<br/>Caliber: .300WM";
 
@@ -631,9 +626,7 @@ class CfgWeapons {
         initspeed = -0.7434831461;
         recoil = "recoil_awc";
         deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfolded
-        hasBipod = true;          /// a weapon with bipod obviously has a bipod
-        soundBipodDown[] = { "A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_AAF_down", db - 3, 1, 20 }; /// sound of unfolding the bipod
-        soundBipodUp[] = { "A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_AAF_up", db - 3, 1, 20 }; /// sound of folding the bipod
+        hasBipod = false;          /// a weapon with bipod obviously has a bipod
         magazineReloadSwitchPhase = 0.5;
         class EventHandlers {
             fired = "_this call CBA_fnc_weaponEvents";
@@ -649,11 +642,11 @@ class CfgWeapons {
         cursorAim = "EmptyCursor";
         model = "\hlc_wp_fhawc\mesh\awcovert\covert.p3d";
         reloadaction = "HLC_GestureReloadAWM";
-        descriptionShort = $STR_NIA_AWCM_DESC;
+        descriptionShort = "Accuracy International Arctic Warfare Covert Magnum<br/>Covert Rifle<br/>Caliber: .300WM";
         inertia = 0.60;
         __DEXTERITY(6.0, 0);
         picture = "\hlc_wp_fhawc\tex\ui\gear_awcOD_ca";
-        displayName = $STR_NIA_rifle_AWC_OD;
+        displayName = "AI AWC-M (OD)";
         discretedistance[] = { 100, 200, 300, 400, 500, 600, 700, 800 };
         discretedistanceinitindex = 2;
         bg_bipod = 1;
@@ -725,11 +718,11 @@ class CfgWeapons {
         cursorAim = "EmptyCursor";
         model = "\hlc_wp_fhawc\mesh\awmagnum\covert.p3d";
         reloadaction = "HLC_GestureReloadAWM";
-        descriptionShort = $STR_NIA_AWM_DESC;
+        descriptionShort = "Accuracy International Arctic Warfare Magnum<br/>Covert Rifle<br/>Caliber: .300WM";
         inertia = 0.65;
         __DEXTERITY(6.5, 0);
         picture = "\hlc_wp_fhawc\tex\ui\gear_awmOD_ca";
-        displayName = $STR_NIA_rifle_AWM_OD;
+        displayName = "AI AWM (OD)";
         discretedistance[] = { 100, 200, 300, 400, 500, 600, 700, 800 };
         discretedistanceinitindex = 2;
         bg_bipod = 1;
@@ -746,14 +739,14 @@ class CfgWeapons {
     };
     class hlc_rifle_awmagnum_BL : hlc_rifle_awmagnum {
         author = "toadie";
-        displayName = $STR_NIA_rifle_AWM_Black;
+        displayName = "AI AWM (Black)";
         hiddenSelections[] = { "camo", "camo2", "Camo3" };
         picture = "\hlc_wp_fhawc\tex\ui\gear_awmBlack_ca";
         hiddenSelectionsTextures[] = { "\hlc_wp_fhAWC\tex\AWCSTOCK_black_co.paa", "\hlc_wp_fhAWC\tex\AWC_Scope_co.paa", "\hlc_wp_fhAWC\tex\Magnumbits_ca.paa" };
     };
     class hlc_rifle_awmagnum_FDE : hlc_rifle_awmagnum {
         author = "toadie";
-        displayName = $STR_NIA_rifle_AWM_FDE;
+        displayName = "AI AWM (FDE)";
         hiddenSelections[] = { "camo", "camo2", "Camo3" };
         picture = "\hlc_wp_fhawc\tex\ui\gear_awmFDE_ca";
         hiddenSelectionsTextures[] = { "\hlc_wp_fhAWC\tex\awcstock_FDE_co.paa", "\hlc_wp_fhAWC\tex\AWC_Scope_co.paa", "\hlc_wp_fhAWC\tex\Magnumbits_ca.paa" };
@@ -763,7 +756,7 @@ class CfgWeapons {
             mass = 127;
         };
         author = "toadie";
-        displayName = $STR_NIA_rifle_AWM_OD_Ghillie;
+        displayName = "AI AWM (OD+Ghillie)";
         picture = "\hlc_wp_fhawc\tex\ui\gear_awmghillieOD_ca";
         model = "\hlc_wp_fhawc\mesh\awmagnum\awm_ghillie.p3d";
     };
@@ -772,7 +765,7 @@ class CfgWeapons {
             mass = 127;
         };
         author = "toadie";
-        displayName = $STR_NIA_rifle_AWM_FDE_Ghillie;
+        displayName = "AI AWM (FDE+Ghillie)";
         picture = "\hlc_wp_fhawc\tex\ui\gear_awmghillieFDE_ca";
         model = "\hlc_wp_fhawc\mesh\awmagnum\awm_ghillie.p3d";
     };
@@ -781,19 +774,19 @@ class CfgWeapons {
             mass = 127;
         };
         author = "toadie";
-        displayName = $STR_NIA_rifle_AWM_Black_Ghillie;
+        displayName = "AI AWM (Black+Ghillie)";
         picture = "\hlc_wp_fhawc\tex\ui\gear_awmghillieBlack_ca";
         model = "\hlc_wp_fhawc\mesh\awmagnum\awm_ghillie.p3d";
     };
     class hlc_rifle_awcovert_BL : hlc_rifle_awcovert {
         author = "toadie";
-        displayName = $STR_NIA_rifle_AWC_BLack;
+        displayName = "AI AWC-M (Black)";
         hiddenSelections[] = { "camo", "camo2"};
         picture = "\hlc_wp_fhawc\tex\ui\gear_awcBlack_ca";
         hiddenSelectionsTextures[] = { "\hlc_wp_fhAWC\tex\AWCSTOCK_black_co.paa", "\hlc_wp_fhAWC\tex\AWC_Scope_co.paa"};
     };
     class hlc_rifle_awcovert_FDE : hlc_rifle_awcovert {
-        displayName = $STR_NIA_rifle_AWC_FDE;
+        displayName = "AI AWC-M (FDE)";
         hiddenSelections[] = { "camo", "camo2"};
         picture = "\hlc_wp_fhawc\tex\ui\gear_awcFDE_ca";
         hiddenSelectionsTextures[] = { "\hlc_wp_fhAWC\tex\awcstock_FDE_co.paa", "\hlc_wp_fhAWC\tex\AWC_Scope_co.paa"};

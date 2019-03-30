@@ -181,6 +181,17 @@ class CfgVehicles
 
 	};
 
+class CfgRecoils {
+    class recoil_default;
+    class recoil_hk416 : recoil_default {
+        muzzleOuter[] = {0.2, 0.4, 0.3, 0.3}; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4, 0.5, 0.3, 0.2 - New 0.1, 0.1, 0.01, 0.1
+        muzzleInner[] = {0,0,0.1,0.1}; /// ZA-Wolf - Added muzzleInner
+		kickBack[] = {0.02, 0.04}; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
+        temporary = 0.0015; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+        permanent = 0.1*0.4; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
+    };
+};
+	
 class CfgWeapons {
     class Rifle;
     class Rifle_Base_F : Rifle  {
@@ -202,8 +213,8 @@ class hlc_HK416_base : Rifle_Base_F {
         libTextDesc = "HK416";
     };
     reloadAction = "NIA_GestureReload416";
-    maxRecoilSway = 0.0125;
-    swayDecaySpeed = 1.25;
+    maxRecoilSway = 0.003125; /// ZA-Wolf - Sway - Old 0.0125 - New 0.00625
+    swayDecaySpeed = 0.3125; /// ZA-Wolf - Sway - Old 1.25 - New 0.625
     class GunParticles : GunParticles {
         class SecondEffect {
             positionName = "Nabojnicestart";
@@ -251,8 +262,8 @@ class hlc_HK416_base : Rifle_Base_F {
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416Carbine_silencerShot_SoundSet", "NIA_416Carbine_silencerTail_SoundSet" };
         };
-        __ROF(780);
-        __MOA(1.4);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
 
         __AI_ROF_RIFLE_SMALL_SINGLE;
     };
@@ -271,8 +282,8 @@ class hlc_HK416_base : Rifle_Base_F {
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416Carbine_silencerShot_SoundSet", "NIA_416Carbine_silencerTail_SoundSet" };
         };
-        __ROF(780);
-        __MOA(1.55);
+        reloadTime = 0.1; /// ZA-Wolf - ROF - Old 0.079[896rpm] - New 0.0857 [700rpm]
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
 
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
     };
@@ -322,8 +333,8 @@ class hlc_HK416_base : Rifle_Base_F {
                 soundClosure[] = { closure1, 0.5, closure2, 0.5 };
                 soundSetShot[] = { "NIA_GL_Shot_SoundSet", "NIA_GL_Tail_SoundSet" };
             };
-            recoil = "M240Recoil";
-            recoilProne = "M240Recoil";
+            recoil = "recoil_hk416";
+            recoilProne = "recoil_hk416";
             __AI_ROF_GL_SINGLE;
         };
     };
@@ -351,7 +362,7 @@ class hlc_rifle_416D145 : hlc_HK416_base
     UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
     displayName = "HK HK416 D14.5";/*(Compact/Tan)*/
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     discretedistance[] = { 100,200,300,400 };
     discreteDistanceCameraPoint[] = { "eye", "eye_200", "eye_300", "eye_400" }; /// the angle of gun changes with zeroing
     cameraDir = "eye_look"; 
@@ -402,8 +413,8 @@ class hlc_rifle_416D145 : hlc_HK416_base
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416Carbine_silencerShot_SoundSet", "NIA_416Carbine_silencerTail_SoundSet" };
         };
-        __ROF(780);
-        __MOA(1.45);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_SINGLE;
     };
@@ -426,8 +437,8 @@ class hlc_rifle_416D145 : hlc_HK416_base
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416Carbine_silencerShot_SoundSet", "NIA_416Carbine_silencerTail_SoundSet" };
         };
-        __ROF(780);
-        __MOA(1.56);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
     };
@@ -545,7 +556,7 @@ class hlc_rifle_416D145_tan : hlc_rifle_416D145 {
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D145_tan_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D145_tan_x15";
@@ -644,7 +655,7 @@ class hlc_rifle_416D145_wdl : hlc_rifle_416D145 {
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D145_wdl_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D145_wdl_x15";
@@ -744,7 +755,7 @@ class hlc_rifle_416D145_CAG : hlc_rifle_416D145 {
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class WeaponSlotsInfo : WeaponSlotsInfo
     {
         mass = 71.6;
@@ -857,7 +868,7 @@ class hlc_rifle_416D145C : hlc_rifle_416D145
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D145C_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D145C_x15";
@@ -1007,7 +1018,7 @@ class hlc_rifle_416D10 : hlc_rifle_416D145
     UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
     displayName = "HK HK416 D10";/*(Compact/Tan)*/
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     discretedistance[] = { 100, 200, 300, 400 };
     discreteDistanceCameraPoint[] = { "eye", "eye_200", "eye_300", "eye_400" }; /// the angle of gun changes with zeroing
     discretedistanceinitindex = 0;
@@ -1055,8 +1066,8 @@ class hlc_rifle_416D10 : hlc_rifle_416D145
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416SBR_silencerShot_SoundSet", "NIA_416SBR_silencerTail_SoundSet" };
         };
-        __ROF(750);
-        __MOA(2.47);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_SINGLE;
     };
@@ -1075,8 +1086,8 @@ class hlc_rifle_416D10 : hlc_rifle_416D145
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416SBR_silencerShot_SoundSet", "NIA_416SBR_silencerTail_SoundSet" };
         };
-        __ROF(750);
-        __MOA(2.56);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
     };
@@ -1196,7 +1207,7 @@ class hlc_rifle_416D10_tan : hlc_rifle_416D10 {
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D10_tan_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D10_tan_x15";
@@ -1295,7 +1306,7 @@ class hlc_rifle_416D10_wdl : hlc_rifle_416D10 {
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D10_wdl_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D10_wdl_x15";
@@ -1437,7 +1448,7 @@ class hlc_rifle_416D10C : hlc_rifle_416D10
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D10C_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D10C_x15";
@@ -1542,7 +1553,7 @@ class hlc_rifle_416D10C_PTC : hlc_rifle_416D10
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D10C_PTC_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D10C_PTC_x15";
@@ -1647,7 +1658,7 @@ class hlc_rifle_416D10_RAHG : hlc_rifle_416D10
     discreteDistanceCameraPoint[] = { "eye", "eye_300", "eye_400", "eye_500", "eye_600" }; /// the angle of gun changes with zeroing
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
         handAnim[] =  { "OFP2_ManSkeleton", "nia_wp_HK416\anim\handpose_SMR.rtm" };
     hiddenSelections[] = { "416_upper", "416_lower", "416_SBRBarrel", "416_mainparts", "416_light Stock", "Cylinder026", "KAC_rearsight" };
     hiddenSelectionsTextures[] = { "nia_wp_hk416\tex\toadie_416\416_upper_co.paa", "nia_wp_hk416\tex\toadie_416\416_lower_co.paa", "nia_wp_hk416\tex\toadie_416\416_barrel_co.paa", "nia_wp_hk416\tex\toadie_416\416_common_co.paa", "nia_wp_hk416\tex\toadie_416\416_stocks_co.paa", "nia_wp_hk416\tex\toadie_416\416_rahg_co.paa", "nia_wp_hk416\tex\toadie_416\kac_buis_co.paa" };
@@ -1762,7 +1773,7 @@ class hlc_rifle_416D10_geissele :hlc_rifle_416D10_RAHG
     discreteDistanceCameraPoint[] = { "eye_200" }; /// the angle of gun changes with zeroing
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     hiddenSelections[] = { "416_upper", "416_lower", "416_SBRBarrel", "416_mainparts", "416_light Stock", "416_SMRmk1", "MAp2" };
     hiddenSelectionsTextures[] = { "nia_wp_hk416\tex\toadie_416\416_upper_co.paa", "nia_wp_hk416\tex\toadie_416\416_lower_co.paa", "nia_wp_hk416\tex\toadie_416\416_barrel_co.paa", "nia_wp_hk416\tex\toadie_416\416_common_co.paa", "nia_wp_hk416\tex\toadie_416\416_stocks_co.paa", "nia_wp_hk416\tex\toadie_416\geissele_smr_co.tga", "nia_wp_hk416\tex\toadie_acr\map2-556tan_co.tga" };
     HiddenSelectionsMaterials[] = { "nia_wp_hk416\mat\416_upper.rvmat", "nia_wp_hk416\mat\416_lower.rvmat", "nia_wp_hk416\mat\416_barrel.rvmat", "nia_wp_hk416\mat\416_common.rvmat", "nia_wp_hk416\mat\416_stocks.rvmat", "nia_wp_hk416\mat\416_smr.rvmat", "nia_wp_hk416\mat\map2.rvmat" };
@@ -1872,7 +1883,7 @@ class hlc_rifle_416D10_ptato : hlc_rifle_416D10_geissele
     discreteDistanceCameraPoint[] = { "eye_300"}; /// the angle of gun changes with zeroing
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     reloadAction = "NIA_GestureReload416_BAD";
     reloadMagazineSound[] = { "nia_wp_hk416\snd\ar15_reloadfaster", 0.74, 1, 30 };
     hiddenSelections[] = { "416_upper", "416_lower", "416_SBRBarrel", "416_mainparts", "416_light Stock", "416_SMRmk1", "VLTR_IMOD", "Gunfuightmod3","Geissele_SCH","MAp2" };
@@ -1980,7 +1991,7 @@ class hlc_rifle_416D10_st6 : hlc_rifle_416D10_RAHG
     discreteDistanceCameraPoint[] = { "eye", "eye_300", "eye_400", "eye_500", "eye_600" }; /// the angle of gun changes with zeroing
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     hiddenSelections[] = { "416_upper", "416_lower", "416_SBRBarrel", "416_mainparts", "416_light Stock", "Cylinder026", "CTR", "Gunfuightmod3", "Geissele_SCH", "KAC_rearsight" };
     hiddenSelectionsTextures[] = { "nia_wp_hk416\tex\toadie_416\416_upper_co.paa", "nia_wp_hk416\tex\toadie_416\416_lower_co.paa", "nia_wp_hk416\tex\toadie_416\416_barrel_co.paa", "nia_wp_hk416\tex\toadie_416\416_common_co.paa", "nia_wp_hk416\tex\toadie_416\416_stocks_co.paa", "nia_wp_hk416\tex\toadie_416\416_rahg_co.tga", "nia_wp_hk416\tex\toadie_416\magpul_ctr_black_co.tga", "nia_wp_hk416\tex\toadie_416\gunfighter_co.tga", "nia_wp_hk416\tex\toadie_416\geissele_sch_co.tga", "nia_wp_hk416\tex\toadie_416\kac_buis_co.tga" };
     HiddenSelectionsMaterials[] = { "nia_wp_hk416\mat\416_upper.rvmat", "nia_wp_hk416\mat\416_lower.rvmat", "nia_wp_hk416\mat\416_barrel.rvmat", "nia_wp_hk416\mat\416_common.rvmat", "nia_wp_hk416\mat\416_stocks.rvmat", "nia_wp_hk416\mat\416_rahg.rvmat", "nia_wp_hk416\mat\magpul_ctr.rvmat", "nia_wp_hk416\mat\gunfighter.rvmat", "nia_wp_hk416\mat\geissele_sch.rvmat", "nia_wp_hk416\mat\kac_buis.rvmat" };
@@ -2105,8 +2116,8 @@ class hlc_rifle_416C :hlc_rifle_416D10
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416SBR_silencerShot_SoundSet", "NIA_416SBR_silencerTail_SoundSet" };
         };
-        __ROF(833);
-        __MOA(3.7);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_SINGLE;
 
@@ -2129,8 +2140,8 @@ class hlc_rifle_416C :hlc_rifle_416D10
         };
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
-        __ROF(833);
-        __MOA(4.1);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
     };
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416C_x15";
@@ -2252,8 +2263,8 @@ class hlc_rifle_BAB :hlc_rifle_416C
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416SBR_silencerShot_SoundSet", "NIA_416SBR_silencerTail_SoundSet" };
         };
-        __ROF(833);
-        __MOA(3.7);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_SINGLE;
 
@@ -2277,8 +2288,8 @@ class hlc_rifle_BAB :hlc_rifle_416C
 
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
-        __ROF(833);
-        __MOA(4.1);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
     };
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_bab_x15";
@@ -2388,7 +2399,7 @@ class hlc_rifle_M27IAR : hlc_rifle_416D145
     UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
     displayName = "M27 IAR";
     descriptionShort = "Light Support Weapon<br/>Caliber: 5.56x45mm NATO";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     discretedistance[] = { 100, 300, 400,500,600 };
     discreteDistanceCameraPoint[] = { "eye",  "eye_300", "eye_400","eye_500","eye_600" }; /// the angle of gun changes with zeroing
     discretedistanceinitindex = 0;
@@ -2436,8 +2447,8 @@ class hlc_rifle_M27IAR : hlc_rifle_416D145
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416Rifle_silencerShot_SoundSet", "NIA_416Rifle_silencerTail_SoundSet" };
         };
-        __ROF(680);
-        __MOA(1.57);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_SINGLE;
     };
@@ -2459,8 +2470,8 @@ class hlc_rifle_M27IAR : hlc_rifle_416D145
             soundSetShot[] = { "NIA_416Rifle_silencerShot_SoundSet", "NIA_416Rifle_silencerTail_SoundSet" };
         };
 
-        __ROF(700);
-        __MOA(1.77);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
     };
@@ -2591,7 +2602,7 @@ class hlc_rifle_416D165 : hlc_rifle_416D145
     UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
     displayName = "HK HK416 D16.5";
     descriptionShort = "Infantry Rifle<br/>Caliber: 5.56x45mm NATO";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
     bg_bipod = 0;
@@ -2637,8 +2648,8 @@ class hlc_rifle_416D165 : hlc_rifle_416D145
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416Rifle_silencerShot_SoundSet", "NIA_416Rifle_silencerTail_SoundSet" };
         };
-        __ROF(680);
-        __MOA(1.57);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_SINGLE;
     };
@@ -2659,8 +2670,8 @@ class hlc_rifle_416D165 : hlc_rifle_416D145
             soundSetShot[] = { "NIA_416Rifle_silencerShot_SoundSet", "NIA_416Rifle_silencerTail_SoundSet" };
         };
 
-        __ROF(700);
-        __MOA(1.77);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
     };
@@ -2779,7 +2790,7 @@ class hlc_rifle_416D165_tan : hlc_rifle_416D165 {
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D165_tan_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D165_tan_x15";
@@ -2878,7 +2889,7 @@ class hlc_rifle_416D165_wdl : hlc_rifle_416D165 {
     descriptionShort = "Carbine<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D165_wdl_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D165_wdl_x15";
@@ -3178,7 +3189,7 @@ class hlc_rifle_416D20 : hlc_rifle_416D145
     UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
     displayName = "HK HK416 D20";
     descriptionShort = "Infantry Rifle<br/>Caliber: 5.56x45mm NATO";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
     bg_bipod = 0;
@@ -3221,8 +3232,8 @@ class hlc_rifle_416D20 : hlc_rifle_416D145
         class SilencedSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
             soundSetShot[] = { "NIA_416Rifle_silencerShot_SoundSet", "NIA_416Rifle_silencerTail_SoundSet" };
         };
-        __ROF(680);
-        __MOA(0.98);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_SINGLE;
     };
@@ -3243,8 +3254,8 @@ class hlc_rifle_416D20 : hlc_rifle_416D145
             soundSetShot[] = { "NIA_416Rifle_silencerShot_SoundSet", "NIA_416Rifle_silencerTail_SoundSet" };
         };
 
-        __ROF(700);
-        __MOA(1.17);
+		reloadTime = 0.1; /// ZA-Wolf - ROF - SemiAuto - Old 0.067 - New 0.0857
+        dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old [1.5MOA] - New 0.000280000 [1.0MOA]
         weaponSoundEffect = "DefaultRifle";
         __AI_ROF_RIFLE_SMALL_FULLAUTO;
     };
@@ -3363,7 +3374,7 @@ class hlc_rifle_416D20_tan : hlc_rifle_416D20 {
     descriptionShort = "Infantry Rifle<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D20_tan_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D20_tan_x15";
@@ -3462,7 +3473,7 @@ class hlc_rifle_416D20_wdl : hlc_rifle_416D20 {
     descriptionShort = "Infantry Rifle<br/>Caliber: 5.56x45mm NATO";
     discretedistanceinitindex = 0;
     cameraDir = "eye_look";
-    recoil = "recoil_trg20";
+    recoil = "recoil_hk416";
     class __MAGSWITCHCLASS {
         hlc_50rnd_556x45_EPR = "hlc_rifle_416D20_wdl_x15";
         hlc_50rnd_556x45_SOST = "hlc_rifle_416D20_wdl_x15";
