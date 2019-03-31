@@ -29,7 +29,7 @@ class hlc_optic_LeupoldM3A : optic_lrps {
                 distanceZoomMax = 1200;
                 memoryPointCamera = "Opticview";
                 modelOptics[] = { "hlc_core\mesh\accessories\sights\reticles\Reticle_10xmildot" };
-                visionMode[] = { "Normal" };
+                visionMode[] = { "Normal","NVG" };
                 opticsFlare = 1;
                 opticsDisablePeripherialVision = 1;
                 cameraDir = "";
@@ -488,7 +488,7 @@ class hlc_optic_ZF95Base : optic_lrps
                 distanceZoomMax = 1200;
                 memoryPointCamera = "eye";
                 modelOptics[] = { "hlc_core\mesh\accessories\sights\reticles\NATORangefinder_ZF95_6x" };
-                visionMode[] = { "Normal" };
+                visionMode[] = { "Normal","NVG" };
                 opticsFlare = 1;
                 opticsDisablePeripherialVision = 1;
                 cameraDir = "";
