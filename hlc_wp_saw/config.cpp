@@ -277,11 +277,11 @@ class CfgMagazineWells {
 class CfgRecoils {
     class recoil_default;
     class recoil_saw : recoil_default {
-        muzzleOuter[] = { -0.1*0.1,-0.1*0.1,-2*2,-2*2 } ; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4(X), 0.5(Y), 0.3(A), 0.2(B) - New 0.1, 0.1, 0.01, 0.1
+        muzzleOuter[] = { 0.1*0.1,0.1*0.1,1.15*1.15,1.15*1.15 } ; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4(X), 0.5(Y), 0.3(A), 0.2(B) - New 0.1, 0.1, 0.01, 0.1
 		muzzleInner[] = { 0.0001,0.0001,0.0001,0.0001 }; /// ZA-Wolf - Recoil Pattern -
-		kickBack[] = { 0.001*0.001,0.001*0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
-        temporary = 0.020*0.020; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
-        permanent = 0.00001*0.00001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
+		kickBack[] = { 0.00025 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
+        temporary = 0.0025; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+        permanent = 0.00001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
     };
 };
 
@@ -368,7 +368,7 @@ class CfgWeapons {
                 soundSetShot[] = { "saw_silencerShot_SoundSet", "saw_silencerTail_SoundSet" };
             };
             reloadTime = 0.12; // Wolf from 0.105
-            dispersion=0.000261799;
+            dispersion=0.000370000;
             __AI_ROF_MG_FULLAUTO;
         };
         class close : FullAuto {
@@ -469,7 +469,7 @@ class CfgWeapons {
         };
         class FullAuto : FullAuto {
             reloadTime = 0.067;
-            dispersion = 0.00101;
+            dispersion = 0.00037;
 
         };
         class Library {
@@ -1428,8 +1428,8 @@ class CfgWeapons {
         };
         class FullAuto : FullAuto {
 
-            __ROF(730);
-            dispersion = 0.00026; /// Wolf
+            __ROF(700); /// Wolf
+            dispersion = 0.00037; /// Wolf
         };
         class __MAGSWITCHCLASS {};
     };
@@ -1515,7 +1515,7 @@ class CfgWeapons {
                 soundSetShot[] = { "mk48_silencerShot_SoundSet", "mk48_silencerTail_SoundSet" };
             };
             reloadTime = 0.14; /// Wolf	
-            dispersion = 0.00026; /// Wolf
+            dispersion = 0.00035; /// Wolf
             __AI_ROF_MG_FULLAUTO;
         }; 
         class short : close{
