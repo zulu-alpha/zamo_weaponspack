@@ -563,7 +563,7 @@ class CfgWeapons {
             };
 
             reloadTime = 1.6666666666666666666666666666667;
-            dispersion = 0.000111119;
+            dispersion = 0.000100000;
 
             __AI_ROF_338SNIPER_SEMI;
         };
@@ -668,7 +668,7 @@ class CfgWeapons {
             class StandardSound : StandardSound { /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
                 soundSetShot[] = { "awc_silencerShot_SoundSet", "awc_silencerTail_SoundSet" };
             };
-            dispersion = 0.00058;
+            dispersion = 0.00035;
         };
         class far_optic1 : Single {
             showToPlayer = 0;
