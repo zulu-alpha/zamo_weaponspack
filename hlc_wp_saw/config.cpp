@@ -1409,7 +1409,7 @@ class CfgWeapons {
         hasBipod = true;
         deployedPivot = "deploypoint";
         inertia = 0.57;
-		recoil = "recoil_saw"; /// Wolf
+		recoil = "recoil_mk46"; /// Wolf
         __DEXTERITY(5.71 + 0.3, 1);
         ACE_barrelTwist = 305;
         ACE_barrelLength = 405;
@@ -1465,7 +1465,7 @@ class CfgWeapons {
         reloadaction = "HLC_GestureReloadM249";
         deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfolded
         handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\handpose_VFG.rtm" };
-        recoil = "recoil_saw"; /// Wolf
+        recoil = "recoil_mk48"; /// Wolf
         inertia = 0.81;
         __DEXTERITY(8.12 + 0.3, 1);
         magazines[] = {__762NATO_BELTS,__762NATO_BI_BELTS};
@@ -1584,5 +1584,16 @@ class CfgWeapons {
 ///		kickBack[] = { 0.001*0.001,0.001*0.001 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
 ///        temporary = 0.025*0.025; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
 ///        permanent = 0.00001*0.00001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
+///    };
+///};
+
+/// class CfgRecoils {
+///    class recoil_default;
+///    class recoil_saw : recoil_default {
+///        muzzleOuter[] = { 0.1*0.1,0.1*0.1,1.15*1.15,1.15*1.15 } ; /// ZA-Wolf - Recoil Pattern - Reduced and Equilized - Old 0.4(X), 0.5(Y), 0.3(A), 0.2(B) - New 0.1, 0.1, 0.01, 0.1
+///		muzzleInner[] = { 0.0001,0.0001,0.0001,0.0001 }; /// ZA-Wolf - Recoil Pattern -
+///		kickBack[] = { 0.00025 }; /// ZA-Wolf - Recoil - Kickback - Increased - Old 0.02, 0.04 - New 0.001, 0.001
+///        temporary = 0.0025; /// ZA-Wolf - Recoil - Reduced temporary muzzle gain\climb - Old 0.007 - New 0.0001
+///        permanent = 0.00001; /// ZA-Wolf - Recoil - Reduced permanent muzzle gain\climb - Old 0.08 - New 0.0001
 ///    };
 ///};

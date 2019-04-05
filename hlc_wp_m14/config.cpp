@@ -923,10 +923,10 @@ class CfgWeapons {
         inertia = 0.41;
         __DEXTERITY(4.08,0);
         class Single : Single {
-            __MOA(1.6);
+            __MOA(0.8);
         };
         class FullAuto : FullAuto {
-            __MOA(1.8);
+            __MOA(1.2);
         };
         class single_medium_optics1 : single_medium_optics1 {
             maxRange = 700;

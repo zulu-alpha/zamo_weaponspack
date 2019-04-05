@@ -22,6 +22,7 @@ class CfgPatches {
 #include "cfgsoundset.hpp"
 #include "Particles.hpp"
 #include "CfgMagazineWells.hpp"
+#include "CfgRecoils.hpp"
 
 class asdg_MuzzleSlot;
 class asdg_MuzzleSlot_762 : asdg_MuzzleSlot {
