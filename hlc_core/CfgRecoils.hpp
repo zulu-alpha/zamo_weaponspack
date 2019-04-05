@@ -19,11 +19,11 @@ class CfgRecoils
     };
 	class recoil_mk48                   
     {
-        muzzleOuter[] = { 0.1,0.3,0.2,0.2 } ; 
-		muzzleInner[] = { 0,0,0.1,0.1 }; 
+        muzzleOuter[] = { 0.2,0.3,0.2,0.3 } ; 
+		muzzleInner[] = { 0.0001,0.0001,0.00001,0.00001 }; 
 		kickBack[] = { 0.001*0.001,0.001*0.001 }; 
-        temporary = 0.005; 
-        permanent = 0.1*0.4; 
+        temporary = 0.009; 
+        permanent = 0.00001; 
     };
 	class recoil_mk48_prone                    
     {
