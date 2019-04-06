@@ -249,10 +249,10 @@ class CfgMagazines{
         author = "Toadie, Spartan0536";
         ammo = "HLC_B_556x45_Ball_Tracer_Dim";
         descriptionshort = "Caliber: 5.56x45mm IR-DIM Tracers<br />Type: EPFMJ/Low-visibility Tracer<br />Rounds: 200";
-        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(IR-DIM every 4)"; /// Wolf 
+        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(IR-DIM every 2)"; /// Wolf from 4 to 2 
         lastroundstracer = 10;
         picture = "\hlc_core\tex\ui\ammo\m_m249mixed_ca.paa";
-        tracersevery = 4; /// Wolf 
+        tracersevery = 2; /// Wolf 
         displaynameshort = "EPR/IR-DIM";
     };
     class hlc_200rnd_556x45_B_SAW : hlc_200rnd_556x45_M_SAW {
