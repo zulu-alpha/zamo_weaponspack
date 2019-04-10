@@ -601,7 +601,7 @@ class CfgWeapons {
         picture = "\hlc_wp_ar15\tex\ui\gear_m4_x_ca";
         displayName = "Colt M4A1 Carbine";
         descriptionShort = "Carbine<br/>Caliber: 5.56mm";
-        discretedistance[] = {300};
+        discretedistance[] = {100, 200, 300, 400, 500}; /// Wolf Test
         discretedistanceinitindex = 0;
         hiddenSelections[] = { "Main", "Rails", "Panels", "VFG", "Sights", "FSB", "Stock", "GL" };
         hiddenSelectionsTextures[] = { "hlc_wp_ar15\tex\melon_cqbr\main_co.tga", "hlc_wp_ar15\tex\melon_cqbr\risfore1_co.tga", "hlc_wp_ar15\tex\tigg\rails_co.tga", "hlc_wp_ar15\tex\melon_cqbr\vgrip_co.tga", "hlc_wp_ar15\tex\tenoyl_tbs\tbs_co.tga", "hlc_wp_ar15\tex\trhm16a2rec_co.tga", "hlc_wp_ar15\tex\m4furniture_co.tga", "hlc_wp_ar15\tex\m203_co.tga" };
