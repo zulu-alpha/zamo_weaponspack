@@ -556,6 +556,7 @@ class CfgWeapons {
                 iconScale = 0.2;
             };
         };
+		dispersion = 0.000347248; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
 		inertia = 0.20;
 		__DEXTERITY(2.5 + 0.1,1); //vgrip
 
