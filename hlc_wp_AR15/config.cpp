@@ -556,7 +556,7 @@ class CfgWeapons {
                 iconScale = 0.2;
             };
         };
-		dispersion = 0.000347248; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
+		dispersion = 0.000280000; /// ZA-Wolf - Dispersion - Old 0.000347248 [1.2MOA] - New 0.000280000 [1.0MOA]
 		inertia = 0.20;
 		__DEXTERITY(2.5 + 0.1,1); //vgrip
 
@@ -759,7 +759,7 @@ class CfgWeapons {
                 soundSetShot[] = { "jack_silencerShot_SoundSet", "jack_silencerTail_SoundSet" };
             };
             reloadTime = 0.1;
-            dispersion = 0.0001309;
+            dispersion = 0.000280000;
         };
         class FullAuto : FullAuto {
             class BaseSoundModeType { /// I am too lazy to copy this twice into both standard and silenced sounds, that is why there is a base class from which both inherit (and sound of closure stays the same no matter what muzzle accessory is used)
@@ -778,7 +778,7 @@ class CfgWeapons {
                 soundSetShot[] = { "jack_silencerShot_SoundSet", "jack_silencerTail_SoundSet" };
             };
             reloadTime = 0.1;
-            dispersion = 0.0001309;
+            dispersion = 0.000280000;
         };
         class fullauto_medium : FullAuto {
             showToPlayer = 0;
@@ -846,7 +846,7 @@ class CfgWeapons {
                 soundSetShot[] = { "blackjack_silencerShot_SoundSet", "blackjack_silencerTail_SoundSet" };
             };
             reloadTime = 0.1;
-            dispersion = 0.0001309;
+            dispersion = 0.000280000;
         };
         class FullAuto : FullAuto {
             class StandardSound : StandardSound { /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
@@ -857,7 +857,7 @@ class CfgWeapons {
                 soundSetShot[] = { "blackjack_silencerShot_SoundSet", "blackjack_silencerTail_SoundSet" };
             };
             reloadTime = 0.1;
-            dispersion = 0.0001309;
+            dispersion = 0.000280000;
         };
         class fullauto_medium : FullAuto {
             showToPlayer = 0;
@@ -939,11 +939,11 @@ class CfgWeapons {
         };
         class Single : Single {
             reloadTime = 0.1;
-            dispersion = 0.000333358;
+            dispersion = 0.000280000;
         };
         class FullAuto : FullAuto {
             reloadTime = 0.1;
-            dispersion = 0.000333358;
+            dispersion = 0.000280000;
         };
         class fullauto_medium : FullAuto {
             showToPlayer = 0;
