@@ -35,9 +35,19 @@ class Mode_Burst;
 class Mode_FullAuto;
 
 class asdg_MuzzleSlot_762MG;
+class asdg_MuzzleSlot_556;
 class asdg_OpticRail1913_short_MG;
 class asdg_FrontSideRail;
 class asdg_UnderSlot;
+class nia_charms_slot;
+class nia_rifle_gripod_slot;
+class nia_rifle_grips_slot : nia_rifle_gripod_slot
+{
+    class compatibleItems {
+        hlc_grip_SAW_Grip1 = 1;
+        hlc_grip_SAW_Grip2 = 1;
+    };
+};
 
 class CfgMovesBasic {
     class DefaultDie;
@@ -220,8 +230,8 @@ class CfgMagazines{
         author = "Toadie, Spartan0536";
         ammo = "HLC_556NATO_EPR";
         count = 200;
-        descriptionshort = "Caliber: 5.56x45mm NATO M855A1 EPR/M856A1<br />Type: EPFMJ/Tracer<br />Rounds: 200";
-        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(Tracers every 2)"; /// Wolf from 4 to 2 
+        descriptionshort = $STR_NIA_DESC_200Rnd_556x45_M;
+        displayname = $STR_NIA_200rnd_556x45_M_SAW;
         model = "hlc_wp_saw\mesh\magazine\magazine.p3d";
         initspeed = 974.8;
         lastroundstracer = 10;
@@ -230,41 +240,41 @@ class CfgMagazines{
         tracersevery = 2; /// Wolf from 4 to 2  
         mass = 69;
         ACE_isBelt = 1;
-        displaynameshort = "EPR/Tracer";
+        displaynameshort = $STR_NIA_556_M;
         nameSound = "mgun";
     };
     class hlc_200rnd_556x45_T_SAW : hlc_200rnd_556x45_M_SAW {
         dlc = "Niarms_SAW";
         author = "Toadie, Spartan0536";
         ammo = "B_556x45_Ball_Tracer_Red";
-        descriptionshort = "Caliber: 5.56x45mm NATO M856A1 Tracer<br />Type: Incendiary-tip Tracer<br />Rounds: 200";
-        displayname = "5.56mm Tracers 200Rnd M27-Linked Belt";
+        descriptionshort = $STR_NIA_DESC_200Rnd_556x45_T;
+        displayname = $STR_NIA_200rnd_556x45_T_SAW;
         lastroundstracer = 5;
         picture = "\hlc_core\tex\ui\ammo\m_m249tracer_ca.paa";
         tracersevery = 1;
-        displaynameshort = "M856A1 Tracer";
+        displaynameshort = $STR_NIA_556_Tracer;
     };
     class hlc_200rnd_556x45_Mdim_SAW : hlc_200rnd_556x45_M_SAW {
         dlc = "Niarms_SAW";
         author = "Toadie, Spartan0536";
         ammo = "HLC_B_556x45_Ball_Tracer_Dim";
-        descriptionshort = "Caliber: 5.56x45mm IR-DIM Tracers<br />Type: EPFMJ/Low-visibility Tracer<br />Rounds: 200";
-        displayname = "5.56mm EPR 200Rnd M27-Linked Belt(IR-DIM every 2)"; /// Wolf from 4 to 2 
+        descriptionshort = $STR_NIA_DESC_200Rnd_556x45_Mdim;
+        displayname = $STR_NIA_200rnd_556x45_Mdim_SAW;
         lastroundstracer = 10;
         picture = "\hlc_core\tex\ui\ammo\m_m249mixed_ca.paa";
-        tracersevery = 2; /// Wolf 
-        displaynameshort = "EPR/IR-DIM";
+        tracersevery = 2;
+        displaynameshort = $STR_NIA_556_MDim;
     };
     class hlc_200rnd_556x45_B_SAW : hlc_200rnd_556x45_M_SAW {
         dlc = "Niarms_SAW";
         author = "Toadie, Spartan0536";
         ammo = "HLC_556NATO_EPR";
-        descriptionshort = "Caliber: 5.56x45mm NATO M855A1 EPR<br />Type: Reverse Drawn Full Metal Jacket Exposed Penetrator (Enhanced Performance Round)<br />Rounds: 200";
-        displayname = "5.56mm EPR 200Rnd M27-Linked Belt";
+        descriptionshort = $STR_NIA_DESC_200Rnd_556x45_B;
+        displayname = $STR_NIA_556x45_B_SAW;
         lastroundstracer = 10;
         picture = "\hlc_core\tex\ui\ammo\m_m249ball_ca.paa";
         tracersevery = 0;
-        displaynameshort = "M855A1 EPR";
+        displaynameshort = $STR_NIA_556_EPR;
     };
 };
 
@@ -286,6 +296,7 @@ class CfgRecoils {
 };
 
 class CfgWeapons {
+    class ItemCore;
     class Rifle;
     class Rifle_Base_F : Rifle {
         class WeaponSlotsInfo;
@@ -314,7 +325,7 @@ class CfgWeapons {
         };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 165;
-            class MuzzleSlot: asdg_MuzzleSlot_762MG {
+            class MuzzleSlot : asdg_MuzzleSlot_556 {
                 iconPosition[] = { 0.0, 0.4 };
                 iconScale = 0.2;
             };
@@ -326,8 +337,9 @@ class CfgWeapons {
                 iconPosition[] = { 0.2, 0.4 };
                 iconScale = 0.25;
             };
+            class CharmSlot : nia_charms_slot{};
         };
-        descriptionShort = "Assault rifle<br/>Caliber: 5.45mm";
+        descriptionShort = $STR_NIA_M249_DESC;
         cursor = "mg";
         cursorAim = "EmptyCursor";
         nameSound = "Mgun";
@@ -446,7 +458,8 @@ class CfgWeapons {
         };
         model = "\hlc_wp_saw\mesh\minimi_para\minimi.p3d";
         reloadaction = "HLC_GestureReloadM249";
-        descriptionShort = "Light Machine Gun<br/>Caliber: 5.56mm";
+        displayName = $STR_NIA_lmg_minimipara;
+        descriptionShort = $STR_NIA_M249_DESC;
         drysound[] = { "\hlc_wp_saw\snd\empty_machineguns", 1, 1, 10 };
         reloadmagazinesound[] = { "\hlc_wp_saw\snd\soundshaders\SAW\saw_reload", 0.7, 1, 20 };
         inertia = 0.65;
@@ -454,11 +467,11 @@ class CfgWeapons {
         picture = "\hlc_wp_saw\tex\ui\gear_minimipara_x_ca";
         hiddenSelections[] = { "Reciever", "Assembly_cover", "Barrel", "Misc", "Foregrip", "Stock", "RearSight", "Magazine", "VFG" };
         hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\toadie_m249\reciever_minimi_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\pouch_auscam_co.tga", "" };
-        displayName = "FN Minimi Para (Short)";
+        
         discretedistance[] = { 100, 200, 300, 400, 500, 600, 700, 800 };
         discretedistanceinitindex = 2;
         bg_bipod = 1;
-        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\handpose_standard.rtm" };
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_STD.rtm" };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 137;
         };
@@ -477,6 +490,7 @@ class CfgWeapons {
         };
         class __MAGSWITCHCLASS {
             //NIArms Mags
+            //STANAG
             hlc_30rnd_556x45_EPR = "hlc_lmg_minimipara_30Rnd";
             hlc_30rnd_556x45_SOST = "hlc_lmg_minimipara_30Rnd";
             hlc_30rnd_556x45_SPR = "hlc_lmg_minimipara_30Rnd";
@@ -485,6 +499,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_minimipara_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_minimipara_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_minimipara_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR="hlc_lmg_minimipara_30Rnd";
+            hlc_50rnd_556x45_SOST ="hlc_lmg_minimipara_30Rnd";
+            hlc_50rnd_556x45_SPR ="hlc_lmg_minimipara_30Rnd";
+            hlc_50rnd_556x45_M ="hlc_lmg_minimipara_30Rnd";
+            hlc_50rnd_556x45_MDim ="hlc_lmg_minimipara_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SOST_PMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SPR_PMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_S_PMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_M_PMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_t_PMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_MDim_PMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_TDim_PMAG="hlc_lmg_minimipara_30Rnd";
+                // H&K Heavy Duty STANAG
+                hlc_30rnd_556x45_EPR_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SOST_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SPR_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_S_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_M_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_t_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_MDim_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_TDim_STANAGHD="hlc_lmg_minimipara_30Rnd";
+                //Lancer L5
+                hlc_30rnd_556x45_EPR_L5="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SOST_L5="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SPR_L5="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_S_L5="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_M_L5="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_t_L5="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_MDim_L5="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_TDim_L5="hlc_lmg_minimipara_30Rnd";
+                //EMAGs
+                hlc_30rnd_556x45_EPR_EMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SOST_EMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_SPR_EMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_S_EMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_M_EMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_t_EMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_MDim_EMAG="hlc_lmg_minimipara_30Rnd";
+                hlc_30rnd_556x45_TDim_EMAG="hlc_lmg_minimipara_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_minimipara_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_minimipara_30Rnd";
@@ -494,20 +550,45 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_lmg_minimipara_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_lmg_minimipara_30Rnd";
-            rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_lmg_minimipara_30Rnd";
+            //30 round STANAGs
+            rhs_mag_30Rnd_556x45_M855_Stanag="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855A1_Stanag="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer="hlc_lmg_minimipara_30Rnd";//Redundant
+                rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_Mk318_Stanag="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_Mk262_Stanag="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M200_Stanag="hlc_lmg_minimipara_30Rnd";
+
+                //PMAGs
+                //Black
+                rhs_mag_30Rnd_556x45_M855A1_PMAG="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_PMAG="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_Mk318_PMAG="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_Mk262_PMAG="hlc_lmg_minimipara_30Rnd";
+                //Tan
+                rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_PMAG_Tan="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan="hlc_lmg_minimipara_30Rnd";
+
+                //C-Mags
+                rhs_mag_100Rnd_556x45_M855A1_cmag="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_100Rnd_556x45_M855A1_cmag_mixed="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_100Rnd_556x45_M855_cmag="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_100Rnd_556x45_M855_cmag_mixed="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_100Rnd_556x45_Mk318_cmag="hlc_lmg_minimipara_30Rnd";
+                rhs_mag_100Rnd_556x45_Mk262_cmag="hlc_lmg_minimipara_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_lmg_minimipara_30Rnd";
             default = "hlc_lmg_minimipara";
@@ -527,13 +608,31 @@ class CfgWeapons {
             class AmmoBeltEject {};
         };
     };
-
+    class bipod_01_F_snd : ItemCore{ class ItemInfo; };
+    class hlc_grip_SAW_Grip1 : bipod_01_F_snd
+    {
+        dlc = "Niarms_Core";
+        author = "Toadie";
+        displayName = $STR_NIA_bipod_SAW_VFG;
+        descriptionShort = $STR_NIA_bipod_VFG;
+        model = "hlc_wp_saw\mesh\acc\SAW_VFG.p3d";
+        //picture = "\rhsusf\addons\rhsusf_weapons\icons\a_grip2.paa";
+        class ItemInfo : ItemInfo
+        {
+            hasBipod = 0;
+        };
+        rhs_grip_type = "rhs_grip1_change";
+    };
+    class hlc_grip_SAW_Grip2 : hlc_grip_SAW_Grip1
+    {
+        model = "hlc_wp_saw\mesh\acc\SAW_VFG_tan.p3d";
+    };
 
     class hlc_lmg_minimipara_railed : hlc_lmg_minimipara
     {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\minimi_para\minimi_railed.p3d";
-        displayName = "FN Minimi Para (Short/RIS)";
+        displayName = $STR_NIA_lmg_minimipara_railed;
         inertia = 0.69;
         __DEXTERITY(6.94, 0);
         class WeaponSlotsInfo : WeaponSlotsInfo {
@@ -552,6 +651,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_minimipara_railed_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_minimipara_railed_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_minimipara_railed_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_minimipara_railed_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_minimipara_railed_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_minimipara_railed_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_minimipara_railed_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_minimipara_railed_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_minimipara_railed_30Rnd";
@@ -598,7 +739,7 @@ class CfgWeapons {
     {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\minimi_para\minimi_para_longer.p3d";
-        displayName = "FN Minimi Para (Long)";
+        displayName = $STR_NIA_lmg_minimipara_long;
         initspeed = -1;
         inertia = 0.68;
         __DEXTERITY(6.85, 0);
@@ -615,6 +756,49 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_minimipara_long_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_minimipara_long_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_minimipara_long_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_minimipara_long_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_minimipara_long_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_minimipara_long_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_minimipara_long_30Rnd";
+
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_minimipara_long_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
@@ -624,20 +808,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_lmg_minimipara_long_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimipara_long_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimipara_long_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimipara_long_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimipara_long_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimipara_long_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_long_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimipara_long_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_lmg_minimipara_long_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_lmg_minimipara_long_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_long_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimipara_long_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimipara_long_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_lmg_minimipara_long_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_lmg_minimipara_long_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_lmg_minimipara_long_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_lmg_minimipara_long_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_lmg_minimipara_long_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_lmg_minimipara_long_30Rnd";
             default = "hlc_lmg_minimipara_long";
@@ -661,7 +869,7 @@ class CfgWeapons {
     {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\minimi_para\minimi_para_longer_railed.p3d";
-        displayName = "FN Minimi Para (Long/RIS)";
+        displayName = $STR_NIA_lmg_minimipara_railed;
         initspeed = -1;
         inertia = 0.69;
         __DEXTERITY(6.94, 0);
@@ -681,6 +889,49 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_minimipara_long_railed_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_minimipara_long_railed_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_minimipara_long_railed_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_minimipara_long_railed_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_minimipara_long_railed_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_minimipara_long_railed_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
@@ -690,20 +941,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_lmg_minimipara_long_railed_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimipara_long_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimipara_long_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_long_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimipara_long_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_lmg_minimipara_long_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_long_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimipara_long_railed_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_lmg_minimipara_long_railed_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_lmg_minimipara_long_railed_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_lmg_minimipara_long_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_lmg_minimipara_long_railed_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_lmg_minimipara_long_railed_30Rnd";
             default = "hlc_lmg_minimipara_long_railed";
@@ -726,7 +1001,7 @@ class CfgWeapons {
     class hlc_lmg_minimi : hlc_lmg_minimipara {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\minimi_para\minimi_longer.p3d";
-        displayName = "FN Minimi (Long)";
+        displayName = $STR_NIA_lmg_minimi;
         picture = "\hlc_wp_saw\tex\ui\gear_minimi_x_ca";
         hiddenSelections[] = { "Reciever", "Assembly_cover", "Barrel", "Misc", "Foregrip", "Stock", "RearSight", "Magazine", "VFG" };
         hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\toadie_m249\reciever_minimi_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\pouch_auscam_co.tga", "" };
@@ -759,6 +1034,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_minimi_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_minimi_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_minimi_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_minimi_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_minimi_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_minimi_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_minimi_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_minimi_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_minimi_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_minimi_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_minimi_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_minimi_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_minimi_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_minimi_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_minimi_30Rnd";
@@ -768,20 +1085,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_lmg_minimi_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimi_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimi_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimi_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimi_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimi_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimi_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimi_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimi_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_lmg_minimi_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_lmg_minimi_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_lmg_minimi_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_lmg_minimi_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimi_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimi_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_lmg_minimi_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_lmg_minimi_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_lmg_minimi_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_lmg_minimi_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_lmg_minimi_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_lmg_minimi_30Rnd";
             default = "hlc_lmg_minimi";
@@ -804,7 +1145,7 @@ class CfgWeapons {
     class hlc_lmg_minimi_railed : hlc_lmg_minimipara {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\minimi_para\minimi_longer_railed.p3d";
-        displayName = "FN Minimi (Long/RIS)";
+        displayName = $STR_NIA_lmg_minimi_railed;
         picture = "\hlc_wp_saw\tex\ui\gear_minimiris_x_ca";
         ACE_barrelTwist = 178;
         ACE_barrelLength = 465;
@@ -829,6 +1170,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_minimi_railed_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_minimi_railed_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_minimi_railed_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_minimi_railed_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_minimi_railed_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_minimi_railed_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_minimi_railed_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_minimi_railed_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_minimi_railed_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
@@ -838,20 +1221,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_lmg_minimi_railed_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimi_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimi_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimi_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimi_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimi_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimi_railed_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimi_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_lmg_minimi_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_lmg_minimi_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_lmg_minimi_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_minimi_railed_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_minimi_railed_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_lmg_minimi_railed_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_lmg_minimi_railed_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_lmg_minimi_railed_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_lmg_minimi_railed_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_lmg_minimi_railed_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_lmg_minimi_railed_30Rnd";
             default = "hlc_lmg_minimi_railed";
@@ -874,7 +1281,7 @@ class CfgWeapons {
     class hlc_lmg_m249para : hlc_lmg_minimipara {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\m249\m249paratrooper.p3d";
-        displayName = "M249E2 Para(Short)";
+        displayName = $STR_NIA_lmg_m249para;
         picture = "\hlc_wp_saw\tex\ui\gear_m249para_x_ca";
         ACE_barrelTwist = 305;
         ACE_barrelLength = 349;
@@ -893,6 +1300,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_m249para_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_m249para_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_m249para_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_m249para_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_m249para_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_m249para_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_m249para_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_m249para_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_m249para_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_m249para_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_m249para_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_m249para_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_m249para_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_m249para_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_m249para_30Rnd";
@@ -902,20 +1351,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_lmg_m249para_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_m249para_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_m249para_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_m249para_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_m249para_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_m249para_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_m249para_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_m249para_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_m249para_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_lmg_m249para_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_lmg_m249para_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_lmg_m249para_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_lmg_m249para_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_m249para_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_m249para_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_lmg_m249para_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_lmg_m249para_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_lmg_m249para_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_lmg_m249para_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_lmg_m249para_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_lmg_m249para_30Rnd";
             default = "hlc_lmg_m249para";
@@ -937,7 +1410,7 @@ class CfgWeapons {
     class hlc_lmg_M249E2 : hlc_lmg_minimipara {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\m249\m249E2.p3d";
-        displayName = "M249E2";
+        displayName = $STR_NIA_lmg_M249E2;
         picture = "\hlc_wp_saw\tex\ui\gear_m249e2_x_ca";
         inertia = 0.75;
         __DEXTERITY(7.5, 0);
@@ -958,6 +1431,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_M249E2_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_M249E2_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_M249E2_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_M249E2_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_M249E2_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_M249E2_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_M249E2_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_M249E2_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_M249E2_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_M249E2_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_M249E2_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_M249E2_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_M249E2_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_M249E2_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
@@ -967,21 +1482,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_lmg_M249E2_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_M249E2_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_M249E2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_M249E2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_M249E2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_M249E2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_M249E2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_M249E2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_lmg_M249E2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_lmg_M249E2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_lmg_M249E2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_lmg_M249E2_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_lmg_M249E2_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_lmg_M249E2_30Rnd";
-            //CUP Mags
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_lmg_M249E2_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_lmg_M249E2_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_lmg_M249E2_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_lmg_M249E2_30Rnd";            //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_lmg_M249E2_30Rnd";
             default = "hlc_lmg_M249E2";
         };
@@ -1003,7 +1541,7 @@ class CfgWeapons {
     class hlc_lmg_M249E1 : hlc_lmg_minimipara {
         author = "Toadie,da12thMonkey,j0zh94(RHS)";
         model = "\hlc_wp_saw\mesh\m249\m249E1.p3d";
-        displayName = "M249E1";
+        displayName = $STR_NIA_lmg_M249E1;
         picture = "\hlc_wp_saw\tex\ui\gear_m249e1_ca";
         inertia = 0.72;
         __DEXTERITY(7.25, 0);
@@ -1024,6 +1562,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_lmg_M249E1_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_lmg_M249E1_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_lmg_M249E1_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_lmg_M249E1_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_lmg_M249E1_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_lmg_M249E1_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_lmg_M249E1_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_lmg_M249E1_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_lmg_M249E1_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_lmg_M249E1_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_lmg_M249E1_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_lmg_M249E1_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_lmg_M249E1_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_lmg_M249E1_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_lmg_M249E1_30Rnd";
@@ -1069,7 +1649,7 @@ class CfgWeapons {
     class hlc_m249_pip1 : hlc_lmg_minimi_railed {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\m249\m249e2_pip1.p3d";
-        displayName = "M249 PIP (Long/RIS)";
+        displayName = $STR_NIA_m249_pip1;
         picture = "\hlc_wp_saw\tex\ui\gear_m249e2pip_x_ca";
         inertia = 0.69;
         __DEXTERITY(6.94, 0);
@@ -1090,6 +1670,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_m249_pip1_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_m249_pip1_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_m249_pip1_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_pip1_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_m249_pip1_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_m249_pip1_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_m249_pip1_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_m249_pip1_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_pip1_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_pip1_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_pip1_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_pip1_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_pip1_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_m249_pip1_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_pip1_30Rnd";
@@ -1099,20 +1721,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_m249_pip1_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip1_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip1_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip1_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip1_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip1_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip1_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip1_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip1_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_pip1_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_pip1_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_pip1_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_pip1_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip1_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip1_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_pip1_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_pip1_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_pip1_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_pip1_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_pip1_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_pip1_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_pip1_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_pip1_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_pip1_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_pip1_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_m249_pip1_30Rnd";
             default = "hlc_m249_pip1";
@@ -1134,7 +1780,7 @@ class CfgWeapons {
     class hlc_m249_pip2 : hlc_lmg_minimi_railed {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\m249\m249e2_pip2.p3d";
-        displayName = "M249E2 (Short/RIS)";
+        displayName = $STR_NIA_m249_pip2;
         picture = "\hlc_wp_saw\tex\ui\gear_m249e2parapip_x_ca";
         inertia = 0.68;
         __DEXTERITY(6.8, 0);
@@ -1154,6 +1800,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_m249_pip2_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_m249_pip2_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_m249_pip2_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_pip2_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_m249_pip2_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_m249_pip2_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_m249_pip2_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_m249_pip2_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_pip2_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_pip2_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_pip2_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_pip2_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_pip2_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_m249_pip2_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_pip2_30Rnd";
@@ -1163,20 +1851,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_m249_pip2_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip2_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip2_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_pip2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_pip2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_pip2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_pip2_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip2_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip2_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_pip2_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_pip2_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_pip2_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_pip2_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_pip2_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_pip2_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_pip2_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_pip2_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_pip2_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_pip2_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_m249_pip2_30Rnd";
             default = "hlc_m249_pip2";
@@ -1198,7 +1910,7 @@ class CfgWeapons {
     class hlc_m249_pip3 : hlc_lmg_minimi_railed {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\m249\m249e2_pip3.p3d";
-        displayName = "M249 PIP (Short/RIS)";
+        displayName = $STR_NIA_m249_pip3;
         picture = "\hlc_wp_saw\tex\ui\gear_m249e2parapip2_x_ca";
         inertia = 0.68;
         __DEXTERITY(6.8, 0);
@@ -1218,6 +1930,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_m249_pip3_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_m249_pip3_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_m249_pip3_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_pip3_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_m249_pip3_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_m249_pip3_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_m249_pip3_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_m249_pip3_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_pip3_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_pip3_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_pip3_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_pip3_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_pip3_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_m249_pip3_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_pip3_30Rnd";
@@ -1227,20 +1981,44 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_m249_pip3_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip3_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip3_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip3_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip3_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip3_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip3_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip3_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_pip3_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_pip3_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_pip3_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_pip3_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip3_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip3_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_pip3_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_pip3_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_pip3_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_pip3_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_pip3_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_pip3_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_pip3_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_pip3_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_pip3_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_pip3_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_m249_pip3_30Rnd";
             default = "hlc_m249_pip3";
@@ -1262,26 +2040,35 @@ class CfgWeapons {
     class hlc_m249_pip4 : hlc_lmg_minimi_railed {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\m249\m249e2_pip4.p3d";
-        displayName = "M249 PIP (Long/VFG)";
-        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\handpose_VFG.rtm" };
+        displayName = $STR_NIA_m249_pip4;
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_STD.rtm" };
         picture = "\hlc_wp_saw\tex\ui\gear_m249e2pip2_x_ca";
         deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfolded
         hasBipod = false;          /// a weapon with bipod obviously has a bipod
         inertia = 0.65;
-        __DEXTERITY(6.56+0.3, 1);
+        __DEXTERITY(6.56+0.3, 0);
         ACE_barrelTwist = 305;
         ACE_barrelLength = 465;
         AB_barrelTwist = 12;
         AB_barrelLength = 18.3;
         initspeed = -1;
         hiddenSelections[] = { "Reciever", "Assembly_cover", "Barrel", "Misc", "Foregrip", "Stock", "RearSight", "Magazine", "VFG" };
-        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\toadie_m249\reciever_249_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\amoobox_co.tga", "hlc_wp_saw\tex\toadie_m249\vert_grip_co.tga" };
+        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\toadie_m249\reciever_249_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\PIP_Foregrip_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\amoobox_co.tga", "hlc_wp_saw\tex\toadie_m249\vert_grip_co.tga" };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 142;
+            class CowsSlot : asdg_OpticRail1913_short_MG {
+                iconPosition[] = { 0.5, 0.3 };
+            };
+            class MuzzleSlot : asdg_MuzzleSlot_556 {
+                iconPosition[] = { 0.0, 0.4 };
+                iconScale = 0.2;
+            };
             class PointerSlot : asdg_FrontSideRail {
                 iconPosition[] = { 0.2, 0.4 };
                 };
             class UnderBarrelSlot : asdg_UnderSlot {};
+            class GripodSlot : nia_rifle_grips_slot {};
+            class CharmSlot {};
         };
         class __MAGSWITCHCLASS {
             //NIArms Mags
@@ -1293,6 +2080,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_m249_pip4_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_m249_pip4_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_m249_pip4_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_pip4_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_m249_pip4_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_m249_pip4_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_m249_pip4_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_m249_pip4_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_pip4_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_pip4_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_pip4_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_pip4_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_pip4_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd";
@@ -1302,23 +2131,385 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_m249_pip4_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip4_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip4_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip4_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip4_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_pip4_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip4_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip4_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_pip4_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_pip4_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_pip4_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_pip4_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_pip4_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_pip4_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_pip4_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_pip4_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_pip4_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_pip4_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd";
             default = "hlc_m249_pip4";
+        };
+        rhs_grip1_change = "hlc_m249_pip4_grip";
+        rhs_grip2_change = "hlc_m249_pip4_grip2";
+        rhs_grip3_change = "hlc_m249_pip4_grip3";
+        baseWeapon = "hlc_m249_pip4";
+    };
+
+    class hlc_m249_pip4_grip : hlc_m249_pip4
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = (0.65 + 0.066);
+        __DEXTERITY((6.56 + 0.66), 1);
+        class __MAGSWITCHCLASS {
+            //NIArms Mags
+            hlc_30rnd_556x45_EPR = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SOST = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SPR = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_S = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_M = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_t = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_MDim = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_TDim = "hlc_m249_pip4_30Rnd_grip";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_pip4_30Rnd_grip";
+            hlc_50rnd_556x45_SOST = "hlc_m249_pip4_30Rnd_grip";
+            hlc_50rnd_556x45_SPR = "hlc_m249_pip4_30Rnd_grip";
+            hlc_50rnd_556x45_M = "hlc_m249_pip4_30Rnd_grip";
+            hlc_50rnd_556x45_MDim = "hlc_m249_pip4_30Rnd_grip";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_pip4_30Rnd_grip";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_pip4_30Rnd_grip";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_pip4_30Rnd_grip";
+            //BI_MAGS
+            30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd_grip";
+            30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip";
+            30Rnd_556x45_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip";
+            30Rnd_556x45_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip";
+            30Rnd_556x45_Stanag_green = "hlc_m249_pip4_30Rnd_grip";
+            30Rnd_556x45_Stanag_red = "hlc_m249_pip4_30Rnd_grip";
+            //RHS Mags (God fucking help me, when I commit, I COMMIT. )
+            //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
+            rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip4_30Rnd_grip";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_pip4_30Rnd_grip";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_pip4_30Rnd_grip";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_pip4_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_pip4_30Rnd_grip";
+            //CUP Mags
+            CUP_30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd_grip";
+            default = "hlc_m249_pip4_grip";
+        };
+    };
+    class hlc_m249_pip4_grip2 : hlc_m249_pip4
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG.rtm" };
+        inertia = (0.65 + 0.066);
+        __DEXTERITY((6.56 + 0.66), 1);
+        class __MAGSWITCHCLASS {
+            //NIArms Mags
+            hlc_30rnd_556x45_EPR = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_S = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_M = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_t = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim = "hlc_m249_pip4_30Rnd_grip2";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_50rnd_556x45_SOST = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_50rnd_556x45_SPR = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_50rnd_556x45_M = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_50rnd_556x45_MDim = "hlc_m249_pip4_30Rnd_grip2";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_pip4_30Rnd_grip2";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_pip4_30Rnd_grip2";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_pip4_30Rnd_grip2";
+            //BI_MAGS
+            30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd_grip2";
+            30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip2";
+            30Rnd_556x45_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip2";
+            30Rnd_556x45_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip2";
+            30Rnd_556x45_Stanag_green = "hlc_m249_pip4_30Rnd_grip2";
+            30Rnd_556x45_Stanag_red = "hlc_m249_pip4_30Rnd_grip2";
+            //RHS Mags (God fucking help me, when I commit, I COMMIT. )
+            //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
+            rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip4_30Rnd_grip2";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_pip4_30Rnd_grip2";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_pip4_30Rnd_grip2";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip2";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_pip4_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_pip4_30Rnd_grip2";
+            //CUP Mags
+            CUP_30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd_grip2";
+            default = "hlc_m249_pip4_grip2";
+        };
+    };
+    class hlc_m249_pip4_grip3 : hlc_m249_pip4
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = (0.65 + 0.066);
+        __DEXTERITY((6.56 + 0.66), 1);
+        class __MAGSWITCHCLASS {
+            //NIArms Mags
+            hlc_30rnd_556x45_EPR = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_S = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_M = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_t = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim = "hlc_m249_pip4_30Rnd_grip3";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_50rnd_556x45_SOST = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_50rnd_556x45_SPR = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_50rnd_556x45_M = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_50rnd_556x45_MDim = "hlc_m249_pip4_30Rnd_grip3";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_pip4_30Rnd_grip3";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_pip4_30Rnd_grip3";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_pip4_30Rnd_grip3";
+            //BI_MAGS
+            30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd_grip3";
+            30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip3";
+            30Rnd_556x45_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip3";
+            30Rnd_556x45_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip3";
+            30Rnd_556x45_Stanag_green = "hlc_m249_pip4_30Rnd_grip3";
+            30Rnd_556x45_Stanag_red = "hlc_m249_pip4_30Rnd_grip3";
+            //RHS Mags (God fucking help me, when I commit, I COMMIT. )
+            //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
+            rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_pip4_30Rnd_grip3";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_pip4_30Rnd_grip3";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_pip4_30Rnd_grip3";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_pip4_30Rnd_grip3";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_pip4_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_pip4_30Rnd_grip3";
+            //CUP Mags
+            CUP_30Rnd_556x45_Stanag = "hlc_m249_pip4_30Rnd_grip3";
+            default = "hlc_m249_pip4_grip3";
         };
     };
     class hlc_m249_pip4_30Rnd : hlc_m249_pip4
@@ -1327,18 +2518,47 @@ class CfgWeapons {
         model = "\hlc_wp_saw\mesh\m249\m249e2_pip4_30rnd.p3d";
         reloadaction = "HLC_GestureReloadM249STANAG";
         inertia = 0.65-0.33+0.05;
-        __DEXTERITY(6.55-3.3+0.499, 1);
+        __DEXTERITY(6.55-3.3+0.499, 0);
         reloadmagazinesound[] = { "\hlc_wp_saw\snd\soundshaders\SAW\saw_magfeed_reload", 0.7, 1, 20 };
         hiddenSelections[] = { "Reciever", "Assembly_cover", "Barrel", "Misc", "Foregrip", "Stock", "RearSight", "Magazine", "VFG" };
         hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\toadie_m249\reciever_249_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_core\tex\magazines\30roundmag_co.tga", "hlc_wp_saw\tex\toadie_m249\vert_grip_co.tga" };
         class GunParticles : GunParticles {
             class AmmoBeltEject {};
         };
+        rhs_grip1_change = "hlc_m249_pip4_30Rnd_grip";
+        rhs_grip2_change = "hlc_m249_pip4_30Rnd_grip2";
+        rhs_grip3_change = "hlc_m249_pip4_30Rnd_grip3";
+        baseWeapon = "hlc_m249_pip4_30Rnd";
+    };
+
+    class hlc_m249_pip4_30Rnd_grip : hlc_m249_pip4_30Rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.65 - 0.33 + 0.05;
+        __DEXTERITY(6.55 - 3.3 + 0.499, 1);
+    };
+    class hlc_m249_pip4_30Rnd_grip2 : hlc_m249_pip4_30Rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG.rtm" };
+        inertia = 0.65 - 0.33 + 0.05;
+        __DEXTERITY(6.55 - 3.3 + 0.499, 1);
+    };
+    class hlc_m249_pip4_30Rnd_grip3 : hlc_m249_pip4_30Rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.65 - 0.33 + 0.05;
+        __DEXTERITY(6.55 - 3.3 + 0.499, 1);
     };
     class hlc_m249_SQuantoon : hlc_m249_pip4 {
         author = "Toadie, w/Special Thanks to Squantoon";
         model = "\hlc_wp_saw\mesh\m249\m249e2_squant.p3d";
-        displayName = "M249 (Squantoon Special)";
+        displayName = $STR_NIA_m249_SQuantoon;
         picture = "\hlc_wp_saw\tex\ui\gear_m249SQUANT_x_ca";
         inertia = 0.69;
         initspeed = -1;
@@ -1357,6 +2577,48 @@ class CfgWeapons {
             hlc_30rnd_556x45_t = "hlc_m249_SQuantoon_30Rnd";
             hlc_30rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd";
             hlc_30rnd_556x45_TDim = "hlc_m249_SQuantoon_30Rnd";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_SQuantoon_30Rnd";
+            hlc_50rnd_556x45_SOST = "hlc_m249_SQuantoon_30Rnd";
+            hlc_50rnd_556x45_SPR = "hlc_m249_SQuantoon_30Rnd";
+            hlc_50rnd_556x45_M = "hlc_m249_SQuantoon_30Rnd";
+            hlc_50rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_SQuantoon_30Rnd";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_SQuantoon_30Rnd";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_SQuantoon_30Rnd";
             //BI_MAGS
             30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd";
             30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
@@ -1366,23 +2628,384 @@ class CfgWeapons {
             30Rnd_556x45_Stanag_red = "hlc_m249_SQuantoon_30Rnd";
             //RHS Mags (God fucking help me, when I commit, I COMMIT. )
             //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
-            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_SQuantoon_30Rnd";
-            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_SQuantoon_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_SQuantoon_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_SQuantoon_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd";
-            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_SQuantoon_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd";
             rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_SQuantoon_30Rnd";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_SQuantoon_30Rnd";
             rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_SQuantoon_30Rnd";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_SQuantoon_30Rnd";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_SQuantoon_30Rnd";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_SQuantoon_30Rnd";
             //CUP Mags
             CUP_30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd";
             default = "hlc_m249_SQuantoon";
+        };
+        rhs_grip1_change = "hlc_m249_SQuantoon_grip";
+        rhs_grip2_change = "hlc_m249_SQuantoon_grip2";
+        rhs_grip3_change = "hlc_m249_SQuantoon_grip3";
+        baseWeapon = "hlc_m249_SQuantoon";
+    };
+    class hlc_m249_SQuantoon_grip : hlc_m249_SQuantoon
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = (0.65 + 0.066);
+        __DEXTERITY((6.56 + 0.66), 1);
+        class __MAGSWITCHCLASS {
+            //NIArms Mags
+            hlc_30rnd_556x45_EPR = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SOST = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SPR = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_S = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_M = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_t = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_TDim = "hlc_m249_SQuantoon_30Rnd_grip";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_50rnd_556x45_SOST = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_50rnd_556x45_SPR = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_50rnd_556x45_M = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_50rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd_grip";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_SQuantoon_30Rnd_grip";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            //BI_MAGS
+            30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd_grip";
+            30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip";
+            30Rnd_556x45_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip";
+            30Rnd_556x45_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip";
+            30Rnd_556x45_Stanag_green = "hlc_m249_SQuantoon_30Rnd_grip";
+            30Rnd_556x45_Stanag_red = "hlc_m249_SQuantoon_30Rnd_grip";
+            //RHS Mags (God fucking help me, when I commit, I COMMIT. )
+            //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
+            rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_SQuantoon_30Rnd_grip";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_SQuantoon_30Rnd_grip";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_SQuantoon_30Rnd_grip";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_SQuantoon_30Rnd_grip";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_SQuantoon_30Rnd_grip";
+            //CUP Mags
+            CUP_30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd_grip";
+            default = "hlc_m249_SQuantoon_grip";
+        };
+    };
+    class hlc_m249_SQuantoon_grip2 : hlc_m249_SQuantoon
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG.rtm" };
+        inertia = (0.65 + 0.066);
+        __DEXTERITY((6.56 + 0.66), 1);
+        class __MAGSWITCHCLASS {
+            //NIArms Mags
+            hlc_30rnd_556x45_EPR = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_S = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_M = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_t = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_50rnd_556x45_SOST = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_50rnd_556x45_SPR = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_50rnd_556x45_M = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_50rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //BI_MAGS
+            30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            30Rnd_556x45_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip2";
+            30Rnd_556x45_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip2";
+            30Rnd_556x45_Stanag_green = "hlc_m249_SQuantoon_30Rnd_grip2";
+            30Rnd_556x45_Stanag_red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //RHS Mags (God fucking help me, when I commit, I COMMIT. )
+            //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
+            rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_SQuantoon_30Rnd_grip2";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_SQuantoon_30Rnd_grip2";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip2";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            //CUP Mags
+            CUP_30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd_grip2";
+            default = "hlc_m249_SQuantoon_grip2";
+        };
+    };
+    class hlc_m249_SQuantoon_grip3 : hlc_m249_SQuantoon
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = (0.65 + 0.066);
+        __DEXTERITY((6.56 + 0.66), 1);
+        class __MAGSWITCHCLASS {
+            //NIArms Mags
+            hlc_30rnd_556x45_EPR = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_S = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_M = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_t = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //X15
+            hlc_50rnd_556x45_EPR = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_50rnd_556x45_SOST = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_50rnd_556x45_SPR = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_50rnd_556x45_M = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_50rnd_556x45_MDim = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //PMAGs
+            hlc_30rnd_556x45_EPR_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_S_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_M_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_t_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            // H&K Heavy Duty STANAG
+            hlc_30rnd_556x45_EPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_S_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_M_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_t_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_STANAGHD = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //Lancer L5
+            hlc_30rnd_556x45_EPR_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_S_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_M_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_t_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_L5 = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //EMAGs
+            hlc_30rnd_556x45_EPR_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SOST_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_SPR_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_S_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_M_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_t_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_MDim_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            hlc_30rnd_556x45_TDim_EMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //BI_MAGS
+            30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            30Rnd_556x45_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            30Rnd_556x45_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip3";
+            30Rnd_556x45_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip3";
+            30Rnd_556x45_Stanag_green = "hlc_m249_SQuantoon_30Rnd_grip3";
+            30Rnd_556x45_Stanag_red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //RHS Mags (God fucking help me, when I commit, I COMMIT. )
+            //IN THEORY THIS should work so I don't need to add this post-hoc in the compat)
+            rhs_mag_30Rnd_556x45_M855_Stanag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_No_Tracer = "hlc_m249_SQuantoon_30Rnd_grip3";//Redundant
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Green = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Yellow = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Orange = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk318_Stanag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk262_Stanag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M200_Stanag = "hlc_m249_SQuantoon_30Rnd_grip3";
+
+            //PMAGs
+            //Black
+            rhs_mag_30Rnd_556x45_M855A1_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //Tan
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855A1_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_30Rnd_556x45_Mk262_PMAG_Tan = "hlc_m249_SQuantoon_30Rnd_grip3";
+
+            //C-Mags
+            rhs_mag_100Rnd_556x45_M855A1_cmag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_M855A1_cmag_mixed = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_M855_cmag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_M855_cmag_mixed = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_Mk318_cmag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            rhs_mag_100Rnd_556x45_Mk262_cmag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            //CUP Mags
+            CUP_30Rnd_556x45_Stanag = "hlc_m249_SQuantoon_30Rnd_grip3";
+            default = "hlc_m249_SQuantoon_grip3";
         };
     };
     class hlc_m249_SQuantoon_30Rnd : hlc_m249_SQuantoon
@@ -1398,19 +3021,49 @@ class CfgWeapons {
         class GunParticles : GunParticles {
             class AmmoBeltEject {};
         };
+        rhs_grip1_change = "hlc_m249_SQuantoon_30Rnd_grip";
+        rhs_grip2_change = "hlc_m249_SQuantoon_30Rnd_grip2";
+        rhs_grip3_change = "hlc_m249_SQuantoon_30Rnd_grip3";
+        baseWeapon = "hlc_m249_SQuantoon_30Rnd";
+    };
+
+    class hlc_m249_SQuantoon_30Rnd_grip : hlc_m249_SQuantoon_30Rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.65 - 0.33 + 0.05;
+        __DEXTERITY(6.55 - 3.3 + 0.499, 1);
+    };
+    class hlc_m249_SQuantoon_30Rnd_grip2 : hlc_m249_SQuantoon_30Rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG.rtm" };
+        inertia = 0.65 - 0.33 + 0.05;
+        __DEXTERITY(6.55 - 3.3 + 0.499, 1);
+    };
+    class hlc_m249_SQuantoon_30Rnd_grip3 : hlc_m249_SQuantoon_30Rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.65 - 0.33 + 0.05;
+        __DEXTERITY(6.55 - 3.3 + 0.499, 1);
     };
     class hlc_lmg_mk46 : hlc_lmg_minimi_railed {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\mk46\mk46.p3d";
-        displayName = "Mk.46 Mod.0";
+        displayName = $STR_NIA_mk46mod0;
+        descriptionShort = $STR_NIA_Mk46_DESC;
         agm_overheating_allowbarrelswap = 0;
-        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\handpose_VFG.rtm" };
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_mk46_STD.rtm" };
         picture = "\hlc_wp_saw\tex\ui\gear_mk46_ca";
         hasBipod = true;
         deployedPivot = "deploypoint";
         inertia = 0.57;
 		recoil = "recoil_mk46"; /// Wolf
-        __DEXTERITY(5.71 + 0.3, 1);
+        __DEXTERITY(5.71 + 0.3, 0);
         ACE_barrelTwist = 305;
         ACE_barrelLength = 405;
         AB_barrelTwist = 12;
@@ -1419,12 +3072,22 @@ class CfgWeapons {
         magazines[] = { __556NATO_BELTS, __556NATO_BI_BELTS };
         magazineWell[] = {"CBA_556x45_MINIMI"};
         hiddenSelections[] = { "Reciever", "Assembly_cover", "Barrel", "Misc", "Foregrip", "Stock", "RearSight", "Magazine", "VFG", "Rail", "Bipod" };
-        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\amoobox_co.tga", "hlc_wp_saw\tex\melon_vfg\vgrip_co.tga", "hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga", "hlc_wp_saw\tex\toadie_m249\pipbipod_co.tga" };
+        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\PIP_Foregrip_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\amoobox_co.tga", "hlc_wp_saw\tex\melon_vfg\vgrip_co.tga", "hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga", "hlc_wp_saw\tex\toadie_m249\pipbipod_co.tga" };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 119;
+            class CowsSlot : asdg_OpticRail1913_short_MG {
+                iconPosition[] = { 0.5, 0.3 };
+            };
+            class MuzzleSlot : asdg_MuzzleSlot_556 {
+                iconPosition[] = { 0.0, 0.4 };
+                iconScale = 0.2;
+            };
             class PointerSlot : asdg_FrontSideRail {
                 iconPosition[] = { 0.2, 0.4 };
-            };
+            };             
+            class UnderBarrelSlot : asdg_UnderSlot {};
+            class GripodSlot : nia_rifle_grips_slot {};
+            class CharmSlot {};
         };
         class FullAuto : FullAuto {
 
@@ -1432,19 +3095,78 @@ class CfgWeapons {
             dispersion = 0.00037; /// Wolf
         };
         class __MAGSWITCHCLASS {};
+        rhs_grip1_change = "hlc_lmg_mk46_grip";
+        rhs_grip2_change = "hlc_lmg_mk46_grip2";
+        rhs_grip3_change = "hlc_lmg_mk46_grip3";
+        baseWeapon = "hlc_lmg_mk46";
+    };
+
+    class hlc_lmg_mk46_grip : hlc_lmg_mk46
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG_a.rtm" };
+        inertia = 0.57;
+        __DEXTERITY(5.71 + 0.3, 1);
+    };
+    class hlc_lmg_mk46_grip2 : hlc_lmg_mk46
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG_a.rtm" };
+        inertia = 0.57;
+        __DEXTERITY(5.71 + 0.3, 1);
+    };
+    class hlc_lmg_mk46_grip3 : hlc_lmg_mk46
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG_a.rtm" };
+        inertia = 0.57;
+        __DEXTERITY(5.71 + 0.3, 1);
     };
     class hlc_lmg_mk46mod1 : hlc_lmg_mk46
     {
         author = "Toadie";
         model = "\hlc_wp_saw\mesh\mk46\mk46mod1.p3d";
-        displayName = "Mk.46 Mod.1";
+        displayName = $STR_NIA_mk46mod1;
         picture = "\hlc_wp_saw\tex\ui\gear_mk46mod1_ca";
-        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\bis_m249\stockpouch_co.tga", "hlc_wp_saw\tex\melon_vfg\vgrip_co.tga", "hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga", "hlc_wp_saw\tex\toadie_m249\pipbipod_co.tga" };
+        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\PIP_Foregrip_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\pouch_auscam_co.tga", "hlc_wp_saw\tex\melon_vfg\vgrip_co.tga", "hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga", "hlc_wp_saw\tex\toadie_m249\pipbipod_co.tga" };
         inertia = 0.55;
-        __DEXTERITY(5.5 + 0.3, 1);
+        __DEXTERITY(5.5 + 0.3, 0);
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 112;
         };
+        class __MAGSWITCHCLASS {};
+        rhs_grip1_change = "hlc_lmg_mk46mod1_grip";
+        rhs_grip2_change = "hlc_lmg_mk46mod1_grip2";
+        rhs_grip3_change = "hlc_lmg_mk46mod1_grip3";
+        baseWeapon = "hlc_lmg_mk46mod1";
+    };
+
+    class hlc_lmg_mk46mod1_grip : hlc_lmg_mk46mod1
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.55;
+        __DEXTERITY(5.5 + 0.3, 1);
+    };
+    class hlc_lmg_mk46mod1_grip2 : hlc_lmg_mk46mod1
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG.rtm" };
+        inertia = (0.37 + 0.066);
+        __DEXTERITY((3.7 + 0.66), 1);
+    };
+    class hlc_lmg_mk46mod1_grip3 : hlc_lmg_mk46mod1
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.55;
+        __DEXTERITY(5.5 + 0.3, 1);
     };
     class hlc_lmg_mk48 : hlc_saw_base {
         author = "Toadie";
@@ -1464,10 +3186,10 @@ class CfgWeapons {
         hasBipod = false;
         reloadaction = "HLC_GestureReloadM249";
         deployedPivot = "deploypoint";       /// what point should be used to be on surface while unfolded
-        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\handpose_VFG.rtm" };
-        recoil = "recoil_mk48"; /// Wolf
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_mk46_STD.rtm" };
+        recoil = recoil = "recoil_mk48"; /// Wolf
         inertia = 0.81;
-        __DEXTERITY(8.12 + 0.3, 1);
+        __DEXTERITY(8.12 + 0.3, 0);
         magazines[] = {__762NATO_BELTS,__762NATO_BI_BELTS};
         magazineWell[] = {"CBA_762x51_LINKS"};
         discretedistance[] = { 100, 200, 300, 400, 500, 600, 700, 800 };
@@ -1483,28 +3205,29 @@ class CfgWeapons {
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 172;
             class UnderBarrelSlot : asdg_UnderSlot {};
+            class GripodSlot : nia_rifle_grips_slot {};
             class CowsSlot : asdg_OpticRail1913_short_MG {
                 iconPosition[] = { 0.5, 0.3 };
+            };
+            class MuzzleSlot : asdg_MuzzleSlot_762MG {
+                iconPosition[] = { 0.0, 0.4 };
             };
             class PointerSlot : asdg_FrontSideRail {
                 iconPosition[] = { 0.2, 0.4 };
             };
+            class CharmSlot {};
         };
         picture = "\hlc_wp_saw\tex\ui\gear_mk48_ca";
         model = "\hlc_wp_saw\mesh\mk48\Mk48.p3d";
-        displayName = "Mk.48 Mod.0";
-        descriptionShort = "Light Machine Gun<br/>Caliber: 7.62mm";
+        displayName = $STR_NIA_mk48mod0;
+        descriptionShort = $STR_NIA_Mk48_DESC;
         hiddenSelections[] = { "Reciever", "Assembly_cover", "Barrel", "Misc", "Foregrip", "Stock", "RearSight", "Magazine", "VFG","Rail","Bipod" };
-        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\pouch_auscam_co.tga", "hlc_wp_saw\tex\toadie_m249\vert_grip_co.tga","hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga","" };
+        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\PIP_Foregrip_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\pouch_auscam_co.tga", "hlc_wp_saw\tex\toadie_m249\vert_grip_co.tga","hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga","" };
         class FullAuto : Mode_FullAuto {
             sounds[] = { "StandardSound", "SilencedSound" };
 
             class BaseSoundModeType { /// I am too lazy to copy this twice into both standard and silenced sounds, that is why there is a base class from which both inherit (and sound of closure stays the same no matter what muzzle accessory is used)
                 weaponSoundEffect = "DefaultRifle";
-
-                closure1[] = { "\hlc_wp_saw\snd\mk48_first", 1, 1, 10 };
-                closure2[] = { "\hlc_wp_saw\snd\mk48_first", 1, 1, 10 };
-                soundClosure[] = { closure1, 0.5, closure2, 0.5 };
             };
 
             class StandardSound : BaseSoundModeType { /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
@@ -1555,6 +3278,36 @@ class CfgWeapons {
         class Library {
             libTextDesc = "FN/NSWC Mk48";
         };
+        class __MAGSWITCHCLASS {};
+        rhs_grip1_change = "hlc_lmg_mk48_grip";
+        rhs_grip2_change = "hlc_lmg_mk48_grip2";
+        rhs_grip3_change = "hlc_lmg_mk48_grip3";
+        baseWeapon = "hlc_lmg_mk48";
+    };
+
+    class hlc_lmg_mk48_grip : hlc_lmg_mk48
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.81;
+        __DEXTERITY(8.12 + 0.3, 1);
+    };
+    class hlc_lmg_mk48_grip2 : hlc_lmg_mk48
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG.rtm" };
+        inertia = 0.81;
+        __DEXTERITY(8.12 + 0.3, 1);
+    };
+    class hlc_lmg_mk48_grip3 : hlc_lmg_mk48
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.81;
+        __DEXTERITY(8.12 + 0.3, 1);
     };
     class hlc_lmg_mk48mod1: hlc_lmg_mk48
     {
@@ -1563,15 +3316,44 @@ class CfgWeapons {
         deployedPivot = "deploypoint";
         picture = "\hlc_wp_saw\tex\ui\gear_mk48_ca";
         model = "\hlc_wp_saw\mesh\mk48\Mk48mod1.p3d";
-        displayName = "Mk.48 Mod.1";
-        descriptionShort = "Light Machine Gun<br/>Caliber: 7.62mm";
+        displayName = $STR_NIA_mk48mod1;
+        descriptionShort = $STR_NIA_Mk48_DESC;
         hiddenSelections[] = { "Reciever", "Assembly_cover", "Barrel", "Misc", "Foregrip", "Stock", "RearSight", "Magazine", "VFG", "Rail", "Bipod" };
-        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\fore_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\pouch_auscam_co.tga", "hlc_wp_saw\tex\melon_vfg\vgrip_co.tga", "hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga", "hlc_wp_saw\tex\toadie_m249\pipbipod_co.tga" };
+        hiddenSelectionsTextures[] = { "hlc_wp_saw\tex\mk48\reciever_mk48_co.tga", "hlc_wp_saw\tex\toadie_m249\assemblycover_co.tga", "hlc_wp_saw\tex\toadie_m249\barrel_co.tga", "hlc_wp_saw\tex\toadie_m249\misc_co.tga", "hlc_wp_saw\tex\toadie_m249\PIP_Foregrip_co.tga", "hlc_wp_saw\tex\toadie_m249\stockmap_co.tga", "hlc_wp_saw\tex\toadie_m249\rearsight_co.tga", "hlc_wp_saw\tex\toadie_m249\pouch_auscam_co.tga", "hlc_wp_saw\tex\melon_vfg\vgrip_co.tga", "hlc_wp_saw\tex\mk48\mk48_quadrail_co.tga", "hlc_wp_saw\tex\toadie_m249\pipbipod_co.tga" };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 185;
-            class UnderBarrelSlot {};
+            
         };
         class __MAGSWITCHCLASS {};
+        rhs_grip1_change = "hlc_lmg_mk48mod1_grip";
+        rhs_grip2_change = "hlc_lmg_mk48mod1_grip2";
+        rhs_grip3_change = "hlc_lmg_mk48mod1_grip3";
+        baseWeapon = "hlc_lmg_mk48mod1";
+    };
+
+    class hlc_lmg_mk48mod1_grip : hlc_lmg_mk48mod1
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.81;
+        __DEXTERITY(8.12 + 0.3, 1);
+    };
+    class hlc_lmg_mk48mod1_grip2 : hlc_lmg_mk48mod1
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_AFG.rtm" };
+        inertia = 0.81;
+        __DEXTERITY(8.12 + 0.3, 1);
+    };
+    class hlc_lmg_mk48mod1_grip3 : hlc_lmg_mk48mod1
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\hlc_wp_saw\anim\gesture\gesture_m249_VFG.rtm" };
+        inertia = 0.81;
+        __DEXTERITY(8.12 + 0.3, 1);
     };
 };
 
