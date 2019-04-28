@@ -18,15 +18,4 @@ class CfgFunctions {
             };
         };
     };
-    class NIArms_altReloads {
-      class functions {
-        file = "\hlc_core\functions\alt_reloads";
-        class afterReload {};
-        class getAttachments {};
-        class onReload {};
-        class perFrame {};
-        class postInit {};
-        class setAttachments {};
-      };
-    };
 };

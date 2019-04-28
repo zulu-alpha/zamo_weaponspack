@@ -8,10 +8,7 @@ class Cfgsoundshaders
             { "hlc_wp_p226\snd\p226_first", 1 },
             { "hlc_wp_p226\snd\p226_first", 1 } };
         range = 10;
-        volume = 1;
-        rangeCurve[] = {
-            { 0, 1 },
-            { 10, 0 } };
+        volume = 1.6;
     };
     class nia_p2269mm_closeShot_SoundShader
     {
@@ -25,7 +22,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\9mm\p226_mid", 1 } };
-        volume = 1.6;
+        volume = 0.8;
         range = 1500;
         rangeCurve[] = {
             { 0, 0.2 },
@@ -49,7 +46,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_taildistant", 1 } };
-        volume = 0.4;
+        volume = 1.7782794;
         range = 1500;
         rangeCurve[] = {
             { 0, 0 },
@@ -61,7 +58,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailForest", 1 } };
-        volume = " 1*((1-interior/1.4)*Forest/3)";
+        volume = " 3.85*((1-interior/1.4)*Forest/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -72,7 +69,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailHouses", 1 } };
-        volume = "1*((1-interior/1.4)*houses/3)";
+        volume = "3.85*((1-interior/1.4)*houses/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -84,7 +81,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\9mm\p226_indoor", 1 } };
-        volume = "1*((interior)*0.65)";
+        volume = " 3.85*((interior)*0.65)";
         range = 350;
         rangeCurve[] = {
             { 0, 1 },
@@ -108,7 +105,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailTrees", 1 } };
-        volume = "1*((1-interior/1.4)*trees/3)";
+        volume = " 3.85*((1-interior/1.4)*trees/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -191,7 +188,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\9mm\p239_mid", 1 } };
-        volume = 1.6;
+        volume = 0.8;
         range = 1500;
         rangeCurve[] = {
             { 0, 0.2 },
@@ -215,7 +212,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_taildistant", 1 } };
-        volume = 0.4;
+        volume = 1.7782794;
         range = 1500;
         rangeCurve[] = {
             { 0, 0 },
@@ -227,7 +224,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailForest", 1 } };
-        volume = "1*((1-interior/1.4)*Forest/3)";
+        volume = " 3.85*((1-interior/1.4)*Forest/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -238,7 +235,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailHouses", 1 } };
-        volume = "1*((1-interior/1.4)*houses/3)";
+        volume = "3.85*((1-interior/1.4)*houses/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -250,7 +247,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\9mm\p239_indoor", 1 } };
-        volume = "1*((interior)*0.65)";
+        volume = " 3.85*((interior)*0.65)";
         range = 350;
         rangeCurve[] = {
             { 0, 1 },
@@ -263,7 +260,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\9mm\p226_meadows", 1 } };
-        volume = "1*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
+        volume = " 3.85*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -274,7 +271,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailTrees", 1 } };
-        volume = "1*((1-interior/1.4)*trees/3)";
+        volume = " 3.85*((1-interior/1.4)*trees/3)";
     range = 1500;
     rangeCurve[] = {
         { 0, 1 },
@@ -289,10 +286,7 @@ class Cfgsoundshaders
             { "hlc_wp_p226\snd\p226_first", 1 },
             { "hlc_wp_p226\snd\p226_first", 1 } };
         range = 10;
-        volume = 1;
-        rangeCurve[] = {
-            { 0, 1 },
-            { 10, 0 } };
+        volume = 1.6;
     };
     class nia_p226_357_closeShot_SoundShader
     {
@@ -306,7 +300,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\357sig\p226_mid", 1 } };
-        volume = 1.6;
+        volume = 0.8;
         range = 1500;
         rangeCurve[] = {
             { 0, 0.2 },
@@ -330,7 +324,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_taildistant", 1 } };
-        volume = 0.4;
+        volume = 1.7782794;
         range = 1500;
         rangeCurve[] = {
             { 0, 0 },
@@ -342,7 +336,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailForest", 1 } };
-        volume = "1*((1-interior/1.4)*Forest/3)";
+        volume = " 3.85*((1-interior/1.4)*Forest/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -353,7 +347,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailHouses", 1 } };
-        volume = "1*((1-interior/1.4)*houses/3)";
+        volume = "3.85*((1-interior/1.4)*houses/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -365,7 +359,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\357sig\p226_indoor", 1 } };
-        volume = "1*((interior)*0.65)";
+        volume = " 3.85*((interior)*0.65)";
         range = 350;
         rangeCurve[] = {
             { 0, 1 },
@@ -378,7 +372,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\357sig\p226_meadows", 1 } };
-        volume = "1*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
+        volume = " 3.85*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -389,7 +383,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailTrees", 1 } };
-        volume = "1*((1-interior/1.4)*trees/3)";
+        volume = " 3.85*((1-interior/1.4)*trees/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -472,7 +466,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\357sig\p239_mid", 1 } };
-        volume = 1.6;
+        volume = 0.8;
         range = 1500;
         rangeCurve[] = {
             { 0, 0.2 },
@@ -496,7 +490,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_taildistant", 1 } };
-        volume = 0.4;
+        volume = 1.7782794;
         range = 1500;
         rangeCurve[] = {
             { 0, 0 },
@@ -508,7 +502,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailForest", 1 } };
-        volume = "1*((1-interior/1.4)*Forest/3)";
+        volume = " 3.85*((1-interior/1.4)*Forest/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -519,7 +513,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailHouses", 1 } };
-        volume = "1*((1-interior/1.4)*houses/3)";
+        volume = "3.85*((1-interior/1.4)*houses/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -531,7 +525,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\357sig\p239_indoor", 1 } };
-        volume = "1*((interior)*0.65)";
+        volume = " 3.85*((interior)*0.65)";
         range = 350;
         rangeCurve[] = {
             { 0, 1 },
@@ -544,7 +538,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\357sig\p226_meadows", 1 } };
-        volume = "1*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
+        volume = " 3.85*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -555,7 +549,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailTrees", 1 } };
-        volume = "1*((1-interior/1.4)*trees/3)";
+        volume = " 3.85*((1-interior/1.4)*trees/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -569,10 +563,7 @@ class Cfgsoundshaders
             { "hlc_wp_p226\snd\p226_first", 1 },
             { "hlc_wp_p226\snd\p226_first", 1 } };
         range = 10;
-        volume = 1;
-        rangeCurve[] = {
-            { 0, 1 },
-            { 10, 0 } };
+        volume = 1.6;
     };
     class nia_p226_45_closeShot_SoundShader
     {
@@ -586,7 +577,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\45acp\p226_mid", 1 } };
-        volume = 1.6;
+        volume = 0.8;
         range = 1500;
         rangeCurve[] = {
             { 0, 0.2 },
@@ -610,7 +601,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_taildistant", 1 } };
-        volume = 0.4;
+        volume = 1.7782794;
         range = 1500;
         rangeCurve[] = {
             { 0, 0 },
@@ -622,7 +613,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailForest", 1 } };
-        volume = "1*((1-interior/1.4)*Forest/3)";
+        volume = " 3.85*((1-interior/1.4)*Forest/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -633,7 +624,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailHouses", 1 } };
-        volume = "1*((1-interior/1.4)*houses/3)";
+        volume = "3.85*((1-interior/1.4)*houses/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -645,7 +636,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\45acp\p226_indoor", 1 } };
-        volume = "1*((interior)*0.65)";
+        volume = " 3.85*((interior)*0.65)";
         range = 350;
         rangeCurve[] = {
             { 0, 1 },
@@ -658,7 +649,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "hlc_wp_p226\snd\soundshader\45acp\p226_meadows", 1 } };
-        volume = "1*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
+        volume = " 3.85*((1-interior/1.4)*(meadows/2 max sea/2)/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },
@@ -669,7 +660,7 @@ class Cfgsoundshaders
     {
         samples[] = {
             { "A3\Sounds_F\arsenal\weapons\pistols\P07\P07_tailTrees", 1 } };
-        volume = "1*((1-interior/1.4)*trees/3)";
+        volume = " 3.85*((1-interior/1.4)*trees/3)";
         range = 1500;
         rangeCurve[] = {
             { 0, 1 },

@@ -37,25 +37,7 @@ class asdg_OpticRail1913;
 class asdg_OpticRail1913_short;
 class asdg_OpticRail;
 class asdg_OpticSideMount : asdg_OpticRail {
-    class compatibleItems;
-};
-class asdg_OpticSideRail_AK: asdg_OpticSideMount {
-    class compatibleItems: compatibleItems {
-        HLC_Optic_PSO1 = 1; // let's pretend it is an AK style mount, even though it looks more like the SVD style mount
-        HLC_Optic_1p29 = 1; // universal mount, works on both AK and SVD
-        hlc_optic_kobra = 1; // universal mount, works on both AK and SVD
-        hlc_optic_goshawk = 1; // universal mount, works on both AK and SVD
-    };
-};
-class asdg_OpticSideRail_SVD: asdg_OpticSideMount {
-    class compatibleItems: compatibleItems {
-        HLC_Optic_1p29 = 1;
-        hlc_optic_kobra = 1;
-        hlc_optic_goshawk = 1;
-    };
-};
-class asdg_OpticSideRail_AKSVD: asdg_OpticSideMount {
-    class compatibleItems: compatibleItems {
+    class compatibleItems {
         HLC_Optic_PSO1 = 1;
         HLC_Optic_1p29 = 1;
         hlc_optic_kobra = 1;
@@ -1097,7 +1079,7 @@ class CfgWeapons {
         __AI_AK_MODES(Single, FullAuto);
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 60;
-            class CowsSlot : asdg_OpticSideRail_AK {
+            class CowsSlot : asdg_OpticSideMount {
                 iconPosition[] = { 0.5, 0.45 };
                 iconScale = 0.2;
             };
@@ -1766,7 +1748,7 @@ class CfgWeapons {
         };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 52;
-            class CowsSlot : asdg_OpticSideRail_AK {
+            class CowsSlot : asdg_OpticSideMount {
                 iconPosition[] = { 0.5, 0.35 };
                 iconScale = 0.2;
             };
@@ -1894,7 +1876,7 @@ class CfgWeapons {
                 iconPosition[] = { 0.0, 0.4 };
                 iconScale = 0.2;
             };
-            class CowsSlot : asdg_OpticSideRail_AK {
+            class CowsSlot : asdg_OpticSideMount {
                 iconPosition[] = { 0.5, 0.35 };
                 iconScale = 0.2;
             };
@@ -2123,7 +2105,7 @@ class CfgWeapons {
 
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 96;
-            class CowsSlot : asdg_OpticSideRail_AK {
+            class CowsSlot : asdg_OpticSideMount {
                 iconPosition[] = { 0.5, 0.35 };
                 iconScale = 0.2;
             };
@@ -2200,7 +2182,7 @@ class CfgWeapons {
         modes[] = { "FullAuto", "Single", "50m", "AI_long", "AI_close", "AI_short", "AI_medium", "AI_far", "AI_toofar", "AI_far_optic1", "AI_toofar_optic1", "AI_far_optic2", "AI_toofar_optic2" };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 94;
-            class CowsSlot : asdg_OpticSideRail_AK {
+            class CowsSlot : asdg_OpticSideMount {
                 iconPosition[] = { 0.5, 0.35 };
                 iconScale = 0.2;
             };
@@ -2578,7 +2560,7 @@ class CfgWeapons {
                 iconPosition[] = { 0.0, 0.45 };
                 iconScale = 0.2;
             };
-            class CowsSlot : asdg_OpticSideRail_AK {
+            class CowsSlot : asdg_OpticSideMount {
                 iconPosition[] = { 0.5, 0.35 };
                 iconScale = 0.2;
             };
@@ -2786,7 +2768,7 @@ class CfgWeapons {
         };
         class WeaponSlotsInfo : WeaponSlotsInfo {
             mass = 56;
-            class CowsSlot : asdg_OpticSideRail_AK {
+            class CowsSlot : asdg_OpticSideMount {
                 iconPosition[] = { 0.5, 0.35 };
                 iconScale = 0.2;
             };

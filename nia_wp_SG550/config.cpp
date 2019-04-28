@@ -5,7 +5,7 @@
 
 class CfgPatches {
     class hlcweapons_SG550 {
-        requiredaddons[] = { "hlcweapons_core"};
+        requiredaddons[] = {"hlcweapons_core"};
         units[] = {
         };
         weapons[] = { 
@@ -42,10 +42,10 @@ class asdg_OpticRail1913_short;
 class asdg_UnderSlot;
 class asdg_MuzzleSlot;
 class nia_rifle_grips_slot;
-class asdg_MuzzleSlot_556 : asdg_MuzzleSlot {
+class asdg_MuzzleSlot_556: asdg_MuzzleSlot {
     class compatibleItems {
-        hlc_muzzle_snds_ROTEX3P = 1;
     };
+
 };
 class asdg_MuzzleSlot_762 : asdg_MuzzleSlot {
     class compatibleItems {
@@ -167,8 +167,8 @@ class CfgVehicles {
     __WEAPONHOLDER(hlc_rifle_sg553RSB, hlc_30Rnd_762x39_b_ak, SG553R-SB(RIS), Niarms_SG550, Toadie, AssaultRifles);
     __WEAPONHOLDER(hlc_rifle_sg553RSB_TAC, hlc_30Rnd_762x39_b_ak, SG553R-SB(Tactical), Niarms_SG550, Toadie, AssaultRifles);
 
-    __WEAPONHOLDER(hlc_rifle_sg553RLB, hlc_30Rnd_762x39_b_ak, SG553R-SB(RIS), Niarms_SG550, Toadie, AssaultRifles);
-    __WEAPONHOLDER(hlc_rifle_sg553RLB_TAC, hlc_30Rnd_762x39_b_ak, SG553R-SB(Tactical), Niarms_SG550, Toadie, AssaultRifles);
+    __WEAPONHOLDER(hlc_rifle_sg553RLB, hlc_30Rnd_762x39_b_ak, SG553R - SB(RIS), Niarms_SG550, Toadie, AssaultRifles);
+    __WEAPONHOLDER(hlc_rifle_sg553RLB_TAC, hlc_30Rnd_762x39_b_ak, SG553R - SB(Tactical), Niarms_SG550, Toadie, AssaultRifles);
 
     
 };
@@ -180,135 +180,117 @@ class CfgMagazines {
         dlc = "Niarms_SG550";
         ammo = "HLC_556NATO_EPR";
         count = 30;
-        descriptionshort = $STR_NIA_DESC_30Rnd_556x45_B;
-        displayname = $STR_NIA_30rnd_556x45_EPR_SG550;
+        descriptionshort = "Caliber: 5.56x45mm NATO M855A1 EPR<br />Type: Reverse Drawn Full Metal Jacket Exposed Penetrator (Enhanced Performance Round)<br />Rounds: 30";
+        displayname = "5.56mm EPR 30Rnd SG550 Magazine";
         initspeed = 974.8;
         lastroundstracer = 1;
-        picture = "\nia_wp_sg550\tex\ui\m_sg550_epr_ca.paa";
+        picture = "\hlc_core\tex\ui\ammo\m_augball_ca.paa";
         model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
-        modelSpecial = \nia_wp_sg550\mesh\magazine\Proxy\30rnd_556NATO_SG550;
-        hiddenSelections[] = { "roundtype1", "roundtype2" };
-        hiddenSelectionsTextures[] = { "hlc_core\tex\magazines\308_greentip_co.paa", "hlc_core\tex\magazines\308_greentip_co.paa" };
-        modelSpecialIsProxy = 1;
         scope = 2;
         tracersevery = 0;
         mass = 7;
-        displaynameshort = $STR_NIA_556_EPR;
+        displaynameshort = "M855A1 EPR";
         author = "Spartan0536,Toadie";
     };
     class hlc_30Rnd_556x45_SOST_sg550 : 30Rnd_556x45_Stanag{
         dlc = "Niarms_SG550";
         ammo = "HLC_556NATO_SOST";
         count = 30;
-        descriptionshort = $STR_NIA_DESC_30Rnd_556x45_SOST;
-        displayname = $STR_NIA_30rnd_556x45_SOST_SG550;
-        modelSpecial = \nia_wp_sg550\mesh\magazine\Proxy\30rnd_556NATO_SG550;
-        hiddenSelections[] = { "roundtype1", "roundtype2" };
-        hiddenSelectionsTextures[] = { "hlc_core\tex\magazines\308_co.paa", "hlc_core\tex\magazines\308_co.paa" };
+        descriptionshort = "Caliber: 5.56x45mm NATO Mk318 Mod 1 SOST<br />Type: Nickel Plated Reverse Drawn Full Metal Jacket (SOST)<br />Rounds: 30";
+        displayname = "5.56mm SOST 30Rnd SG550 Magazine";
         initspeed = 954.4;
         lastroundstracer = 1;
-        picture = "\nia_wp_sg550\tex\ui\m_sg550_sost_ca.paa";
+        picture = "\hlc_core\tex\ui\ammo\m_augball_ca.paa";
                 model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
         scope = 2;
         tracersevery = 0;
         mass = 7;
-        displaynameshort = $STR_NIA_556_SOST;
+        displaynameshort = "MK318 SOST";
         author = "Spartan0536,Toadie";
     };
     class hlc_30Rnd_556x45_SPR_sg550 : 30Rnd_556x45_Stanag{
         dlc = "Niarms_SG550";
         ammo = "HLC_556NATO_SPR";
         count = 30;
-        descriptionshort = $STR_NIA_DESC_30Rnd_556x45_SPR;
-        displayname = $STR_NIA_30rnd_556x45_SPR_SG550;
+        descriptionshort = "Caliber: 5.56x45mm NATO MK262 Mod 1 SBLR<br />Type: Open Tip Match (Special Ball Long Range)<br />Rounds: 30";
+        displayname = "5.56mm SBLR 30Rnd SG550 Magazine";
         initspeed = 868.7;
         lastroundstracer = 1;
-        picture = "\nia_wp_sg550\tex\ui\m_sg550_spr_ca.paa";
+        picture = "\hlc_core\tex\ui\ammo\m_augball_ca.paa";
         model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
-        modelSpecial = \nia_wp_sg550\mesh\magazine\Proxy\30rnd_556NATO_SG550;
-        hiddenSelections[] = { "roundtype1", "roundtype2" };
-        hiddenSelectionsTextures[] = { "hlc_core\tex\magazines\308_co.paa", "hlc_core\tex\magazines\308_co.paa" };
         scope = 2;
         tracersevery = 0;
         mass = 7;
-        displaynameshort = $STR_NIA_556_SPR;
+        displaynameshort = "MK262 Mod 1";
         author = "Spartan0536,Toadie";
     };
     class hlc_30Rnd_556x45_T_sg550 : 30Rnd_556x45_Stanag{
         dlc = "Niarms_SG550";
         ammo = "HLC_556NATO_EPR_Tracer";
         count = 30;
-        descriptionshort = $STR_NIA_DESC_30Rnd_556x45_T;
-        displayname = $STR_NIA_30Rnd_556x45_T_SG550;
+        descriptionshort = "Caliber: 5.56x45mm NATO M856A1 Tracer<br />Type: Incendiary-tip Tracer<br />Rounds: 30";
+        displayname = "5.56mm Tracer 30Rnd SG550 Magazine";
         initspeed = 974.8;
         lastroundstracer = 1;
-        picture = "\nia_wp_sg550\tex\ui\m_sg550_t_ca.paa";
+        picture = "\hlc_core\tex\ui\ammo\m_augtracer_ca.paa";
                 model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
-                modelSpecial = \nia_wp_sg550\mesh\magazine\Proxy\30rnd_556NATO_SG550;
-                hiddenSelections[] = { "roundtype1", "roundtype2" };
-                hiddenSelectionsTextures[] = { "hlc_core\tex\magazines\308_redtip_co.paa", "hlc_core\tex\magazines\308_redtip_co.paa" };
         scope = 2;
         tracersevery = 1;
         mass = 7;
-        displaynameshort = $STR_NIA_556_Tracer;
+        displaynameshort = "M856A1 Tracer";
         author = "Spartan0536,Toadie";
     };
     class hlc_30rnd_556x45_M_sg550 : 30Rnd_556x45_Stanag{
         dlc = "Niarms_SG550";
         ammo = "HLC_556NATO_EPR_Tracer";
         count = 30;
-        descriptionshort = $STR_NIA_DESC_30Rnd_556x45_M;
-        displayname = $STR_NIA_30Rnd_556x45_M_SG550;
-        model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
-        modelSpecial = \nia_wp_sg550\mesh\magazine\Proxy\30rnd_556NATO_SG550;
-        hiddenSelections[] = { "roundtype1", "roundtype2" };
-        hiddenSelectionsTextures[] = { "hlc_core\tex\magazines\308_greentip_co.paa", "hlc_core\tex\magazines\308_redtip_co.paa" };
+        descriptionshort = "Caliber: 5.56x45mm NATO M855A1 EPR/M856A1<br />Type: FMJ/Tracer<br />Rounds: 30";
+        displayname = "5.56mm EPR 30Rnd SG550 Magazine (Tracers every 4)";
         initspeed = 974.8;
         mass = 11;
         lastroundstracer = 3;
         scope = 2;
         tracersevery = 4;
-        displaynameshort = $STR_NIA_556_M;
-        picture = "\nia_wp_sg550\tex\ui\m_sg550_m_ca.paa";
-        author = "Spartan0536,Toadie";
+        displaynameshort = "EPR,Tracer";
+        picture = "\hlc_core\tex\ui\ammo\m_STANAG_tracer_ca.paa";
     };
     class hlc_30Rnd_556x45_MDIM_sg550 : 30Rnd_556x45_Stanag{
         dlc = "Niarms_SG550";
         ammo = "HLC_B_556x45_Ball_Tracer_Dim";
         count = 30;
-        descriptionshort = $STR_NIA_DESC_30Rnd_556x45_Mdim;
-        displayname = $STR_NIA_30rnd_556x45_MDim_SG550;
+        descriptionshort = "Caliber: 5.56x45mm IR-DIM Tracers<br />Type: FMJ/Low-visibility Tracer<br />Rounds: 30";
+        displayname = "5.56mm EPR 30Rnd SG550 Magazine (IR-DIM every 4)";
         initspeed = 974.8;
         lastroundstracer = 1;
-        picture = "\nia_wp_sg550\tex\ui\m_sg550_m_ca.paa";
-        model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
-        modelSpecial = \nia_wp_sg550\mesh\magazine\Proxy\30rnd_556NATO_SG550;
-        hiddenSelections[] = { "roundtype1", "roundtype2" };
-        hiddenSelectionsTextures[] = { "hlc_core\tex\magazines\308_greentip_co.paa", "hlc_core\tex\magazines\308_redtip_co.paa" };
+        picture = "\hlc_core\tex\ui\ammo\m_augtracer_ca.paa";
+                model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
         scope = 2;
         tracersevery = 4;
         mass = 7;
-        displaynameshort = $STR_NIA_556_MDim;
-        author = "Spartan0536,Toadie";
+        displaynameshort = "EPR/IR-DIM";
+        author = "Toadie";
     };
     class hlc_30Rnd_556x45_TDIM_sg550 : 30Rnd_556x45_Stanag{
         dlc = "Niarms_SG550";
         ammo = "HLC_B_556x45_Ball_Tracer_Dim";
         count = 30;
-        descriptionshort = $STR_NIA_DESC_30Rnd_556x45_irdim;
-        displayname = $STR_NIA_30rnd_556x45_TDim_SG550;
+        descriptionshort = "Caliber: 5.56x45mm IR-DIM Tracers<br />Type: Low-visibility Tracer<br />Rounds: 30";
+        displayname = "5.56mm IR-Dim 30Rnd SG550 Magazine";
         initspeed = 974.8;
         lastroundstracer = 1;
-        picture = "\nia_wp_sg550\tex\ui\m_sg550_t_ca.paa";
-        model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
-        modelSpecial = \nia_wp_sg550\mesh\magazine\Proxy\30rnd_556NATO_SG550;
-        hiddenSelections[] = { "roundtype1", "roundtype2" };
-        hiddenSelectionsTextures[] = { "hlc_core\tex\magazines\308_redtip_co.paa", "hlc_core\tex\magazines\308_redtip_co.paa" };
+        picture = "\hlc_core\tex\ui\ammo\m_augtracer_ca.paa";
+                model = "\nia_wp_sg550\mesh\magazine\magazine.p3d";
         scope = 2;
         tracersevery = 1;
         mass = 7;
-        displaynameshort = $STR_NIA_556_IRDIM;
-        author = "Spartan0536,Toadie";
+        displaynameshort = "IR-DIM";
+        author = "Toadie";
+    };
+};
+
+class CfgMagazineWells {
+    class CBA_556x45_SG550 {
+        NIA_mags[] = { __556SG550_MAGS };
     };
 };
 
@@ -318,30 +300,14 @@ class CfgWeapons {
 
 //muzzles
 
-    class muzzle_snds_H : ItemCore {
-        class ItemInfo;
-    };
-    class NIAmuzzle_flash_rifle_Rotex3P : ItemCore
-    {
-        dlc = "Niarms_SG550";
-        scope = 2;
-        model = "hlc_core\mesh\muzzleflash\Muzzle_flash_3prong.p3d";
-    };
-    class hlc_muzzle_snds_ROTEX3P : muzzle_snds_H {
-        dlc = "Niarms_SG550";
-        author = "Toadie";
-        descriptionShort = $STR_NIA_brake_Rotex3P_556_DESC;
-        displayName = $STR_NIA_muzzle_snds_ROTEX3P;
-        picture = "nia_wp_sg550\tex\UI\gear_rotex3P_ca.paa";
-        model = "nia_wp_sg550\mesh\acc\Rotex_3P_brake.p3d";
-        class ItemInfo : ItemInfo {
-            mass = 1;
-            soundTypeIndex = 0;
-            muzzleEnd = "zaslehPoint"; // memory point in muzzle supressor's model
-            alternativeFire = "NIAmuzzle_flash_rifle_Rotex3P";  // class in cfgWeapons with model of muzzle flash	
-        };
-        inertia = 0.00;
-    };
+    class muzzle_snds_H;
+    /*
+    class hlc_muzzle_snds_ROTEX5 : muzzle_snds_H {
+        author = "Bohemia Interactive,Toadie";
+        displayName = "B&T Rotex";
+        picture = "\A3\weapons_F\Data\UI\gear_acca_snds_h_CA.paa";
+        model = "hlc_wp_aug\mesh\m42000\M42000";
+    };*/
 //Optics
     class optic_LRPS : ItemCore {
         class ItemInfo;
@@ -350,9 +316,9 @@ class CfgWeapons {
     class hlc_optic_DiavariZ_5501 : optic_lrps {
         dlc = "Niarms_SG550";
         author = "Toadie";
-        descriptionshort = $STR_NIA_DiavariZ_DESC;
+        descriptionshort = "Zeiss Diavari-Z <br />Magnification: 2.5-10x";
         model = "nia_wp_sg550\mesh\SG550-1Scope\DiavariZ.p3d";
-        displayname = $STR_NIA_opticDiavariZ_550;
+        displayname = "Zeiss Diavari-Z";
 
         class ItemInfo : ItemInfo {
             class OpticsModes {
@@ -401,9 +367,9 @@ class CfgWeapons {
     class hlc_optic_ZF95 : hlc_optic_ZF95Base {
         dlc = "Niarms_SG550";
         author = "Toadie";
-        descriptionshort = $STR_NIA_ZF95_DESC;
+        descriptionshort = "Kahles ZF95 with NATO Rangefinding Reticle<br />Magnification: 6x";
         model = "nia_wp_sg550\mesh\acc\Optic\ZF95.p3d";
-        displayname = $STR_NIA_optic_ZF95_550;
+        displayname = "Kahles ZF95 (SG550 Mount)";
     };
     class optic_aco;
     class hlc_optic_ZF4xBase : optic_aco { 
@@ -413,8 +379,8 @@ class CfgWeapons {
         dlc = "Niarms_SG550";
         author = "Toadie";
         model = "nia_wp_sg550\mesh\acc\Optic\FN4x.p3d";
-        descriptionshort = $STR_NIA_FNZF4x_DESC;
-        displayname = $STR_NIA_optic_ZF4x_550;
+        descriptionshort = "FN 4x28 STANAG Scope<br />Magnification: 4x";
+        displayname = "FN STANAG 4x28 (SG550 Mount)";
         class ItemInfo : InventoryOpticsItem_Base_F
         {
             mass = 10;
@@ -462,8 +428,8 @@ class CfgWeapons {
     class hlc_optic_FNSTANAG4X2d_550 : hlc_optic_ZF4xBase {
         dlc = "Niarms_SG550";
         author = "Toadie";
-        descriptionshort = $STR_NIA_FNZF4x_DESC;
-        displayname = $STR_NIA_optic_ZF4x_550_2d;
+        descriptionshort = "FN 4x28 STANAG Scope<br />Magnification: 4x";
+        displayname = "FN STANAG 4x28(2D) (SG550 Mount)";
         model = "nia_wp_sg550\mesh\acc\Optic\FN4x.p3d";
         class ItemInfo : InventoryOpticsItem_Base_F
         {
@@ -516,8 +482,8 @@ class CfgWeapons {
         dlc = "Niarms_SG550";
         scope = public;
         author = "Toadie";
-        descriptionshort = $STR_NIA_AARAU_DESC;
-        displayname = $STR_NIA_optic_kern_AARAU_550;
+        descriptionshort = "Kern 4x24 Zielfernrohr <br />Magnification: 4x";
+        displayname = "Kern AARAU 4x24 (SG550 Mount)";
         picture = "\hlc_core\tex\ui\gear_AARAU_x_ca";
         model = "nia_wp_sg550\mesh\acc\Optic\AARAU.p3d";
         weaponInfoType = "RscWeaponZeroing";
@@ -573,7 +539,7 @@ class CfgWeapons {
     {
         dlc = "Niarms_SG550";
         author = "Toadie, Kaukaussus";
-        displayname = $STR_NIA_optic_kern_AARAU_550_2D;
+        displayname = "Kern AARAU 4x24(2D) (SG550 Mount)";
         class ItemInfo : ItemInfo
         {
             class OpticsModes : OpticsModes
@@ -642,6 +608,7 @@ class CfgWeapons {
         distanceZoomMax = 300;
         descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         magazines[] = { __556SG550_MAGS };
+        magazineWell[] = {"CBA_556x45_SG550"};
         UiPicture = "\A3\weapons_f\data\UI\icon_regular_CA.paa";
 
         inertia = 0.36;
@@ -775,6 +742,7 @@ class CfgWeapons {
                 recoilProne = "M240Recoil";
                 __AI_ROF_GL_SINGLE;
             };
+            magazineWell[] = {"CBA_40mm_M203"};
         };
     };
 
@@ -796,8 +764,8 @@ class CfgWeapons {
         inertia = 0.41;
         __DEXTERITY(4.1, 0);
         scope = public;
-        displayName = $STR_NIA_SG550;
-        descriptionShort = $STR_NIA_SG550_DESC;
+        displayName = "SIG SG550";
+        descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg550.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg550_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_sg550.rtm" };
@@ -823,8 +791,8 @@ class CfgWeapons {
     class hlc_rifle_SG550_RIS : hlc_rifle_SG550
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG550_RIS;
-        descriptionShort = $STR_NIA_SG550_DESC;
+        displayName = "SIG SG550(RIS)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg550_RIS.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg550_ris_ca";
         inertia = 0.4174;
@@ -843,8 +811,8 @@ class CfgWeapons {
     };
     class hlc_rifle_SG550_TAC: hlc_rifle_SG550 {
         author = "Toadie";
-        displayName = $STR_NIA_SG550_TAC;
-        descriptionShort = $STR_NIA_SG550_DESC;
+        displayName = "SIG SG550(Tactical)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg550_tac.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg550_tac_ca";
         ACE_barrelTwist = 178;
@@ -907,7 +875,7 @@ class CfgWeapons {
     class hlc_rifle_SG550_GL :hlc_rifle_SG550
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG550_GL;
+        displayName = "SIG SG550(GL)";
         hasBipod = false;
         muzzles[] = { "this", "hlc_GL_GL5040" };
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_gl5040.rtm" };
@@ -922,7 +890,7 @@ class CfgWeapons {
     class hlc_rifle_SG550_TAC_GL :hlc_rifle_SG550
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG550_TAC_GL;
+        displayName = "SIG SG550(Tactical/GL)";
         hasBipod = false;
         muzzles[] = { "this", "hlc_GL_GL5040" };
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_gl5040.rtm" };
@@ -971,8 +939,8 @@ class CfgWeapons {
         inertia = 0.34;
         __DEXTERITY(3.4, 0);
         scope = public;
-        displayName = $STR_NIA_SG551SB;
-        descriptionShort = $STR_NIA_SG551_DESC;
+        displayName = "SIG SG551-SB";
+        descriptionShort = "Carbine<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg551.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg551sb_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_sg550.rtm" };
@@ -1064,8 +1032,8 @@ class CfgWeapons {
     class hlc_rifle_SG551SB_RIS : hlc_rifle_SG551SB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG551SB_RIS;
-        descriptionShort = $STR_NIA_SG551_DESC;
+        displayName = "SIG SG551-SB(RIS)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg551_RIS.p3d"; 
         picture = "\nia_wp_sg550\tex\ui\sg551sb_ca";
         inertia = 0.34;
@@ -1085,8 +1053,8 @@ class CfgWeapons {
     class hlc_rifle_SG551SB_TAC : hlc_rifle_SG551SB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG551SB_TAC;
-        descriptionShort = $STR_NIA_SG551_DESC;
+        displayName = "SIG SG551-SB(Tactical)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg551_tac.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg551sb_tac_ca";
         ACE_barrelTwist = 178;
@@ -1150,7 +1118,7 @@ class CfgWeapons {
     {
         scope = public;
         author = "Toadie";
-        displayName = $STR_NIA_SG551SB_GL;
+        displayName = "SIG SG551-SB(Tactical/GL)";
         hasBipod = false;
         discretedistance[] = { 100 };
         discreteDistanceCameraPoint[] = { "eye" }; /// the angle of gun changes with zeroing
@@ -1184,7 +1152,7 @@ class CfgWeapons {
     class hlc_rifle_SG551LB : hlc_rifle_SG551SB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG551LB;
+        displayName = "SIG SG551-LB";
         model = "nia_wp_sg550\mesh\sg550\sg551_LB.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg551lb_ca";
         initspeed = -0.9;
@@ -1261,7 +1229,7 @@ class CfgWeapons {
     class hlc_rifle_SG551LB_RIS : hlc_rifle_SG551LB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG551LB_RIS;
+        displayName = "SIG SG551-LB(RIS)";
         model = "nia_wp_sg550\mesh\sg550\sg551_LB_RIS.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg551lb_ca";
         inertia = 0.34;
@@ -1281,7 +1249,7 @@ class CfgWeapons {
     class hlc_rifle_SG551LB_TAC :hlc_rifle_SG551LB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG551LB_TAC;
+        displayName = "SIG SG551-LB(Tactical)";
         model = "nia_wp_sg550\mesh\sg550\sg551_LB_Tac.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg551lb_tac_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_tactical.rtm" };
@@ -1345,7 +1313,7 @@ class CfgWeapons {
     class hlc_rifle_SG551LB_TAC_GL :hlc_rifle_SG551LB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG551LB_GL;
+        displayName = "SIG SG551-LB(Tactical/GL)";
         hasBipod = false;
         muzzles[] = { "this", "hlc_GL_GL5040" };
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_gl5040.rtm" };
@@ -1394,8 +1362,8 @@ class CfgWeapons {
         inertia = 0.32;
         __DEXTERITY(3.2, 0);
         scope = public;
-        displayName = $STR_NIA_SG553SB;
-        descriptionShort = $STR_NIA_SG553_DESC;
+        displayName = "SIG SG553-SB";
+        descriptionShort = "Sub-Carbine<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg553.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553sb_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_sg550.rtm" };
@@ -1487,8 +1455,8 @@ class CfgWeapons {
     class hlc_rifle_SG553SB_RIS : hlc_rifle_SG553SB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG553SB_RIS;
-        descriptionShort = $STR_NIA_SG553_DESC;
+        displayName = "SIG SG553-SB(RIS)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg553_RIS.p3d"; 
         picture = "\nia_wp_sg550\tex\ui\sg553sb_ca";
         inertia = 0.32+0.008;
@@ -1508,8 +1476,8 @@ class CfgWeapons {
     class hlc_rifle_SG553SB_TAC : hlc_rifle_SG553SB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG553SB_TAC;
-        descriptionShort = $STR_NIA_SG553_DESC;
+        displayName = "SIG SG553-SB(Tactical)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg553_tac.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553sb_tac_ca";
         ACE_barrelTwist = 178;
@@ -1573,7 +1541,7 @@ class CfgWeapons {
 
     class hlc_rifle_SG553LB : hlc_rifle_SG551SB
     {
-        displayName = $STR_NIA_SG553LB;
+        displayName = "SIG SG553-LB";
         model = "nia_wp_sg550\mesh\sg550\sg553_LB.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553lb_ca";
         initspeed = -0.85;
@@ -1649,7 +1617,7 @@ class CfgWeapons {
     };
     class hlc_rifle_SG553LB_RIS : hlc_rifle_SG553LB
     {
-        displayName = $STR_NIA_SG553LB_RIS;
+        displayName = "SIG SG553-LB(RIS)";
         model = "nia_wp_sg550\mesh\sg550\sg553_LB_RIS.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553lb_ca";
         inertia = 0.34;
@@ -1668,7 +1636,7 @@ class CfgWeapons {
     };
     class hlc_rifle_SG553LB_TAC :hlc_rifle_SG553LB
     {
-        displayName = $STR_NIA_SG553LB_TAC;
+        displayName = "SIG SG553-LB(Tactical)";
         model = "nia_wp_sg550\mesh\sg550\sg553_LB_Tac.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553lb_tac_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_tactical.rtm" };
@@ -1745,8 +1713,8 @@ class CfgWeapons {
         inertia = 0.41;
         __DEXTERITY(4.1, -1);
         scope = public;
-        displayName = $STR_NIA_SG550Sniper;
-        descriptionShort = $STR_NIA_SG550Sniper_DESC;
+        displayName = "SIG SG550-1 SP";
+        descriptionShort = "Sniper Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg5501.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg550-01_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_sg550.rtm" };
@@ -1807,8 +1775,8 @@ class CfgWeapons {
     class hlc_rifle_SG550Sniper_RIS : hlc_rifle_SG550Sniper
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG550Sniper_RIS;
-        descriptionShort = $STR_NIA_SG550Sniper_DESC;
+        displayName = "SIG SG550-1 SP(RIS)";
+        descriptionShort = "Sniper Rifle<br/>Caliber: 5.56mm NATO";
         model = "nia_wp_sg550\mesh\sg550\sg5501_RIS.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg550-01_ris_ca";
         class WeaponSlotsInfo : WeaponSlotsInfo {
@@ -1829,13 +1797,14 @@ class CfgWeapons {
         ACE_barrelTwist = 241.6;
         ACE_barrelLength = 226.0;
         author = "Toadie";
-        displayName = $STR_NIA_SG553RSB_RIS;
-        descriptionShort = $STR_NIA_SG553R_DESC;
+        displayName = "SIG SG553R-SB(RIS)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 7.62mmx39";
         model = "nia_wp_sg550\mesh\sg553r\SG553_ris.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553rsb_ca";
         recoil = "recoil_mx";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_sg550.rtm" };
         magazines[] = { __762x39_MAGS, __762x39_BI_MAGS };
+        magazineWell[] = {"CBA_762x39_AK", "CBA_762x39_RPK"};
         reloadMagazineSound[] = { "\nia_wp_SG550\snd\553r\sg553R_reload", 1, 1, 30 };
         reloadAction = "HLC_GesturereloadSG553R";
         discretedistance[] = { 100 };
@@ -1923,16 +1892,27 @@ class CfgWeapons {
             };
         };
         class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_75rnd";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RSB_75rnd";
+            HLC_45rnd_762x39_T_RPK = "hlc_rifle_sg553RSB_45rnd";
+            hlc_45Rnd_762x39_m_rpk = "hlc_rifle_sg553RSB_45rnd";
             hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RSB_75rnd";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RSB_75rnd";
+            hlc_45Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_45rnd";
+            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_75rnd";
             default = "hlc_rifle_sg553RSB";
         };
+    };
+    class hlc_rifle_sg553RSB_45rnd : hlc_rifle_sg553RSB
+    {
+        scopeArsenal = 0;
+        displayName = "SIG SG553R-SB(RIS)";
+        model = "nia_wp_sg550\mesh\sg553r\SG553_ris_45rnd.p3d";
+        //hiddenSelectionsTextures[] = { "hlc_wp_ak\tex\toadie_slr107u\slr107u_map1_co.tga", "hlc_wp_ak\tex\rifleman_ak74\mount_co.tga", "hlc_wp_ak\tex\rrxviii_mtk83\mtk-83_co.tga", "hlc_wp_ak\tex\bl_rpk\mag_co.tga" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 0);
     };
     class hlc_rifle_sg553RSB_75rnd : hlc_rifle_sg553RSB
     {
         scopeArsenal = 0;
+        displayName = "SIG SG553R-SB(RIS)";
         model = "nia_wp_sg550\mesh\sg553r\SG553_ris_75rnd.p3d";
         //hiddenSelectionsTextures[] = { "hlc_wp_ak\tex\toadie_slr107u\slr107u_map1_co.tga", "hlc_wp_ak\tex\rifleman_ak74\mount_co.tga", "hlc_wp_ak\tex\rrxviii_mtk83\mtk-83_co.tga", "hlc_wp_ak\tex\populik_Drum\ak_drum_mag_co.tga" };
         reloadAction = "HLC_GesturereloadSG553RDrum";
@@ -1944,7 +1924,7 @@ class CfgWeapons {
     class hlc_rifle_sg553RSB_TAC :hlc_rifle_sg553RSB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG553RSB_TAC;
+        displayName = "SIG SG553R-SB(Tactical)";
         model = "nia_wp_sg550\mesh\sg553r\SG553_tac.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553rsb_tac_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_tactical.rtm" };
@@ -1976,10 +1956,11 @@ class CfgWeapons {
             class GripodSlot : nia_rifle_grips_slot {};
         };
         class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_TAC_75rnd";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RSB_TAC_75rnd";
+            HLC_45rnd_762x39_T_RPK = "hlc_rifle_sg553RSB_TAC_45rnd";
+            hlc_45Rnd_762x39_m_rpk = "hlc_rifle_sg553RSB_TAC_45rnd";
             hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RSB_TAC_75rnd";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RSB_TAC_75rnd";
+            hlc_45Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_TAC_45rnd";
+            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_TAC_75rnd";
             default = "hlc_rifle_sg553RSB_TAC";
         };
     };
@@ -1990,13 +1971,6 @@ class CfgWeapons {
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
         inertia = (0.34 + 0.066);
         __DEXTERITY((3.4 + 0.66), 1);
-        class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip";
-            hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip";
-            default = "hlc_rifle_sg553RSB_TAC_grip";
-        };
     };
     class hlc_rifle_sg553RSB_TAC_grip2 : hlc_rifle_sg553RSB_TAC
     {
@@ -2005,13 +1979,6 @@ class CfgWeapons {
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_afg.rtm" };
         inertia = (0.34 + 0.066);
         __DEXTERITY((3.4 + 0.66), 1);
-        class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip2";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip2";
-            hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip2";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip2";
-            default = "hlc_rifle_sg553RSB_TAC_grip2";
-        };
     };
     class hlc_rifle_sg553RSB_TAC_grip3 : hlc_rifle_sg553RSB_TAC
     {
@@ -2020,13 +1987,43 @@ class CfgWeapons {
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
         inertia = (0.34 + 0.066);
         __DEXTERITY((3.4 + 0.66), 1);
-        class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip3";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip3";
-            hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip3";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RSB_TAC_75rnd_grip3";
-            default = "hlc_rifle_sg553RSB_TAC_grip3";
-        };
+    };
+    class hlc_rifle_sg553RSB_TAC_45rnd : hlc_rifle_sg553RSB_TAC
+    {
+        scopeArsenal = 0;
+        displayName = "SIG SG553R-SB(RIS)";
+        model = "nia_wp_sg550\mesh\sg553r\SG553_tac_45rnd.p3d";
+        //hiddenSelectionsTextures[] = { "hlc_wp_ak\tex\toadie_slr107u\slr107u_map1_co.tga", "hlc_wp_ak\tex\rifleman_ak74\mount_co.tga", "hlc_wp_ak\tex\rrxviii_mtk83\mtk-83_co.tga", "hlc_wp_ak\tex\bl_rpk\mag_co.tga" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 0);
+        rhs_grip1_change = "hlc_rifle_sg553RSB_TAC_45rnd_grip";
+        rhs_grip2_change = "hlc_rifle_sg553RSB_TAC_45rnd_grip2";
+        rhs_grip3_change = "hlc_rifle_sg553RSB_TAC_45rnd_grip3";
+        baseWeapon = "hlc_rifle_sg553RSB_TAC_45rnd";
+    };
+    class hlc_rifle_sg553RSB_TAC_45rnd_grip : hlc_rifle_sg553RSB_TAC_45rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 1);
+    };
+    class hlc_rifle_sg553RSB_TAC_45rnd_grip2 : hlc_rifle_sg553RSB_TAC_45rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_afg.rtm" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 1);
+    };
+    class hlc_rifle_sg553RSB_TAC_45rnd_grip3 : hlc_rifle_sg553RSB_TAC_45rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 1);
     };
     class hlc_rifle_sg553RSB_TAC_75rnd : hlc_rifle_sg553RSB_TAC
     {
@@ -2041,7 +2038,7 @@ class CfgWeapons {
         rhs_grip1_change = "hlc_rifle_sg553RSB_TAC_75rnd_grip";
         rhs_grip2_change = "hlc_rifle_sg553RSB_TAC_75rnd_grip2";
         rhs_grip3_change = "hlc_rifle_sg553RSB_TAC_75rnd_grip3";
-        baseWeapon = "hlc_rifle_sg553RSB_TAC_75rnd";
+        baseWeapon = "hlc_rifle_sg553RSB_TAC_45rnd";
     };
     class hlc_rifle_sg553RSB_TAC_75rnd_grip : hlc_rifle_sg553RSB_TAC_75rnd
     {
@@ -2071,8 +2068,8 @@ class CfgWeapons {
     class hlc_rifle_sg553RLB : hlc_rifle_sg553RSB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG553RLB_RIS;
-        descriptionShort = $STR_NIA_SG553R_DESC;
+        displayName = "SIG SG553R-LB(RIS)";
+        descriptionShort = "Assault Rifle<br/>Caliber: 7.62mmx39";
         model = "nia_wp_sg550\mesh\sg553r\SG553_LB_ris.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553rsb_ca";
         recoil = "recoil_mx";
@@ -2165,16 +2162,27 @@ class CfgWeapons {
             };
         };
         class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_75rnd";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RLB_75rnd";
+            HLC_45rnd_762x39_T_RPK = "hlc_rifle_sg553RLB_45rnd";
+            hlc_45Rnd_762x39_m_rpk = "hlc_rifle_sg553RLB_45rnd";
             hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RLB_75rnd";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RLB_75rnd";
+            hlc_45Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_45rnd";
+            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_75rnd";
             default = "hlc_rifle_sg553RLB";
         };
+    };
+    class hlc_rifle_sg553RLB_45rnd : hlc_rifle_sg553RLB
+    {
+        scopeArsenal = 0;
+        displayName = "SIG SG553R-LB(RIS)";
+        model = "nia_wp_sg550\mesh\sg553r\SG553_LB_ris_45rnd.p3d";
+        //hiddenSelectionsTextures[] = { "hlc_wp_ak\tex\toadie_slr107u\slr107u_map1_co.tga", "hlc_wp_ak\tex\rifleman_ak74\mount_co.tga", "hlc_wp_ak\tex\rrxviii_mtk83\mtk-83_co.tga", "hlc_wp_ak\tex\bl_rpk\mag_co.tga" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 0);
     };
     class hlc_rifle_sg553RLB_75rnd : hlc_rifle_sg553RLB
     {
         scopeArsenal = 0;
+        displayName = "SIG SG553R-LB(RIS)";
         model = "nia_wp_sg550\mesh\sg553r\SG553_LB_ris_75rnd.p3d";
         //hiddenSelectionsTextures[] = { "hlc_wp_ak\tex\toadie_slr107u\slr107u_map1_co.tga", "hlc_wp_ak\tex\rifleman_ak74\mount_co.tga", "hlc_wp_ak\tex\rrxviii_mtk83\mtk-83_co.tga", "hlc_wp_ak\tex\populik_Drum\ak_drum_mag_co.tga" };
         reloadAction = "HLC_GesturereloadSG553RDrum";
@@ -2185,7 +2193,7 @@ class CfgWeapons {
     class hlc_rifle_sg553RLB_TAC :hlc_rifle_sg553RLB
     {
         author = "Toadie";
-        displayName = $STR_NIA_SG553RLB_TAC;
+        displayName = "SIG SG553R-LB(Tactical)";
         model = "nia_wp_sg550\mesh\sg553r\SG553_LB_tac.p3d";
         picture = "\nia_wp_sg550\tex\ui\sg553rsb_tac_ca";
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_tactical.rtm" };
@@ -2216,10 +2224,11 @@ class CfgWeapons {
             class GripodSlot : nia_rifle_grips_slot {};
         };
         class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_TAC_75rnd";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RLB_TAC_75rnd";
+            HLC_45rnd_762x39_T_RPK = "hlc_rifle_sg553RLB_TAC_45rnd";
+            hlc_45Rnd_762x39_m_rpk = "hlc_rifle_sg553RLB_TAC_45rnd";
             hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RLB_TAC_75rnd";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RLB_TAC_75rnd";
+            hlc_45Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_TAC_45rnd";
+            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_TAC_75rnd";
             default = "hlc_rifle_sg553RLB_TAC";
         };
     };
@@ -2230,14 +2239,6 @@ class CfgWeapons {
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
         inertia = (0.34 + 0.066);
         __DEXTERITY((3.4 + 0.66), 1);
-        class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip";
-            hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip";
-            default = "hlc_rifle_sg553RLB_TAC_grip";
-        };
-
     };
     class hlc_rifle_sg553RLB_TAC_grip2 : hlc_rifle_sg553RLB_TAC
     {
@@ -2246,13 +2247,6 @@ class CfgWeapons {
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_afg.rtm" };
         inertia = (0.34 + 0.066);
         __DEXTERITY((3.4 + 0.66), 1);
-        class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip2";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip2";
-            hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip2";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip2";
-            default = "hlc_rifle_sg553RLB_TAC_grip2";
-        };
     };
     class hlc_rifle_sg553RLB_TAC_grip3 : hlc_rifle_sg553RLB_TAC
     {
@@ -2261,17 +2255,48 @@ class CfgWeapons {
         handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
         inertia = (0.34 + 0.066);
         __DEXTERITY((3.4 + 0.66), 1);
-        class __MAGSWITCHCLASS {
-            hlc_75Rnd_762x39_AP_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip3";
-            hlc_75Rnd_762x39_b_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip3";
-            hlc_75Rnd_762x39_m_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip3";
-            hlc_75Rnd_762x39_t_rpk = "hlc_rifle_sg553RLB_TAC_75rnd_grip3";
-            default = "hlc_rifle_sg553RLB_TAC_grip3";
-        };
+    };
+    class hlc_rifle_sg553RLB_TAC_45rnd : hlc_rifle_sg553RLB_TAC
+    {
+        scopeArsenal = 0;
+        displayName = "SIG SG553R-LB(RIS)";
+        model = "nia_wp_sg550\mesh\sg553r\SG553_LB_tac_45rnd.p3d";
+        //hiddenSelectionsTextures[] = { "hlc_wp_ak\tex\toadie_slr107u\slr107u_map1_co.tga", "hlc_wp_ak\tex\rifleman_ak74\mount_co.tga", "hlc_wp_ak\tex\rrxviii_mtk83\mtk-83_co.tga", "hlc_wp_ak\tex\bl_rpk\mag_co.tga" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 0);
+        rhs_grip1_change = "hlc_rifle_sg553RLB_TAC_45rnd_grip";
+        rhs_grip2_change = "hlc_rifle_sg553RLB_TAC_45rnd_grip2";
+        rhs_grip3_change = "hlc_rifle_sg553RLB_TAC_45rnd_grip3";
+        baseWeapon = "hlc_rifle_sg553RLB_TAC_45rnd";
+    };
+    class hlc_rifle_sg553RLB_TAC_45rnd_grip : hlc_rifle_sg553RLB_TAC_45rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 1);
+    };
+    class hlc_rifle_sg553RLB_TAC_45rnd_grip2 : hlc_rifle_sg553RLB_TAC_45rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_afg.rtm" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 1);
+    };
+    class hlc_rifle_sg553RLB_TAC_45rnd_grip3 : hlc_rifle_sg553RLB_TAC_45rnd
+    {
+        scopeArsenal = 0;
+        author = "Toadie";
+        handanim[] = { "OFP2_ManSkeleton", "\nia_wp_sg550\anim\handpose_vfg.rtm" };
+        inertia = 0.308 + 0.07;
+        __DEXTERITY(3.08 + 0.7, 1);
     };
     class hlc_rifle_sg553RLB_TAC_75rnd : hlc_rifle_sg553RLB_TAC
     {
         scopeArsenal = 0;
+        displayName = "SIG SG553R-LB(RIS)";
         model = "nia_wp_sg550\mesh\sg553r\SG553_LB_tac_75rnd.p3d";
         //hiddenSelectionsTextures[] = { "hlc_wp_ak\tex\toadie_slr107u\slr107u_map1_co.tga", "hlc_wp_ak\tex\rifleman_ak74\mount_co.tga", "hlc_wp_ak\tex\rrxviii_mtk83\mtk-83_co.tga", "hlc_wp_ak\tex\populik_Drum\ak_drum_mag_co.tga" };
         reloadAction = "HLC_GesturereloadSG553RDrum";
@@ -2281,7 +2306,7 @@ class CfgWeapons {
         rhs_grip1_change = "hlc_rifle_sg553RLB_TAC_75rnd_grip";
         rhs_grip2_change = "hlc_rifle_sg553RLB_TAC_75rnd_grip2";
         rhs_grip3_change = "hlc_rifle_sg553RLB_TAC_75rnd_grip3";
-        baseWeapon = "hlc_rifle_sg553RLB_TAC_75rnd";
+        baseWeapon = "hlc_rifle_sg553RLB_TAC_45rnd";
     };
     class hlc_rifle_sg553RLB_TAC_75rnd_grip : hlc_rifle_sg553RLB_TAC_75rnd
     {

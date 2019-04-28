@@ -7,15 +7,12 @@ class CfgSoundShaders
 			{ "hlc_wp_sigamt\snd\soundshaders\amt_first", 1 } };
 		range = 15;
 		volume = 1.21;
-		rangeCurve[] = {
-			{ 0, 1 },
-			{ 15, 0 }};
 	};
 	class sg510_closeShot_SoundShader
 	{
 		samples[] = {
 			{ "hlc_wp_sigamt\snd\soundshaders\amt_close", 1 } };
-		volume = 0.7;
+		volume = 0.8;
 		range = 50;
 		rangeCurve = "closeShotCurve";
 	};
@@ -26,7 +23,7 @@ class CfgSoundShaders
 		volume = 1.6;
 		range = 2000;
 		rangeCurve[] = {
-			{ 0, 0.5 },
+			{ 0, 0.2 },
 			{ 50, 1 },
 			{ 300, 0 },
 			{ 2000, 0 } };

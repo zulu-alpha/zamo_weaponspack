@@ -8,8 +8,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare3Curve";
         sound3DProcessingType = "WeaponMediumShot3DProcessingType";
         distanceFilter = "HLC_defaultDistanceFilter";
-         frequencyRandomizer = 0.5; 
-		frequencyRandomizerMin = 0.1; 
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.5;
         obstructionFactor = 0.3;
         spatial = 1;
@@ -23,8 +22,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare2Curve";
         sound3DProcessingType = "WeaponMediumShotTail3DProcessingType";
         distanceFilter = "HLC_rifleTailDistanceFilter";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;
@@ -39,8 +37,6 @@ class CfgSoundSets
         volumeCurve = "InverseSquare2Curve";
         sound3DProcessingType = "WeaponMediumShot3DProcessingType";
         distanceFilter = "HLC_defaultDistanceFilter";
-        frequencyRandomizer = 0.5; 
-		frequencyRandomizerMin = 0.1; 
         occlusionFactor = 0.5;
         obstructionFactor = 0.3;
         spatial = 1;
@@ -52,8 +48,7 @@ class CfgSoundSets
         soundShaders[] = { "nia_p2269mm_silencerTailTrees_SoundShader", "nia_p2269mm_silencerTailForest_SoundShader", "nia_p2269mm_silencerTailMeadows_SoundShader", "nia_p2269mm_silencerTailHouses_SoundShader", "nia_p2269mm_silencerTailInterior_SoundShader" };
         volumeFactor = 0.7;
         volumeCurve = "InverseSquare2Curve";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.1;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;
@@ -69,8 +64,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare3Curve";
         sound3DProcessingType = "WeaponMediumShot3DProcessingType";
         distanceFilter = "HLC_defaultDistanceFilter";
-        frequencyRandomizer = 0.5; 
-		frequencyRandomizerMin = 0.1; 
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.5;
         obstructionFactor = 0.3;
         spatial = 1;
@@ -84,8 +78,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare2Curve";
         sound3DProcessingType = "WeaponMediumShotTail3DProcessingType";
         distanceFilter = "HLC_rifleTailDistanceFilter";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;
@@ -103,8 +96,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare3Curve";
         sound3DProcessingType = "WeaponMediumShot3DProcessingType";
         distanceFilter = "HLC_defaultDistanceFilter";
-        frequencyRandomizer = 0.5; 
-		frequencyRandomizerMin = 0.1; 
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.5;
         obstructionFactor = 0.3;
         spatial = 1;
@@ -118,8 +110,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare2Curve";
         sound3DProcessingType = "WeaponMediumShotTail3DProcessingType";
         distanceFilter = "HLC_rifleTailDistanceFilter";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;
@@ -145,8 +136,7 @@ class CfgSoundSets
         soundShaders[] = { "nia_p226_357_silencerTailTrees_SoundShader", "nia_p226_357_silencerTailForest_SoundShader", "nia_p226_357_silencerTailMeadows_SoundShader", "nia_p226_357_silencerTailHouses_SoundShader", "nia_p226_357_silencerTailInterior_SoundShader" };
         volumeFactor = 0.7;
         volumeCurve = "InverseSquare2Curve";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.1;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;
@@ -162,8 +152,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare3Curve";
         sound3DProcessingType = "WeaponMediumShot3DProcessingType";
         distanceFilter = "HLC_defaultDistanceFilter";
-        frequencyRandomizer = 0.5; 
-		frequencyRandomizerMin = 0.1; 
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.5;
         obstructionFactor = 0.3;
         spatial = 1;
@@ -177,8 +166,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare2Curve";
         sound3DProcessingType = "WeaponMediumShotTail3DProcessingType";
         distanceFilter = "HLC_rifleTailDistanceFilter";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;
@@ -195,8 +183,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare3Curve";
         sound3DProcessingType = "WeaponMediumShot3DProcessingType";
         distanceFilter = "HLC_defaultDistanceFilter";
-        frequencyRandomizer = 0.5; 
-		frequencyRandomizerMin = 0.1; 
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.5;
         obstructionFactor = 0.3;
         spatial = 1;
@@ -210,8 +197,7 @@ class CfgSoundSets
         volumeCurve = "InverseSquare2Curve";
         sound3DProcessingType = "WeaponMediumShotTail3DProcessingType";
         distanceFilter = "HLC_rifleTailDistanceFilter";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.3;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;
@@ -237,8 +223,7 @@ class CfgSoundSets
         soundShaders[] = { "nia_p226_45_silencerTailTrees_SoundShader", "nia_p226_45_silencerTailForest_SoundShader", "nia_p226_45_silencerTailMeadows_SoundShader", "nia_p226_45_silencerTailHouses_SoundShader", "nia_p226_45_silencerTailInterior_SoundShader" };
         volumeFactor = 0.7;
         volumeCurve = "InverseSquare2Curve";
-        frequencyRandomizer = 2;
-        frequencyRandomizerMin = 0.2;
+        frequencyRandomizer = 0.1;
         occlusionFactor = 0.3;
         obstructionFactor = 0;
         spatial = 1;

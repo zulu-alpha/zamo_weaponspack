@@ -7,10 +7,10 @@ class CfgPatches
 {
     class niaweapons_226
     {
-        requiredaddons[] = { "hlcweapons_core" };
-        units[] = {};
-        weapons[] = {};
-        magazines[] = {};
+        requiredaddons[] = {"hlcweapons_core"};
+        units[] = {  };
+        weapons[] = { };
+        magazines[] = {  };
         version = "1.0";
         author = "toadie";
     };
@@ -21,7 +21,7 @@ class cfgMods
     class Niarms_P226 :Mod_Base
     {
         name = "NIArsenal: P226 Pistols";
-        picture = "hlc_wp_p226\tex\ui\NIArms1_ca.paa";
+        picture     = "hlc_wp_p226\tex\ui\NIArms1_ca.paa";
         dir = "@NIArsenal";
         hideName = 1;
         hidePicture = 0;
@@ -111,7 +111,7 @@ class CfgVehicles
             __M_MAG(hlc_12Rnd_40sw_JHP_P226, 30);
             __M_MAG(hlc_12Rnd_40sw_SD_P226, 30);
             __M_MAG(hlc_8Rnd_40SW_B_P239, 30);
-            __M_MAG(hlc_10Rnd_40sw_JHP_P239, 30);
+             __M_MAG(hlc_10Rnd_40sw_JHP_P239, 30);
             __M_MAG(hlc_10Rnd_357SIG_SD_P239, 30);
             __M_MAG(hlc_10Rnd_357SIG_B_P229, 30);
             __M_MAG(hlc_10Rnd_357SIG_JHP_P229, 30);
@@ -154,7 +154,7 @@ class CfgVehicles
             __M_WEP(hlc_pistol_P226R_357, 10);
             __M_WEP(hlc_pistol_P226R_357Combat, 10);
             __M_WEP(hlc_pistol_P226R_357Elite, 10);
-            __M_WEP(hlc_pistol_P226R_Stainless, 10);
+            __M_WEP(hlc_pistol_P226R_357Stainless, 10);
         };
         class TransportItems {
             __M_ITM(HLC_optic_stavenhagen, 10);
@@ -229,114 +229,102 @@ class CfgMagazines {
         author = "Toadie";
         ammo = "HLC_9x19_Ball";
         count = 15;
-        descriptionshort = $STR_NIA_DESC_15Rnd_9x19_B_P226;
-        displayname = $STR_NIA_15rnd_9x19_B_P226;
-        model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\15Rnd_9x19_P226;
-        modelSpecialIsProxy = 1;
-        initspeed = 390.2;
+        descriptionshort = "Caliber: 9x19mm M882 Ball<br /> Type: Full Metal Jacket <br />Rounds: 15";
+        displayname = "P226 Magazine (Ball) 15rnd 9mm";
+       model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
+       initspeed = 390.2;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\226mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_FMJ;
+        displaynameshort = "M882 Ball";
     };
     class hlc_15Rnd_9x19_JHP_P226 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
         author = "Toadie";
         ammo = "HLC_9x19_JHP";
         count = 15;
-        descriptionshort = $STR_NIA_DESC_15Rnd_9x19_GD_P226;
-        displayname = $STR_NIA_15rnd_9x19_GD_P226;
+        descriptionshort = "Caliber: 9x19mm Mk243 Mod 0<br /> Type: Jacketed Hollow Point (Winchester USA9JHP2) <br />Rounds: 15";
+        displayname = "P226 Magazine (JHP) 15rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\15Rnd_9x19_P226;
-        modelSpecialIsProxy = 1;
         initspeed = 301.8;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\226mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_JHP;
+        displaynameshort = "Mk243 JHP";
     };
     class hlc_15Rnd_9x19_SD_P226 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
         author = "Toadie";
         ammo = "HLC_9x19_Subsonic";
         count = 15;
-        descriptionshort = $STR_NIA_DESC_15Rnd_9x19_SD_P226;
-        displayname = $STR_NIA_15rnd_9x19_SD_P226;
+        descriptionshort = "Caliber: 9x19mm<br />Rounds: 15";
+        displayname = "P226 Magazine (Subsonic) 15rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\15Rnd_9x19_P226;
-        modelSpecialIsProxy = 1;
         initspeed = 304;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\226mag_sub_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_Subsonic;
+        displaynameshort = "9mm Subsonic";
     };
     class hlc_13Rnd_9x19_B_P228 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
         author = "Toadie";
         ammo = "HLC_9x19_Ball";
         count = 13;
-        descriptionshort = $STR_NIA_DESC_13Rnd_9x19_B_P228;
-        displayname = $STR_NIA_13Rnd_9x19_B_P228;
+        descriptionshort = "Caliber: 9x19mm M882 Ball<br /> Type: Full Metal Jacket <br />Rounds: 13";
+        displayname = "P228 Magazine (Ball) 13rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_9x19_P228;
-        modelSpecialIsProxy = 1;
         mass = 4;
         initspeed = 390.2;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_FMJ;
+        displaynameshort = "M882 Ball";
     };
     class hlc_13Rnd_9x19_JHP_P228 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
         author = "Toadie";
         ammo = "HLC_9x19_JHP";
         count = 13;
-        descriptionshort = STR_NIA_DESC_13Rnd_9x19_GD_P228;
-        displayname = $STR_NIA_13Rnd_9x19_GD_P228;
+        descriptionshort = "Caliber: 9x19mm Mk243 Mod 0<br /> Type: Jacketed Hollow Point (Winchester USA9JHP2) <br />Rounds: 13";
+        displayname = "P228 Magazine (JHP) 13rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_9x19_P228;
-        modelSpecialIsProxy = 1;
         mass = 4;
         initspeed = 301.8;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_JHP;
+        displaynameshort = "Mk243 JHP";
     };
     class hlc_13Rnd_9x19_SD_P228 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
         author = "Toadie";
         ammo = "HLC_9x19_Subsonic";
         count = 13;
-        descriptionshort = $STR_NIA_DESC_13Rnd_9x19_SD_P228;
-        displayname = $STR_NIA_13Rnd_9x19_SD_P228;
+        descriptionshort = "Caliber: 9x19mm<br />Rounds: 13";
+        displayname = "P228 Magazine (Subsonic) 13rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_9x19_P228;
-        modelSpecialIsProxy = 1;
         mass = 4;
         initspeed = 304;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_sub_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_Subsonic;
+        displaynameshort = "9mm Subsonic";
     };
-
+    
     class hlc_10Rnd_9x19_B_P239 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
         author = "Toadie";
         ammo = "HLC_9x19_Ball";
         count = 10;
-        descriptionshort = $STR_NIA_DESC_10Rnd_9x19_B_P239;
-        displayname = $STR_NIA_10Rnd_9x19_B_P239;
+        descriptionshort = "Caliber: 9x19mm M882 Ball<br /> Type: Full Metal Jacket <br />Rounds: 10";
+        displayname = "P239 Magazine (Ball) 10rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p239.p3d";
         mass = 3;
         initspeed = 289;
@@ -344,15 +332,15 @@ class CfgMagazines {
         picture = "\hlc_wp_p226\tex\ui\239mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_FMJ;
+        displaynameshort = "M882 Ball";
     };
     class hlc_10Rnd_9x19_JHP_P239 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
         author = "Toadie";
         ammo = "HLC_9x19_JHP";
         count = 10;
-        descriptionshort = $STR_NIA_DESC_10Rnd_9x19_GD_P239;
-        displayname = $STR_NIA_10rnd_9x19_GD_P239;
+        descriptionshort = "Caliber: 9x19mm Mk243 Mod 0<br /> Type: Jacketed Hollow Point (Winchester USA9JHP2) <br />Rounds: 10";
+        displayname = "P239 Magazine (JHP) 10rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p239.p3d";
         mass = 3;
         initspeed = 294;
@@ -360,7 +348,7 @@ class CfgMagazines {
         picture = "\hlc_wp_p226\tex\ui\239mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_JHP;
+        displaynameshort = "Mk243 JHP";
     };
     class hlc_10Rnd_9x19_SD_P239 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -368,15 +356,15 @@ class CfgMagazines {
         ammo = "HLC_9x19_Subsonic";
         mass = 3;
         count = 10;
-        descriptionshort = $STR_NIA_DESC_10Rnd_9x19_SD_P239;
-        displayname = $STR_NIA_10Rnd_9x19_SD_P239;
+        descriptionshort = "Caliber: 9x19mm<br />Rounds: 10";
+        displayname = "P239 Magazine (Subsonic) 10rnd 9mm";
         model = "hlc_wp_p226\mesh\wpn\mag\p239.p3d";
         initspeed = 304;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\239mag_sub_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_9x19mm_Subsonic;
+        displaynameshort = "9mm Subsonic";
     };
     //here comes the &#038 s
     class hlc_8Rnd_40SW_B_P239 : 16Rnd_9x21_Mag{
@@ -385,15 +373,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_FMJ";
         mass = 4;
         count = 8;
-        descriptionshort = $STR_NIA_DESC_8Rnd_40SW_B_P239;
-        displayname = $STR_NIA_8Rnd_40SW_B_P239;
+        descriptionshort = "Caliber: .40 Smith &amp; Wesson Mk309 Mod 0 Ball<br /> Type: Total Metal Jacket Flat Nose (Federal American Eagle AE40R2)<br / >Rounds: 8";
+        displayname = ".40S&W P239 Magazine (Ball) 8rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p239.p3d";
         initspeed = 289;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\239mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_FMJ;
+        displaynameshort = "Mk309 Ball";
     };
     class hlc_10Rnd_40sw_JHP_P239 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -401,15 +389,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_JHP";
         mass = 4;
         count = 8;
-        descriptionshort = STR_NIA_DESC_8Rnd_40SW_GD_P239;
-        displayname = $STR_NIA_8Rnd_40SW_JHP_P239;
+        descriptionshort = "Caliber: .40 Smith and Wesson Mk308 Mod 0 JHP<br /> Type: Jacketed Hollow Point (Federal Tactical HST P40HST2) <br />Rounds: 8";
+        displayname = ".40S&W  P239 Magazine (JHP) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p239.p3d";
         initspeed = 294;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\239mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_JHP;
+        displaynameshort = "Mk308 JHP";
     };
     class hlc_10Rnd_40sw_SD_P239 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -417,15 +405,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_SD";
         count = 8;
         mass = 4;
-        descriptionshort = $STR_NIA_DESC_8Rnd_40SW_SD_P239;
-        displayname = $STR_NIA_8Rnd_40SW_SD_P239;
+        descriptionshort = "Caliber: .40 Smith and Wesson JHP Subsonic<br /> Type: Jacketed Hollow Point (Hornady XTP Bullet) <br />Rounds: 8";
+        displayname = ".40S&W P239 Magazine (SD ) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
         initspeed = 219;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\239mag_sub_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_SD;
+        displaynameshort = "JHP Subsonic";
     };
 
 
@@ -435,17 +423,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_FMJ";
         count = 10;
         mass = 5;
-        descriptionshort = $STR_NIA_DESC_10Rnd_40SW_B_P228;
-        displayname = $STR_NIA_10Rnd_40SW_B_P229;
+        descriptionshort = "Caliber: .40 Smith and Wesson Mk309 Mod 0 Ball<br /> Type: Total Metal Jacket Flat Nose (Federal American Eagle AE40R2) <br />Rounds: 10";
+        displayname = ".40S&W  P229 Magazine (Ball) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\10Rnd_357SIG_P228;
-        modelSpecialIsProxy = 1;
         initspeed = 347.5;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_FMJ;
+        displaynameshort = "Mk309 Ball";
     };
     class hlc_10Rnd_40sw_JHP_P229 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -453,17 +439,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_JHP";
         count = 10;
         mass = 5;
-        descriptionshort = #STR_NIA_DESC_10Rnd_40SW_GD_P228;
-        displayname = $STR_NIA_10Rnd_40SW_JHP_P229;
+        descriptionshort = "Caliber: .40 Smith and Wesson Mk308 Mod 0 JHP<br /> Type: Jacketed Hollow Point (Federal Tactical HST P40HST2) <br />Rounds: 10";
+        displayname = ".40S&W  P229 Magazine (JHP) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\10Rnd_357SIG_P228;
-        modelSpecialIsProxy = 1;
         initspeed = 353.6;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_JHP;
+        displaynameshort = "Mk308 JHP";
     };
     class hlc_10Rnd_40sw_SD_P229 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -471,17 +455,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_SD";
         count = 10;
         mass = 5;
-        descriptionshort = $STR_NIA_DESC_10Rnd_40SW_SD_P228;
-        displayname = $STR_NIA_10Rnd_40SW_SD_P229;
+        descriptionshort = "Caliber: .40 Smith and Wesson JHP Subsonic<br /> Type: Jacketed Hollow Point (Hornady XTP Bullet) <br />Rounds: 10";
+        displayname = ".40S&W P229 Magazine (SD) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\10Rnd_357SIG_P228;
-        modelSpecialIsProxy = 1;
         initspeed = 274.7;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_sub_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_SD;
+        displaynameshort = "JHP Subsonic";
     };
 
     class hlc_12Rnd_40SW_B_P226 : 16Rnd_9x21_Mag{
@@ -490,17 +472,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_FMJ";
         count = 12;
         mass = 7;
-        descriptionshort = $STR_NIA_DESC_12Rnd_40SW_B_P226;
-        displayname = $STR_NIA_12Rnd_40SW_B_P226;
+        descriptionshort = "Caliber: .40 Smith and Wesson Mk309 Mod 0 Ball<br /> Type: Total Metal Jacket Flat Nose (Federal American Eagle AE40R2)";
+        displayname = ".40S&W P226 Magazine (Ball) 12rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_357SIG_P226;
-        modelSpecialIsProxy = 1;
         initspeed = 347.5;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\226mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_FMJ;
+        displaynameshort = "Mk309 Ball";
     };
     class hlc_12Rnd_40sw_JHP_P226 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -508,17 +488,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_JHP";
         count = 12;
         mass = 7;
-        descriptionshort = $STR_NIA_DESC_12Rnd_40SW_GD_P226;
-        displayname = $STR_NIA_12Rnd_40SW_JHP_P226;
+        descriptionshort = "Caliber: .40 Smith and Wesson Mk308 Mod 0 JHP<br /> Type: Jacketed Hollow Point (Federal Tactical HST P40HST2) <br />Rounds: 12";
+        displayname = ".40S&W P226 Magazine (JHP) 12rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_357SIG_P226;
-        modelSpecialIsProxy = 1;
         initspeed = 353.6;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\226mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_JHP;
+        displaynameshort = "Mk308 JHP";
     };
     class hlc_12Rnd_40sw_SD_P226 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -526,17 +504,15 @@ class CfgMagazines {
         ammo = "HLC_40SW_SD";
         count = 12;
         mass = 7;
-        descriptionshort = $STR_NIA_DESC_12Rnd_40SW_SD_P226;
-        displayname = $STR_NIA_12Rnd_40SW_SD_P226;
+        descriptionshort = "Caliber: .40 Smith and Wesson JHP Subsonic<br /> Type: Jacketed Hollow Point (Hornady XTP Bullet) <br />Rounds: 12";
+        displayname = ".40S&W P226 Magazine (JHP) 12rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_357SIG_P226;
-        modelSpecialIsProxy = 1;
         initspeed = 274.7;
         lastroundstracer = 0;
-        picture = "\hlc_wp_p226\tex\ui\226mag_sub_ca";
+         picture = "\hlc_wp_p226\tex\ui\226mag_sub_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_40SW_SD;
+        displaynameshort = "JHP Subsonic";
     };
 
     class hlc_8Rnd_357SIG_B_P239 : 16Rnd_9x21_Mag{
@@ -545,17 +521,15 @@ class CfgMagazines {
         ammo = "HLC_357SIG_FMJ";
         count = 8;
         mass = 4;
-        descriptionshort = $STR_NIA_DESC_8Rnd_357SIG_B_p239;
-        displayname = $STR_NIA_8Rnd_357_B_P239;
+        descriptionshort = "Caliber: .357SIG FMJ-FN<br /> Type: Full Metal Jacket Flat Nose <br / >Rounds: 8";
+        displayname = ".357SIG P239 Magazine (Ball) 8rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p239.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\10Rnd_357SIG_P228;
-        modelSpecialIsProxy = 1;
         initspeed = 289;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\239mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_357SIG_FMJ;
+        displaynameshort = "Mk309 Ball";
     };
     class hlc_8Rnd_357SIG_JHP_P239 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -563,17 +537,15 @@ class CfgMagazines {
         ammo = "HLC_357SIG_JHP";
         count = 8;
         mass = 4;
-        descriptionshort = $STR_NIA_DESC_8Rnd_357SIG_JHP_p239;
-        displayname = $STR_NIA_8Rnd_357_JHP_P239;
+        descriptionshort = "Caliber: .357SIG JHP<br /> Type: Jacketed Hollow Point Ballistic Tip (FlexLock) <br />Rounds: 8";
+        displayname = ".357SIG P239 Magazine (JHP) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p239.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\10Rnd_357SIG_P228;
-        modelSpecialIsProxy = 1;
         initspeed = 294;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\239mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_357SIG_JHP;
+        displaynameshort = "Mk308 JHP";
     };
 
     class hlc_10Rnd_357SIG_B_P229 : 16Rnd_9x21_Mag{
@@ -582,15 +554,15 @@ class CfgMagazines {
         ammo = "HLC_357SIG_FMJ";
         count = 10;
         mass = 5;
-        descriptionshort = $STR_NIA_DESC_10Rnd_357SIG_B_p229;
-        displayname = $STR_NIA_10Rnd_357_B_P229;
+        descriptionshort = "Caliber: .357SIG FMJ-FN<br /> Type: Full Metal Jacket Flat Nose <br />Rounds: 10";
+        displayname = ".357SIG P229 Magazine (Ball) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
         initspeed = 401.5;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_357SIG_FMJ;
+        displaynameshort = "FMJ-FN";
     };
     class hlc_10Rnd_357SIG_JHP_P229 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -598,15 +570,15 @@ class CfgMagazines {
         ammo = "HLC_357SIG_JHP";
         count = 10;
         mass = 5;
-        descriptionshort = $STR_NIA_DESC_10Rnd_357SIG_JHP_p229;
-        displayname = $STR_NIA_10Rnd_357_JHP_P229;
+        descriptionshort = "Caliber: .357SIG JHP<br /> Type: Jacketed Hollow Point Ballistic Tip (FlexLock) <br />Rounds: 10";
+        displayname = ".357SIG P229 Magazine (JHP) 10rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p228.p3d";
         initspeed = 372.2;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\228mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_357SIG_JHP;
+        displaynameshort = "FlexLock JHP";
     };
 
     class hlc_12Rnd_357SIG_B_P226 : 16Rnd_9x21_Mag{
@@ -615,17 +587,15 @@ class CfgMagazines {
         ammo = "HLC_357SIG_FMJ";
         count = 12;
         mass = 7;
-        descriptionshort = $STR_NIA_DESC_12Rnd_357SIG_B_P226;
-        displayname = $STR_NIA_12Rnd_357_B_P226;
+        descriptionshort = "Caliber: .357SIG FMJ-FN<br /> Type: Full Metal Jacket Flat Nose<br />Rounds: 12";
+        displayname = ".357SIG P226 Magazine (Ball) 12rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_357SIG_P226;
-        modelSpecialIsProxy = 1;
         initspeed = 401.5;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\226mag_fmj_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_357SIG_FMJ;
+        displaynameshort = "FMJ-FN";
     };
     class hlc_12Rnd_357SIG_JHP_P226 : 16Rnd_9x21_Mag{
         dlc = "Niarms_P226";
@@ -633,80 +603,78 @@ class CfgMagazines {
         ammo = "HLC_357SIG_JHP";
         count = 12;
         mass = 7;
-        descriptionshort = $STR_NIA_DESC_12Rnd_357SIG_JHP_P226;
-        displayname = $STR_NIA_12Rnd_357_JHP_P226;
+        descriptionshort = "Caliber: .357SIG JHP<br /> Type: Jacketed Hollow Point Ballistic Tip (FlexLock) <br />Rounds: 12";
+        displayname = ".357SIG P226 Magazine P226 Magazine (JHP) 12rnd";
         model = "hlc_wp_p226\mesh\wpn\mag\p226.p3d";
-        modelSpecial = hlc_wp_p226\mesh\wpn\mag\proxy\13Rnd_357SIG_P226;
-        modelSpecialIsProxy = 1;
         initspeed = 372.2;
         lastroundstracer = 0;
         picture = "\hlc_wp_p226\tex\ui\226mag_jhp_ca";
         scope = 2;
         tracersevery = 0;
-        displaynameshort = $STR_NIA_357SIG_JHP;
+        displaynameshort = "FlexLock JHP";
     };
 };
 
 class CfgMagazineWells {
     class CBA_9x19_P226 {
         NIA_mags[] = {
-            "hlc_15Rnd_9x19_B_P226",
-            "hlc_15Rnd_9x19_JHP_P226",
-            "hlc_15Rnd_9x19_SD_P226"
-        };
+			"hlc_15Rnd_9x19_B_P226",
+			"hlc_15Rnd_9x19_JHP_P226",
+			"hlc_15Rnd_9x19_SD_P226"
+		};
     };
     class CBA_9x19_P228 {
         NIA_mags[] = {
-            "hlc_13Rnd_9x19_B_P228",
-            "hlc_13Rnd_9x19_JHP_P228",
-            "hlc_13Rnd_9x19_SD_P228"
-        };
+			"hlc_13Rnd_9x19_B_P228",
+			"hlc_13Rnd_9x19_JHP_P228",
+			"hlc_13Rnd_9x19_SD_P228"
+		};
     };
     class CBA_9x19_P239 {
         NIA_mags[] = {
-            "hlc_10Rnd_9x19_B_P239",
-            "hlc_10Rnd_9x19_JHP_P239",
-            "hlc_10Rnd_9x19_SD_P239"
-        };
+			"hlc_10Rnd_9x19_B_P239",
+			"hlc_10Rnd_9x19_JHP_P239",
+			"hlc_10Rnd_9x19_SD_P239"
+		};
     };
     class CBA_40SW_P226 {
         NIA_mags[] = {
-            "hlc_12Rnd_40SW_B_P226",
-            "hlc_12Rnd_40sw_JHP_P226",
-            "hlc_12Rnd_40sw_SD_P226"
-        };
+			"hlc_12Rnd_40SW_B_P226",
+			"hlc_12Rnd_40sw_JHP_P226",
+			"hlc_12Rnd_40sw_SD_P226"
+		};
     };
     class CBA_40SW_P229 {
         NIA_mags[] = {
-            "hlc_10Rnd_40SW_B_P229",
-            "hlc_10Rnd_40sw_JHP_P229",
-            "hlc_10Rnd_40sw_SD_P229"
-        };
+			"hlc_10Rnd_40SW_B_P229",
+			"hlc_10Rnd_40sw_JHP_P229",
+			"hlc_10Rnd_40sw_SD_P229"
+		};
     };
     class CBA_40SW_P239 {
         NIA_mags[] = {
-            "hlc_8Rnd_40SW_B_P239",
-            "hlc_10Rnd_40sw_JHP_P239",
-            "hlc_10Rnd_40sw_SD_P239"
-        };
+			"hlc_8Rnd_40SW_B_P239",
+			"hlc_10Rnd_40sw_JHP_P239",
+			"hlc_10Rnd_40sw_SD_P239"
+		};
     };
     class CBA_357SIG_P226 {
         NIA_mags[] = {
-            "hlc_12Rnd_357SIG_B_P226",
-            "hlc_12Rnd_357SIG_JHP_P226"
-        };
+			"hlc_12Rnd_357SIG_B_P226",
+			"hlc_12Rnd_357SIG_JHP_P226"
+		};
     };
     class CBA_357SIG_P229 {
         NIA_mags[] = {
-            "hlc_10Rnd_357SIG_B_P229",
-            "hlc_10Rnd_357SIG_JHP_P229"
-        };
+			"hlc_10Rnd_357SIG_B_P229",
+			"hlc_10Rnd_357SIG_JHP_P229"
+		};
     };
     class CBA_357SIG_P239 {
         NIA_mags[] = {
-            "hlc_8Rnd_357SIG_B_P239",
-            "hlc_8Rnd_357SIG_JHP_P239"
-        };
+			"hlc_8Rnd_357SIG_B_P239",
+			"hlc_8Rnd_357SIG_JHP_P239"
+		};
     };
 };
 
@@ -727,7 +695,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P226<br />Magnification: None";
-        displayname = $STR_NIA_Stavenhagen;
+        displayname = "Von Stavenhagen Sights";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_stavenhagen.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_stavenhagen_ca";
         class ItemInfo : InventoryOpticsItem_Base_F {
@@ -743,12 +711,12 @@ class CfgWeapons {
                     opticsZoomMin = 0.25;
                     opticsZoomMax = 1.25;
                     opticsZoomInit = 0.75;
-                    memoryPointCamera = "eye";
+                    memoryPointCamera = "ADS_eye";
                     opticsFlare = 0;
                     opticsDisablePeripherialVision = 0;
                     distanceZoomMin = 50;
                     distanceZoomMax = 50;
-                    cameraDir = "look_out";
+                    cameraDir = "";
                     visionMode[] = {};
                     opticsPPEffects[] = { "Default" };
                 };
@@ -761,48 +729,40 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P226<br />Magnification: None";
-        displayname = $STR_NIA_Vtac;
+        displayname = "V-TAC Sights";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_Vtac.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_vtac_ca";
-        class ItemInfo : InventoryOpticsItem_Base_F {
-            mass = 1;
-            modelOptics = "\A3\Weapons_F\empty";
-            optics = 0;
-            class OpticsModes
-            {
-                class ACO
-                {
-                    opticsID = 1;
-                    useModelOptics = 0;
-                    opticsZoomMin = 0.25;
-                    opticsZoomMax = 1.25;
-                    opticsZoomInit = 0.75;
-                    memoryPointCamera = "eye";
-                    opticsFlare = 0;
-                    opticsDisablePeripherialVision = 0;
-                    distanceZoomMin = 50;
-                    distanceZoomMax = 50;
-                    cameraDir = "look_out";
-                    visionMode[] = {};
-                    opticsPPEffects[] = { "Default" };
-                };
-                class ACO2x
-                {
-                    opticsID = 0;
-                    useModelOptics = 0;
-                    opticsZoomMin = 0.25;
-                    opticsZoomMax = 1.25;
-                    opticsZoomInit = 0.75;
-                    memoryPointCamera = "eye2";
-                    opticsFlare = 0;
-                    opticsDisablePeripherialVision = 0;
-                    distanceZoomMin = 50;
-                    distanceZoomMax = 50;
-                    cameraDir = "look_out2";
-                    visionMode[] = {};
-                    opticsPPEffects[] = { "Default" };
-                };
-            };
+        class ACO
+        {
+            opticsID = 1;
+            useModelOptics = 0;
+            opticsZoomMin = 0.25;
+            opticsZoomMax = 1.25;
+            opticsZoomInit = 0.75;
+            memoryPointCamera = "RDeye";
+            opticsFlare = 0;
+            opticsDisablePeripherialVision = 0;
+            distanceZoomMin = 50;
+            distanceZoomMax = 50;
+            cameraDir = "";
+            visionMode[] = {};
+            opticsPPEffects[] = { "Default" };
+        };
+        class ACO2x
+        {
+            opticsID = 0;
+            useModelOptics = 0;
+            opticsZoomMin = 0.25;
+            opticsZoomMax = 1.25;
+            opticsZoomInit = 0.75;
+            memoryPointCamera = "ADS_eye";
+            opticsFlare = 0;
+            opticsDisablePeripherialVision = 0;
+            distanceZoomMin = 50;
+            distanceZoomMax = 50;
+            cameraDir = "";
+            visionMode[] = {};
+            opticsPPEffects[] = { "Default" };
         };
     };
     class HLC_optic_Siglite : HLC_optic_stavenhagen
@@ -810,7 +770,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P226<br />Magnification: None";
-        displayname = $STR_NIA_siglite;
+        displayname = "SigLite Sights";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_siglite.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_siglite_ca";
     };
@@ -819,7 +779,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P226<br />Magnification: None";
-        displayname = $STR_NIA_HPSights;
+        displayname = "High-Profile Sights";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_Hiprofile.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_ironHiprofile_ca";
     };
@@ -828,7 +788,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P226<br />Magnification: None";
-        displayname = $STR_NIA_ATTriangular;
+        displayname = "Triangular Sights";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_Triangular.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_triangular_ca";
     };
@@ -837,7 +797,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P226<br />Magnification: None";
-        displayname = $STR_NIA_TrijiconXS;
+        displayname = "TrijiconXS Sights";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_XS.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_xs_ca";
     };
@@ -846,7 +806,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "High-Profile Irons and Collimator Sight<br />Magnification: None";
-        displayname = $STR_NIA_Romeo1;
+        displayname = "Romeo-1";
         model = "\hlc_wp_p226\mesh\acc\sights\rx_Romeo1.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_romeo1_ca";
         class ItemInfo : InventoryOpticsItem_Base_F {
@@ -896,7 +856,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "High-Profile Irons and Collimator Sight<br />Magnification: None";
-        displayname = $STR_NIA_Doctercadex;
+        displayname = "Docter RDS (CADEX)";
         model = "\hlc_wp_p226\mesh\acc\sights\CADEX_Docter.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_docter_ca";
         class ItemInfo : InventoryOpticsItem_Base_F {
@@ -930,7 +890,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P228/9<br />Magnification: None";
-        displayname = $STR_NIA_Stavenhagen_P229;
+        displayname = "Von Stavenhagen Sights";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_228stavenhagen.p3d";
         class ItemInfo : InventoryOpticsItem_Base_F {
             mass = 1;
@@ -945,12 +905,12 @@ class CfgWeapons {
                     opticsZoomMin = 0.25;
                     opticsZoomMax = 1.25;
                     opticsZoomInit = 0.75;
-                    memoryPointCamera = "eye";
+                    memoryPointCamera = "ADS_eye";
                     opticsFlare = 0;
                     opticsDisablePeripherialVision = 0;
                     distanceZoomMin = 50;
                     distanceZoomMax = 50;
-                    cameraDir = "look_out";
+                    cameraDir = "";
                     visionMode[] = {};
                     opticsPPEffects[] = { "Default" };
                 };
@@ -963,7 +923,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P228/9<br />Magnification: None";
-        displayname = $STR_NIA_Vtac_P229;
+        displayname = "V-TAC Sights(228)";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_228Vtac.p3d";
     };
     class HLC_optic228_Siglite : HLC_optic_Siglite
@@ -971,7 +931,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P228/9<br />Magnification: None";
-        displayname = $STR_NIA_siglite_P229;
+        displayname = "SigLite Sights(228)";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_228siglite.p3d";
     };
     class HLC_optic228_HP : HLC_optic_HP
@@ -979,7 +939,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P228/9<br />Magnification: None";
-        displayname = $STR_NIA_HPSights_P229;
+        displayname = "High-Profile Sights(228)";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_228Hiprofile.p3d";
     };
     class HLC_optic228_ATT : HLC_optic_ATT
@@ -987,7 +947,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P228/9<br />Magnification: None";
-        displayname = $STR_NIA_ATTriangular;
+        displayname = "Triangular Sights(228)";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_228Triangular.p3d";
     };
     class HLC_optic228_XS : HLC_optic_XS
@@ -995,7 +955,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "Notch-and-Post Pistol Sights for the P228/9<br />Magnification: None";
-        displayname = $STR_NIA_TrijiconXS_P229;
+        displayname = "TrijiconXS Sights(228)";
         model = "\hlc_wp_p226\mesh\acc\sights\iron_228XS.p3d";
     };
     class HLC_Optic228_Romeo1_RX : HLC_Optic_Romeo1_RX
@@ -1003,7 +963,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "High-Profile Irons and Collimator Sight<br />Magnification: None";
-        displayname = $STR_NIA_Romeo1_P229;
+        displayname = "Romeo-1(228)";
         model = "\hlc_wp_p226\mesh\acc\sights\rx_228Romeo1.p3d";
         //picture = "\hlc_wp_G36\tex\ui\gear_dualoptic_ca";
         class ItemInfo : InventoryOpticsItem_Base_F {
@@ -1053,7 +1013,7 @@ class CfgWeapons {
         dlc = "Niarms_P226";
         author = "Toadie";
         descriptionshort = "High-Profile Irons and Collimator Sight<br />Magnification: None";
-        displayname = $STR_NIA_Doctercadex_P229;
+        displayname = "Docter RDS (CADEX,228)";
         model = "\hlc_wp_p226\mesh\acc\sights\CADEX_228Docter.p3d";
         //picture = "\hlc_wp_G36\tex\ui\gear_dualoptic_ca";
         class ItemInfo : InventoryOpticsItem_Base_F {
@@ -1096,7 +1056,7 @@ class CfgWeapons {
         ACE_barrelTwist = 254.0;
         ACE_barrelLength = 228.6;
         magazines[] = { "hlc_15Rnd_9x19_B_P226", "hlc_15Rnd_9x19_JHP_P226", "hlc_15Rnd_9x19_SD_P226" };
-        magazineWell[] = { "CBA_9x19_P226" };
+        magazineWell[] = {"CBA_9x19_P226"};
         minRange = 5;
         minRangeProbab = 0.3;
         midRange = 25;
@@ -1121,7 +1081,7 @@ class CfgWeapons {
             class CowsSlot {};
             class PointerSlot {};
         };
-        descriptionShort = $STR_NIA_p22269mm_DESC;
+        descriptionShort = "Pistol<br/>Caliber:9x19mm NATO";
 
 
 
@@ -1189,11 +1149,9 @@ class CfgWeapons {
         ACE_barrelLength = 111.76;
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\226_9\226_WG.p3d";
-        displayName = $STR_NIA_pistol_P226WestGerman;
+        displayName = "Sig P226(German)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         picture = "\hlc_wp_p226\tex\ui\gear_226WG_ca";
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
@@ -1213,11 +1171,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226_US.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226_ca";
-        displayName = $STR_NIA_pistol_P226US;
+        displayName = "SigSauer P226";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1236,11 +1192,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226R_ca";
-        displayName = $STR_NIA_pistol_P226R;
+        displayName = "SigSauer P226R";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1263,12 +1217,10 @@ class CfgWeapons {
         author = "Toadie";
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R_Elite.p3d";
-        displayName = $STR_NIA_pistol_P226R_Elite;
+        displayName = "SigSauer P226R Elite";
         picture = "\hlc_wp_p226\tex\ui\gear_226elite_ca";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         hiddenSelections[] = { "226Slides", "Sigframe_226Elite", "SIG_E2Grips", "SIGpistol_Common" };
         hiddenSelectionsTextures[] = { "hlc_wp_p226\tex\p226\226eliteslides_co.tga", "hlc_wp_p226\tex\p226\226elite_frame_co.tga", "hlc_wp_p226\tex\p226\226e2_grip_co.tga", "hlc_wp_p226\tex\p226\common_co.tga" };
         HiddenSelectionsMaterials[] = { "hlc_wp_p226\mat\226eliteslides.rvmat", "hlc_wp_p226\mat\226EliteFrame.rvmat", "hlc_wp_p226\mat\grip_226e2.rvmat", "hlc_wp_p226\mat\commonmap.rvmat" };
@@ -1282,11 +1234,9 @@ class CfgWeapons {
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R_Combat.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226combat_ca";
-        displayName = $STR_NIA_pistol_P226R_Combat;
+        displayName = "SigSauer P226R Combat";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1307,11 +1257,9 @@ class CfgWeapons {
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\226_9\mk25.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_mk25_ca";
-        displayName = $STR_NIA_pistol_mk25;
+        displayName = "Mk25";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         hiddenSelections[] = { "226Slides", "Sigframe_226Mk25", "SIG_US_Grips", "SIGpistol_Common" };
         hiddenSelectionsTextures[] = { "hlc_wp_p226\tex\p226\226mk25slides_co.tga", "hlc_wp_p226\tex\p226\226Rmk25_frame_co.tga", "hlc_wp_p226\tex\p226\226usgrip_co.tga", "hlc_wp_p226\tex\p226\common_co.tga" };
         HiddenSelectionsMaterials[] = { "hlc_wp_p226\mat\226mk25slides.rvmat", "hlc_wp_p226\mat\226Rmk25Frame.rvmat", "hlc_wp_p226\mat\grip_226us.rvmat", "hlc_wp_p226\mat\commonmap.rvmat" };
@@ -1324,13 +1272,11 @@ class CfgWeapons {
         ACE_barrelTwist = 254.0;
         ACE_barrelLength = 111.76;
         author = "Toadie";
-        model = "\hlc_wp_p226\mesh\wpn\226_9\mk25.p3d"; \
-            picture = "\hlc_wp_p226\tex\ui\gear_mk25d_ca";
-        displayName = $STR_NIA_pistol_mk25d;
+        model = "\hlc_wp_p226\mesh\wpn\226_9\mk25.p3d";\
+        picture = "\hlc_wp_p226\tex\ui\gear_mk25d_ca";
+        displayName = "SigSauer Mk25-D";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         hiddenSelections[] = { "226Slides", "Sigframe_226Mk25", "SIG_US_Grips", "SIGpistol_Common" };
         hiddenSelectionsTextures[] = { "hlc_wp_p226\tex\p226\226mk25dslides_co.tga", "hlc_wp_p226\tex\p226\226Rmk25d_frame_co.tga", "hlc_wp_p226\tex\p226\226usgrip_co.tga", "hlc_wp_p226\tex\p226\common_co.tga" };
         HiddenSelectionsMaterials[] = { "hlc_wp_p226\mat\226mk25dslides.rvmat", "hlc_wp_p226\mat\226Rmk25dFrame.rvmat", "hlc_wp_p226\mat\grip_226us.rvmat", "hlc_wp_p226\mat\commonmap.rvmat" };
@@ -1344,11 +1290,9 @@ class CfgWeapons {
         author = "Toadie,Warlord_Murphy";
         model = "\hlc_wp_p226\mesh\wpn\226_9\Mk25RX.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_mk25spl_ca";
-        displayName = $STR_NIA_pistol_mk25tr;
+        displayName = "SigSauer Mk25-TR";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         hiddenSelections[] = { "226Slides", "Sigframe_226Mk25", "Hogue_overmold", "SIGpistol_Common" };
         hiddenSelectionsTextures[] = { "hlc_wp_p226\tex\p226\226mk25dslides_co.tga", "hlc_wp_p226\tex\p226\226Rmk25spl_frame_co.tga", "hlc_wp_p226\tex\p226\226_overmold_grip_co.tga", "hlc_wp_p226\tex\p226\common_co.tga" };
         HiddenSelectionsMaterials[] = { "hlc_wp_p226\mat\226mk25dslides.rvmat", "hlc_wp_p226\mat\226Rmk25splFrame.rvmat", "hlc_wp_p226\mat\grip_226overmold.rvmat", "hlc_wp_p226\mat\commonmap.rvmat" };
@@ -1361,7 +1305,7 @@ class CfgWeapons {
         ACE_barrelTwist = 254.0;
         ACE_barrelLength = 124.66;
         author = "Toadie,Warlord_Murphy";
-        displayName = $STR_NIA_pistol_mk25rx;
+        displayName = "SigSauer Mk25 RX";
         class LinkedItems
         {
             class LinkedItemsOptic
@@ -1376,9 +1320,9 @@ class CfgWeapons {
     class hlc_P22640_Base : hlc_P226_Base
     {
         magazines[] = { "hlc_12Rnd_40SW_B_P226", "hlc_12Rnd_40sw_JHP_P226", "hlc_12Rnd_40SW_SD_P226" };
-        magazineWell[] = { "CBA_40SW_P226" };
+        magazineWell[] = {"CBA_40SW_P226"};
         recoil = "recoil_pistol_acpc2";
-        descriptionShort = $STR_NIA_p22640_DESC;
+        descriptionShort = "Pistol<br/>Caliber:.40 SW";
         class Single : Mode_SemiAuto
         {
             sounds[] = { "StandardSound", "SilencedSound" };
@@ -1421,11 +1365,9 @@ class CfgWeapons {
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226R_ca";
-        displayName = $STR_NIA_pistol_p226r_40;
+        displayName = "SigSauer P226R(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1446,11 +1388,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R_Elite.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226elite_ca";
-        displayName = $STR_NIA_pistol_p226relite_40;
+        displayName = "SigSauer P226R Elite(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
     };
     class hlc_pistol_P226R_40Combat :hlc_P22640_Base  {
         scope = public;
@@ -1462,11 +1402,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R_Combat.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226combat_ca";
-        displayName = $STR_NIA_pistol_p226rcombat_40;
+        displayName = "SigSauer P226R Combat(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1487,11 +1425,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226enox_ca";
-        displayName = $STR_NIA_pistol_p226renox_40;
+        displayName = "SigSauer P226R Equinox(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1507,10 +1443,10 @@ class CfgWeapons {
 
     class hlc_P226357_Base : hlc_P226_Base
     {
-        magazines[] = { "hlc_12Rnd_357SIG_B_P226", "hlc_12Rnd_357SIG_JHP_P226" };
-        magazineWell[] = { "CBA_357SIG_P226" };
+        magazines[] = { "hlc_12Rnd_357SIG_B_P226", "hlc_12Rnd_357SIG_JHP_P226"};
+        magazineWell[] = {"CBA_357SIG_P226"};
         recoil = "recoil_pistol_acpc2";
-        descriptionShort = $STR_NIA_p226357_DESC;
+        descriptionShort = "Pistol<br/>Caliber:.357 SIG";
         class Single : Mode_SemiAuto
         {
             sounds[] = { "StandardSound", "SilencedSound" };
@@ -1554,11 +1490,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226R_ca";
-        displayName = $STR_NIA_pistol_p226r_357;
+        displayName = "SigSauer P226R(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1579,11 +1513,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R_Elite.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226elite_ca";
-        displayName = $STR_NIA_pistol_p226relite_357;
+        displayName = "SigSauer P226R Elite(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
     };
     class hlc_pistol_P226R_357Combat :hlc_P226357_Base  {
         scope = public;
@@ -1595,11 +1527,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R_Combat.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226combat_ca";
-        displayName = $STR_NIA_pistol_p226rcombat_357;
+        displayName = "SigSauer P226R Combat(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1620,11 +1550,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\226_9\226R.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_226stainles_ca";
-        displayName = $STR_NIA_pistol_p226rstainless_357;
+        displayName = "SigSauer P226R Stainless(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1706,11 +1634,9 @@ class CfgWeapons {
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\229_9\228.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_228US_ca";
-        displayName = $STR_NIA_pistol_P229WestGerman;
+        displayName = "Sig P228(German)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         initSpeed = 375;
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
@@ -1730,11 +1656,9 @@ class CfgWeapons {
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\229_9\m11.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_m11_ca";
-        displayName = $STR_NIA_pistol_M11;
+        displayName = "M11";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         initSpeed = 375;
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
@@ -1754,11 +1678,9 @@ class CfgWeapons {
         initSpeed = 416;
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Nitron.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229r_ca";
-        displayName = $STR_NIA_pistol_P229R;
+        displayName = "SigSauer P229R";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1778,11 +1700,9 @@ class CfgWeapons {
         initSpeed = 416;
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Combat.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229rtac_ca";
-        displayName = $STR_NIA_pistol_P229R_Combat;
+        displayName = "SigSauer P229R Combat";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1803,11 +1723,9 @@ class CfgWeapons {
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\229_9\m11a1.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_m11a1_ca";
-        displayName = $STR_NIA_pistol_m11a1;
+        displayName = "SigSauer M11A1";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         initSpeed = 375;
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
@@ -1825,11 +1743,9 @@ class CfgWeapons {
         author = "Toadie";
         model = "\hlc_wp_p226\mesh\wpn\229_9\m11a1.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_m11a1d_ca";
-        displayName = $STR_NIA_pistol_m11a1d;
+        displayName = "SigSauer M11A1-D";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         initSpeed = 375;
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
@@ -1852,11 +1768,9 @@ class CfgWeapons {
         initSpeed = 416;
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_tacelite.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229elite_ca";
-        displayName = $STR_NIA_pistol_P229R_Elite;
+        displayName = "SigSauer P229TR Elite";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1871,7 +1785,7 @@ class CfgWeapons {
     class hlc_P22840_Base : hlc_P228_Base
     {
         magazines[] = { "hlc_10Rnd_40SW_B_P229", "hlc_10Rnd_40sw_JHP_P229", "hlc_10Rnd_40SW_SD_P229", "hlc_12Rnd_40SW_B_P226", "hlc_12Rnd_40sw_JHP_P226", "hlc_12Rnd_40SW_SD_P226" };
-        magazineWell[] = { "CBA_40SW_P226", "CBA_40SW_P229" };
+        magazineWell[] = {"CBA_40SW_P226", "CBA_40SW_P229"};
         recoil = "recoil_pistol_acpc2";
         descriptionShort = "Pistol<br/>Caliber:.40 SW";
         class Single : Mode_SemiAuto
@@ -1917,11 +1831,9 @@ class CfgWeapons {
         initSpeed = 416;
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Nitron.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229r_ca";
-        displayName = $STR_NIA_pistol_P229r_40;
+        displayName = "SigSauer P229R(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1941,11 +1853,9 @@ class CfgWeapons {
         initSpeed = 416;
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Combat.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229rtac_ca";
-        displayName = $STR_NIA_pistol_P229rcombat_40;
+        displayName = "SigSauer P229R Combat(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1966,11 +1876,9 @@ class CfgWeapons {
         initSpeed = 416;
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_tacelite.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229elite_ca";
-        displayName = $STR_NIA_pistol_P229relite_40;
+        displayName = "SigSauer P229TR Elite(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -1991,11 +1899,9 @@ class CfgWeapons {
         initSpeed = 416;
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Nitron.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229Renox_ca";
-        displayName = $STR_NIA_pistol_P229renox_40;
+        displayName = "SigSauer P229R Equinox(.40)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -2012,7 +1918,7 @@ class CfgWeapons {
     class hlc_P228357_Base : hlc_P228_Base
     {
         magazines[] = { "hlc_10Rnd_357SIG_B_P229", "hlc_10Rnd_357SIG_JHP_P229", "hlc_12Rnd_357SIG_B_P226", "hlc_12Rnd_357SIG_JHP_P226" };
-        magazineWell[] = { "CBA_357SIG_P226", "CBA_357SIG_P229" };
+        magazineWell[] = {"CBA_357SIG_P226", "CBA_357SIG_P229"};
         recoil = "recoil_pistol_acpc2";
         descriptionShort = "Pistol<br/>Caliber:.357 SIG";
         class Single : Mode_SemiAuto
@@ -2058,11 +1964,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Nitron.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229r_ca";
-        displayName = $STR_NIA_pistol_P229r_357;
+        displayName = "SigSauer P229R(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -2082,11 +1986,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Combat.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229rtac_ca";
-        displayName = $STR_NIA_pistol_P229rcombat_357;
+        displayName = "SigSauer P229R Combat(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -2107,11 +2009,9 @@ class CfgWeapons {
 
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_tacelite.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229elite_ca";
-        displayName = $STR_NIA_pistol_P229relite_357;
+        displayName = "SigSauer P229TR Elite(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -2129,14 +2029,12 @@ class CfgWeapons {
         ACE_barrelTwist = 254.0;
         ACE_barrelLength = 99.06;
         author = "Toadie";
-
+ 
         model = "\hlc_wp_p226\mesh\wpn\229_9\229R_Nitron.p3d";
         picture = "\hlc_wp_p226\tex\ui\gear_229Rstainless_ca";
-        displayName = $STR_NIA_pistol_P229rstainless_357;
+        displayName = "SigSauer P229R Stainless(.357SIG)";
         discretedistance[] = { 50 };
         discretedistanceinitindex = 0;
-        cameradir = "look_out";
-        discreteDistanceCameraPoint[] = { "Eye" }; /// the angle of gun changes with zeroing
         class WeaponSlotsInfo : WeaponSlotsInfo
         {
             mass = 21;
@@ -2150,121 +2048,121 @@ class CfgWeapons {
         HiddenSelectionsMaterials[] = { "hlc_wp_p226\mat\228stainlessslides.rvmat", "hlc_wp_p226\mat\229RFrame.rvmat", "hlc_wp_p226\mat\grip_228.rvmat", "hlc_wp_p226\mat\commonmap.rvmat" };
     };
 
-    class hlc_pistol_P239 :hlc_p226_base
-    {
-        scope = public;
-        AB_barrelTwist = 10;
-        AB_barrelLength = 3.6;
-        ACE_barrelTwist = 254.0;
-        ACE_barrelLength = 91.144;
-        author = "Toadie";
-        initSpeed = 380;
-        model = "\hlc_wp_p226\mesh\wpn\239_9\239.p3d";
-        picture = "\hlc_wp_p226\tex\ui\gear_p239_ca";
-        displayName = $STR_NIA_pistol_P239;
-        discretedistance[] = { 50 };
-        discretedistanceinitindex = 0;
-        magazines[] = { "hlc_10Rnd_9x19_B_P239", "hlc_10Rnd_9x19_JHP_P239", "hlc_10Rnd_9x19_SD_P239" };
-        magazineWell[] = { "CBA_9x19_P239" };
-        reloadmagazinesound[] = { "\hlc_wp_p226\snd\p239_reload", 0.7, 1, 20 };
-        reloadAction = "HLC_GestureReloadP226";
-        class WeaponSlotsInfo : WeaponSlotsInfo
-        {
-            mass = 14;
-        };
-        inertia = 0.071;
-        __PDEXTERITY(0.71);/**/
-        class Single : Single
-        {
-            class StandardSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
-            {
-                soundSetShot[] = { "nia_p2399mm_Shot_SoundSet", "nia_p2399mm_tail_SoundSet" };
-            };
+   class hlc_pistol_P239 :hlc_p226_base
+   {
+       scope = public;
+       AB_barrelTwist = 10;
+       AB_barrelLength = 3.6;
+       ACE_barrelTwist = 254.0;
+       ACE_barrelLength = 91.144;
+       author = "Toadie";
+       initSpeed = 380;
+       model = "\hlc_wp_p226\mesh\wpn\239_9\239.p3d";
+       picture = "\hlc_wp_p226\tex\ui\gear_p239_ca";
+       displayName = "SigSauer P239";
+       discretedistance[] = { 50 };
+       discretedistanceinitindex = 0;
+       magazines[] = { "hlc_10Rnd_9x19_B_P239", "hlc_10Rnd_9x19_JHP_P239", "hlc_10Rnd_9x19_SD_P239" };
+       magazineWell[] = {"CBA_9x19_P239"};
+       reloadmagazinesound[] = { "\hlc_wp_p226\snd\p239_reload", 0.7, 1, 20 };
+       reloadAction = "HLC_GestureReloadP226";
+       class WeaponSlotsInfo : WeaponSlotsInfo
+       {
+           mass = 14;
+       };
+       inertia = 0.071;
+       __PDEXTERITY(0.71);/**/
+       class Single : Single
+       {
+           class StandardSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
+           {
+               soundSetShot[] = { "nia_p2399mm_Shot_SoundSet", "nia_p2399mm_tail_SoundSet" };
+           };
 
-            class SilencedSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
-            {
-                soundSetShot[] = { "nia_p2269mm_silencerTail_SoundSet", "nia_p2269mm_silencerShot_SoundSet" };
-            };
-            __ROF(460);
-            __MOA(22.28);
-        };
-    };
-    class hlc_pistol_P239_40 :hlc_p226_base
-    {
-        recoil = "recoil_pistol_4five";
-        scope = public;
-        AB_barrelTwist = 10;
-        AB_barrelLength = 3.6;
-        ACE_barrelTwist = 254.0;
-        ACE_barrelLength = 91.144;
-        author = "Toadie";
-        model = "\hlc_wp_p226\mesh\wpn\239_9\239.p3d";
-        picture = "\hlc_wp_p226\tex\ui\gear_p239_ca";
-        displayName = $STR_NIA_pistol_P239_40;
-        discretedistance[] = { 50 };
-        discretedistanceinitindex = 0;
-        magazines[] = { "hlc_8Rnd_40SW_B_P239", "hlc_8Rnd_40sw_JHP_P239", "hlc_8Rnd_40sw_SD_P239" };
-        magazineWell[] = { "CBA_40SW_P239" };
-        reloadmagazinesound[] = { "\hlc_wp_p226\snd\p239_reload", 0.7, 1, 20 };
-        reloadAction = "HLC_GestureReloadP226";
-        class WeaponSlotsInfo : WeaponSlotsInfo
-        {
-            mass = 14;
-        };
-        inertia = 0.077;
-        __PDEXTERITY(0.77);/**/
-        class Single : Single
-        {
-            class StandardSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
-            {
-                soundSetShot[] = { "nia_p239_357_Shot_SoundSet", "nia_p239_357_tail_SoundSet" };
-            };
+           class SilencedSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
+           {
+               soundSetShot[] = { "nia_p2269mm_silencerTail_SoundSet", "nia_p2269mm_silencerShot_SoundSet" };
+           };
+           __ROF(460);
+           __MOA(22.28);
+       };
+   };
+   class hlc_pistol_P239_40 :hlc_p226_base
+   {
+       recoil = "recoil_pistol_4five";
+       scope = public;
+       AB_barrelTwist = 10;
+       AB_barrelLength = 3.6;
+       ACE_barrelTwist = 254.0;
+       ACE_barrelLength = 91.144;
+       author = "Toadie";
+       model = "\hlc_wp_p226\mesh\wpn\239_9\239.p3d";
+       picture = "\hlc_wp_p226\tex\ui\gear_p239_ca";
+       displayName = "SigSauer P239 (.40)";
+       discretedistance[] = { 50 };
+       discretedistanceinitindex = 0;
+       magazines[] = { "hlc_8Rnd_40SW_B_P239","hlc_8Rnd_40sw_JHP_P239","hlc_8Rnd_40sw_SD_P239" };
+       magazineWell[] = {"CBA_40SW_P239"};
+       reloadmagazinesound[] = { "\hlc_wp_p226\snd\p239_reload", 0.7, 1, 20 };
+       reloadAction = "HLC_GestureReloadP226";
+       class WeaponSlotsInfo : WeaponSlotsInfo
+       {
+           mass = 14;
+       };
+       inertia = 0.077;
+       __PDEXTERITY(0.77);/**/
+       class Single : Single
+       {
+           class StandardSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
+           {
+               soundSetShot[] = { "nia_p239_357_Shot_SoundSet", "nia_p239_357_tail_SoundSet" };
+           };
 
-            class SilencedSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
-            {
-                soundSetShot[] = { "nia_p226_357_silencerShot_SoundSet", "nia_p226_357_silencerTail_SoundSet" };
-            };
-            __ROF(460);
-            __MOA(20.28);
-        };
-    };
-    class hlc_pistol_P239_357 :hlc_p226_base
-    {
-        recoil = "recoil_pistol_4five";
-        scope = public;
-        AB_barrelTwist = 10;
-        AB_barrelLength = 3.6;
-        ACE_barrelTwist = 254.0;
-        ACE_barrelLength = 91.144;
-        author = "Toadie";
-        model = "\hlc_wp_p226\mesh\wpn\239_9\239.p3d";
-        picture = "\hlc_wp_p226\tex\ui\gear_p239_ca";
-        displayName = $STR_NIA_pistol_P239_357;
-        discretedistance[] = { 50 };
-        discretedistanceinitindex = 0;
-        magazines[] = { "hlc_8Rnd_357SIG_B_P239", "hlc_8Rnd_357SIG_JHP_P239" };
-        magazineWell[] = { "CBA_357SIG_P239" };
-        reloadmagazinesound[] = { "\hlc_wp_p226\snd\p239_reload", 0.7, 1, 20 };
-        reloadAction = "HLC_GestureReloadP226";
-        class WeaponSlotsInfo : WeaponSlotsInfo
-        {
-            mass = 14;
-        };
-        inertia = 0.077;
-        __PDEXTERITY(0.77);/**/
-        class Single : Single
-        {
-            class StandardSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
-            {
-                soundSetShot[] = { "nia_p239_357_Shot_SoundSet", "nia_p239_357_tail_SoundSet" };
-            };
+           class SilencedSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
+           {
+               soundSetShot[] = { "nia_p226_357_silencerShot_SoundSet", "nia_p226_357_silencerTail_SoundSet" };
+           };
+           __ROF(460);
+           __MOA(20.28);
+       };
+   };
+   class hlc_pistol_P239_357 :hlc_p226_base
+   {
+       recoil = "recoil_pistol_4five";
+       scope = public;
+       AB_barrelTwist = 10;
+       AB_barrelLength = 3.6;
+       ACE_barrelTwist = 254.0;
+       ACE_barrelLength = 91.144;
+       author = "Toadie";
+       model = "\hlc_wp_p226\mesh\wpn\239_9\239.p3d";
+       picture = "\hlc_wp_p226\tex\ui\gear_p239_ca";
+       displayName = "SigSauer P239 (.357SIG)";
+       discretedistance[] = { 50 };
+       discretedistanceinitindex = 0;
+       magazines[] = { "hlc_8Rnd_357SIG_B_P239", "hlc_8Rnd_357SIG_JHP_P239"};
+       magazineWell[] = {"CBA_357SIG_P239"};
+       reloadmagazinesound[] = { "\hlc_wp_p226\snd\p239_reload", 0.7, 1, 20 };
+       reloadAction = "HLC_GestureReloadP226";
+       class WeaponSlotsInfo : WeaponSlotsInfo
+       {
+           mass = 14;
+       };
+       inertia = 0.077;
+       __PDEXTERITY(0.77);/**/
+       class Single : Single
+       {
+           class StandardSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 0, according to sounds[]
+           {
+               soundSetShot[] = { "nia_p239_357_Shot_SoundSet", "nia_p239_357_tail_SoundSet" };
+           };
 
-            class SilencedSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
-            {
-                soundSetShot[] = { "nia_p226_357_silencerShot_SoundSet", "nia_p226_357_silencerTail_SoundSet" };
-            };
-            __ROF(460);
-            __MOA(20.28);
-        };
-    };
+           class SilencedSound : BaseSoundModeType /// Sounds inside this class are used when soundTypeIndex = 1, according to sounds[]
+           {
+               soundSetShot[] = { "nia_p226_357_silencerShot_SoundSet", "nia_p226_357_silencerTail_SoundSet" };
+           };
+           __ROF(460);
+           __MOA(20.28);
+       };
+   };
 };
